@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Events | Vols4Vets</title>
+  <meta name="description" content="Events and veteran connection opportunities from Vols4Vets." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            volsOrange: '#FF8200',
+            smokeyGray: '#58595B',
+            darkGray: '#4B4B4B'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-white text-darkGray">
+  <header class="border-b border-gray-200 bg-white sticky top-0 z-50">
+    <nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="index.html" class="text-2xl font-extrabold tracking-tight text-darkGray">
+        Vols<span class="text-volsOrange">4</span>Vets
+      </a>
+
+      <div class="hidden md:flex gap-6 font-semibold text-sm">
+        <a href="index.html" class="hover:text-volsOrange">Home</a>
+        <a href="about.html" class="hover:text-volsOrange">About</a>
+        <a href="services.html" class="hover:text-volsOrange">Services</a>
+        <a href="events.html" class="text-volsOrange">Events</a>
+        <a href="contact.html" class="hover:text-volsOrange">Contact</a>
+      </div>
+
+      <a href="contact.html" class="hidden md:inline-block bg-volsOrange text-white px-4 py-2 rounded-lg font-bold hover:bg-orange-600">
+        Connect
+      </a>
+    </nav>
+
+    <div class="md:hidden px-4 pb-4 flex flex-wrap gap-4 text-sm font-semibold">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="events.html" class="text-volsOrange">Events</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="bg-darkGray text-white">
+      <div class="max-w-6xl mx-auto px-4 py-16">
+        <p class="uppercase tracking-widest text-volsOrange font-bold mb-4">Events</p>
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-6">Connection starts local.</h1>
+        <p class="max-w-3xl text-gray-200 leading-7">
+          Vols4Vets events are built to help East Tennessee veterans meet, connect and find practical support.
+        </p>
+      </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto px-4 py-16">
+      <div class="bg-gray-100 border border-gray-200 rounded-2xl p-8 md:p-10">
+        <h2 class="text-3xl font-extrabold mb-4">Upcoming events</h2>
+        <p class="text-smokeyGray leading-7 mb-6">
+          Event details will be posted here as dates are confirmed. Check back soon or contact Vols4Vets to ask about upcoming veteran connection opportunities in East Tennessee.
+        </p>
+        <a href="contact.html" class="inline-block bg-volsOrange text-white px-6 py-3 rounded-lg font-bold hover:bg-orange-600">
+          Ask About Events
+        </a>
+      </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto px-4 pb-16 grid md:grid-cols-3 gap-6">
+      <div class="border border-gray-200 rounded-xl p-6">
+        <h3 class="text-xl font-extrabold mb-3">Meetups</h3>
+        <p class="text-sm text-smokeyGray leading-6">
+          Simple local gatherings for veterans to connect and talk with people who understand.
+        </p>
+      </div>
+
+      <div class="border border-gray-200 rounded-xl p-6">
+        <h3 class="text-xl font-extrabold mb-3">Resource Days</h3>
+        <p class="text-sm text-smokeyGray leading-6">
+          Practical information sessions focused on local support and next steps.
+        </p>
+      </div>
+
+      <div class="border border-gray-200 rounded-xl p-6">
+        <h3 class="text-xl font-extrabold mb-3">Community Support</h3>
+        <p class="text-sm text-smokeyGray leading-6">
+          Opportunities to build stronger veteran connection across East Tennessee.
+        </p>
+      </div>
+    </section>
+
+    <section class="bg-gray-100">
+      <div class="max-w-6xl mx-auto px-4 py-16">
+        <img
+          src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=80"
+          alt="Community meeting"
+          class="rounded-2xl shadow-lg w-full h-80 object-cover"
+        />
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-darkGray text-white">
+    <div class="max-w-6xl mx-auto px-4 py-8 flex flex-col md:flex-row justify-between gap-4">
+      <p class="font-bold">Vols<span class="text-volsOrange">4</span>Vets</p>
+      <p class="text-sm text-gray-300">By veterans. For veterans. Serving East Tennessee.</p>
+    </div>
+  </footer>
+</body>
+</html>

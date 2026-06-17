@@ -3,117 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vols4Vets | East Tennessee Veterans</title>
+    <title>Vols4Vets - East Tennessee Veterans</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@700&display=swap');
-        
-        :root {
-            --orange: #FF8200;
-            --gray: #4B4B4B;
-            --smokey: #58595B;
-        }
-        
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
-            font-family: 'Roboto', sans-serif;
-            color: var(--gray);
-            line-height: 1.6;
-            background-color: #f8f8f8;
-        }
-        
-        header {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://picsum.photos/id/1015/1920/1080') center/cover;
-            color: white;
-            text-align: center;
-            padding: 140px 20px 80px;
-        }
-        
-        .logo { font-family: 'Playfair Display', serif; font-size: 3.8rem; color: var(--orange); }
-        
-        h1 { font-size: 2.6rem; margin: 20px 0; }
-        
-        .tagline { font-size: 1.35rem; max-width: 700px; margin: 0 auto 30px; }
-        
-        .cta-button {
-            background-color: var(--orange);
-            color: white;
-            padding: 16px 45px;
-            font-size: 1.25rem;
-            border: none;
-            border-radius: 4px;
-            text-decoration: none;
-            display: inline-block;
-        }
-        
-        section { padding: 70px 20px; max-width: 1100px; margin: 0 auto; }
-        
-        .mission, .services { background: white; text-align: center; }
-        
-        .about { background: #f0f0f0; }
-        
-        h2 { color: var(--orange); font-size: 2.2rem; margin-bottom: 30px; }
-        
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .card {
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        
-        footer {
-            background: var(--smokey);
-            color: white;
-            text-align: center;
-            padding: 50px 20px;
-        }
+        :root { --orange: #FF8200; --gray: #4B4B4B; }
+        body { font-family: 'Roboto', sans-serif; margin:0; color:var(--gray); }
+        header { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://picsum.photos/id/1015/1920/1080') center/cover; color:white; text-align:center; padding:180px 20px 100px; }
+        .logo { font-family: 'Playfair Display', serif; font-size:4rem; color:var(--orange); }
+        nav { background:#58595B; padding:15px; text-align:center; }
+        nav a { color:white; margin:0 15px; text-decoration:none; font-weight:700; }
+        section { padding:80px 20px; max-width:1100px; margin:auto; }
+        h2 { color:var(--orange); }
+        .cta { background:var(--orange); color:white; padding:15px 40px; text-decoration:none; border-radius:4px; }
+        footer { background:#4B4B4B; color:white; text-align:center; padding:40px; }
     </style>
 </head>
 <body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="events.html">Events</a>
+        <a href="contact.html">Contact</a>
+    </nav>
     <header>
         <div class="logo">Vols4Vets</div>
         <h1>By Veterans. For Veterans.</h1>
-        <p class="tagline">Serving East Tennessee with real support — Sevierville, Knoxville, and beyond.</p>
-        <a href="#contact" class="cta-button">Get Help Today</a>
+        <p style="font-size:1.5rem; max-width:700px; margin:20px auto;">Serving East Tennessee with honor from Sevierville to the Smokies.</p>
+        <a href="contact.html" class="cta">Get Help Today</a>
     </header>
-
-    <section class="mission">
-        <h2>Our Mission</h2>
-        <p>Vols4Vets exists for one reason: veterans helping veterans right here in East Tennessee.</p>
-        <p style="margin-top:20px;">We connect former service members with practical support — local resources and real community. No red tape. Just action.</p>
+    <section style="text-align:center;">
+        <h2>Welcome Home, Brother</h2>
+        <p>We stand ready to help our fellow veterans in East Tennessee.</p>
     </section>
-
-    <section class="about">
-        <h2>Who We Are</h2>
-        <p style="text-align:center; max-width:700px; margin:0 auto;">Proudly based in Sevierville, TN. Built by veterans who understand the fight doesn't end when you come home.</p>
-    </section>
-
-    <section class="services">
-        <h2>What We Offer</h2>
-        <div class="grid">
-            <div class="card"><h3>Support</h3><p>Help connecting with local resources.</p></div>
-            <div class="card"><h3>Resources</h3><p>Housing, jobs, health services in East TN.</p></div>
-            <div class="card"><h3>Community</h3><p>Events and a network of brothers who get it.</p></div>
-            <div class="card"><h3>Education</h3><p>Support for learning opportunities.</p></div>
-        </div>
-    </section>
-
-    <section id="contact" style="background:#FF8200; color:white; text-align:center;">
-        <h2>Ready to Connect?</h2>
-        <p style="font-size:1.2rem;">Reach out. We're here in Sevierville for East Tennessee veterans.</p>
-        <p>Contact details will be published here once confirmed.</p>
-    </section>
-
     <footer>
-        <p>© 2026 Vols4Vets • Sevierville, TN</p>
-        <p>Serving East Tennessee Veterans with Honor.</p>
+        <p>© 2026 Vols4Vets LLC • Sevierville, Tennessee</p>
     </footer>
 </body>
 </html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | Vols4Vets</title>
+  <meta name="description" content="Learn about Vols4Vets, a veteran-owned LLC based in Sevierville, Tennessee." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            volsOrange: '#FF8200',
+            smokeyGray: '#58595B',
+            darkGray: '#4B4B4B'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-white text-darkGray">
+  <header class="border-b border-gray-200 bg-white sticky top-0 z-50">
+    <nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="index.html" class="text-2xl font-extrabold tracking-tight text-darkGray">
+        Vols<span class="text-volsOrange">4</span>Vets
+      </a>
+
+      <div class="hidden md:flex gap-6 font-semibold text-sm">
+        <a href="index.html" class="hover:text-volsOrange">Home</a>
+        <a href="about.html" class="text-volsOrange">About</a>
+        <a href="services.html" class="hover:text-volsOrange">Services</a>
+        <a href="events.html" class="hover:text-volsOrange">Events</a>
+        <a href="contact.html" class="hover:text-volsOrange">Contact</a>
+      </div>
+
+      <a href="contact.html" class="hidden md:inline-block bg-volsOrange text-white px-4 py-2 rounded-lg font-bold hover:bg-orange-600">
+        Connect
+      </a>
+    </nav>
+
+    <div class="md:hidden px-4 pb-4 flex flex-wrap gap-4 text-sm font-semibold">
+      <a href="index.html">Home</a>
+      <a href="about.html" class="text-volsOrange">About</a>
+      <a href="services.html">Services</a>
+      <a href="events.html">Events</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="bg-darkGray text-white">
+      <div class="max-w-6xl mx-auto px-4 py-16">
+        <p class="uppercase tracking-widest text-volsOrange font-bold mb-4">About Vols4Vets</p>
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-6">Veteran-owned. Locally grounded. Mission focused.</h1>
+        <p class="max-w-3xl text-gray-200 leading-7">
+          Vols4Vets is a veteran-owned LLC helping East Tennessee veterans, based in Sevierville, TN.
+        </p>
+      </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto px-4 py-16 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <h2 class="text-3xl font-extrabold mb-5">Our mission</h2>
+        <p class="text-xl font-bold text-volsOrange mb-5">
+          By veterans. For veterans. Serving East Tennessee.
+        </p>
+        <p class="text-smokeyGray leading-7 mb-5">
+          Vols4Vets exists to give veterans a clear place to start. The goal is simple: practical help, direct connection and a local network that respects the people it serves.
+        </p>
+        <p class="text-smokeyGray leading-7">
+          We believe veterans deserve more than vague promises. They need useful information, trustworthy direction and people who understand the military-to-civilian transition.
+        </p>
+      </div>
+
+      <img
+        src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=80"
+        alt="Mountain landscape"
+        class="rounded-2xl shadow-lg w-full h-80 object-cover"
+      />
+    </section>
+
+    <section class="bg-gray-100">
+      <div class="max-w-6xl mx-auto px-4 py-16">
+        <h2 class="text-3xl font-extrabold mb-8">What guides the work</h2>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-white p-6 rounded-xl border border-gray-200">
+            <h3 class="font-extrabold text-xl mb-3">Service</h3>
+            <p class="text-sm text-smokeyGray leading-6">
+              We respect service and the weight that comes with it.
+            </p>
+          </div>
+
+          <div class="bg-white p-6 rounded-xl border border-gray-200">
+            <h3 class="font-extrabold text-xl mb-3">Clarity</h3>
+            <p class="text-sm text-smokeyGray leading-6">
+              We keep things simple, direct and useful.
+            </p>
+          </div>
+
+          <div class="bg-white p-6 rounded-xl border border-gray-200">
+            <h3 class="font-extrabold text-xl mb-3">Local Strength</h3>
+            <p class="text-sm text-smokeyGray leading-6">
+              We focus on East Tennessee veterans and the communities around them.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-darkGray text-white">
+    <div class="max-w-6xl mx-auto px-4 py-8 flex flex-col md:flex-row justify-between gap-4">
+      <p class="font-bold">Vols<span class="text-volsOrange">4</span>Vets</p>
+      <p class="text-sm text-gray-300">By veterans. For veterans. Serving East Tennessee.</p>
+    </div>
+  </footer>
+</body>
+</html>

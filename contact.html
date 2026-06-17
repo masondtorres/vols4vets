@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Vols4Vets</title>
+  <meta name="description" content="Contact Vols4Vets, a veteran-owned LLC based in Sevierville, Tennessee." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            volsOrange: '#FF8200',
+            smokeyGray: '#58595B',
+            darkGray: '#4B4B4B'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-white text-darkGray">
+  <header class="border-b border-gray-200 bg-white sticky top-0 z-50">
+    <nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="index.html" class="text-2xl font-extrabold tracking-tight text-darkGray">
+        Vols<span class="text-volsOrange">4</span>Vets
+      </a>
+
+      <div class="hidden md:flex gap-6 font-semibold text-sm">
+        <a href="index.html" class="hover:text-volsOrange">Home</a>
+        <a href="about.html" class="hover:text-volsOrange">About</a>
+        <a href="services.html" class="hover:text-volsOrange">Services</a>
+        <a href="events.html" class="hover:text-volsOrange">Events</a>
+        <a href="contact.html" class="text-volsOrange">Contact</a>
+      </div>
+
+      <a href="contact.html" class="hidden md:inline-block bg-volsOrange text-white px-4 py-2 rounded-lg font-bold hover:bg-orange-600">
+        Connect
+      </a>
+    </nav>
+
+    <div class="md:hidden px-4 pb-4 flex flex-wrap gap-4 text-sm font-semibold">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="events.html">Events</a>
+      <a href="contact.html" class="text-volsOrange">Contact</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="bg-darkGray text-white">
+      <div class="max-w-6xl mx-auto px-4 py-16">
+        <p class="uppercase tracking-widest text-volsOrange font-bold mb-4">Contact</p>
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-6">Start the conversation.</h1>
+        <p class="max-w-3xl text-gray-200 leading-7">
+          Contact Vols4Vets for veteran connection, local support questions or upcoming event information.
+        </p>
+      </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto px-4 py-16 grid md:grid-cols-2 gap-10">
+      <div>
+        <h2 class="text-3xl font-extrabold mb-5">Vols4Vets</h2>
+        <p class="text-xl font-bold text-volsOrange mb-5">
+          By veterans. For veterans. Serving East Tennessee.
+        </p>
+        <p class="text-smokeyGray leading-7 mb-8">
+          Based in Sevierville, TN, Vols4Vets helps East Tennessee veterans find clearer next steps and local connection.
+        </p>
+
+        <div class="space-y-5">
+          <div class="border-l-4 border-volsOrange pl-4">
+            <h3 class="font-extrabold">Location</h3>
+            <p class="text-smokeyGray">Sevierville, Tennessee</p>
+          </div>
+
+          <div class="border-l-4 border-volsOrange pl-4">
+            <h3 class="font-extrabold">Service Area</h3>
+            <p class="text-smokeyGray">East Tennessee</p>
+          </div>
+
+          <div class="border-l-4 border-volsOrange pl-4">
+            <h3 class="font-extrabold">Contact Details</h3>
+            <p class="text-smokeyGray">Contact information coming soon.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-gray-100 rounded-2xl p-8 border border-gray-200">
+        <h2 class="text-2xl font-extrabold mb-4">Send a message</h2>
+        <p class="text-sm text-smokeyGray leading-6 mb-6">
+          This static form is a visual placeholder. Connect it to Formspree, Netlify Forms, Vercel serverless functions or another form handler when ready.
+        </p>
+
+        <form class="space-y-4">
+          <div>
+            <label for="name" class="block text-sm font-bold mb-2">Name</label>
+            <input id="name" type="text" class="w-full rounded-lg border border-gray-300 px-4 py-3" placeholder="Your name" />
+          </div>
+
+          <div>
+            <label for="email" class="block text-sm font-bold mb-2">Email</label>
+            <input id="email" type="email" class="w-full rounded-lg border border-gray-300 px-4 py-3" placeholder="you@example.com" />
+          </div>
+
+          <div>
+            <label for="message" class="block text-sm font-bold mb-2">Message</label>
+            <textarea id="message" rows="5" class="w-full rounded-lg border border-gray-300 px-4 py-3" placeholder="How can Vols4Vets help?"></textarea>
+          </div>
+
+          <button type="button" class="w-full bg-volsOrange text-white px-6 py-3 rounded-lg font-bold hover:bg-orange-600">
+            Form Placeholder
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-darkGray text-white">
+    <div class="max-w-6xl mx-auto px-4 py-8 flex flex-col md:flex-row justify-between gap-4">
+      <p class="font-bold">Vols<span class="text-volsOrange">4</span>Vets</p>
+      <p class="text-sm text-gray-300">By veterans. For veterans. Serving East Tennessee.</p>
+    </div>
+  </footer>
+</body>
+</html>
