@@ -4,46 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - Vols4Vets</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@700&display=swap');
-        :root { --orange: #FF8200; --gray: #4B4B4B; --smokey: #58595B; }
-        body { font-family: 'Roboto', sans-serif; margin:0; color:var(--gray); background:#f8f8f8; }
-        nav { background:var(--smokey); padding:15px; text-align:center; }
-        nav a { color:white; margin:0 20px; text-decoration:none; font-weight:700; }
-        header { background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('https://picsum.photos/id/1015/1920/1080') center/cover; color:white; text-align:center; padding:160px 20px 100px; }
-        .logo { font-family: 'Playfair Display', serif; font-size:4rem; color:var(--orange); }
-        section { padding:80px 20px; max-width:1100px; margin:auto; line-height:1.7; }
-        h2 { color:var(--orange); font-size:2.6rem; margin-bottom:30px; }
-        .image { width:100%; max-height:520px; object-fit:cover; border-radius:8px; margin:35px 0; box-shadow:0 4px 15px rgba(0,0,0,0.2); }
-        footer { background:var(--smokey); color:white; text-align:center; padding:50px 20px; }
+        body { font-family: 'Roboto', system-ui, sans-serif; }
+        .logo-font { font-family: 'Playfair Display', serif; }
     </style>
 </head>
-<body>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="events.html">Events</a>
-        <a href="contact.html">Contact</a>
+<body class="bg-gray-50 text-gray-800">
+    <nav class="bg-[#58595B] text-white py-4 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 flex justify-between items-center">
+            <div class="text-2xl font-bold text-[#FF8200] logo-font">Vols4Vets</div>
+            <div class="space-x-8 text-sm font-medium">
+                <a href="index.html" class="hover:text-[#FF8200]">Home</a>
+                <a href="about.html" class="text-[#FF8200]">About</a>
+                <a href="services.html" class="hover:text-[#FF8200]">Services</a>
+                <a href="events.html" class="hover:text-[#FF8200]">Events</a>
+                <a href="contact.html" class="hover:text-[#FF8200]">Contact</a>
+            </div>
+        </div>
     </nav>
-    <header>
-        <div class="logo">Vols4Vets</div>
-        <h1>About Us</h1>
+
+    <header class="bg-cover bg-center h-[70vh] flex items-center justify-center relative" style="background-image: url('https://picsum.photos/id/1015/1920/1080')">
+        <div class="absolute inset-0 bg-black/60"></div>
+        <div class="relative text-center text-white px-6">
+            <div class="text-6xl font-bold logo-font text-[#FF8200] mb-4">Vols4Vets</div>
+            <h1 class="text-5xl font-bold mb-6">By Veterans.<br>For Veterans.</h1>
+            <p class="text-xl max-w-lg mx-auto">East Tennessee's own. Serving those who served.</p>
+        </div>
     </header>
-    <section>
-        <h2>By Veterans. For Veterans.</h2>
-        
-        <img src="https://picsum.photos/id/1015/1920/800" class="image" alt="Smoky Mountains Tennessee">
-        <p>We are a veteran-owned LLC based in Sevierville, Tennessee — the heart of the Volunteer State.</p>
-        
-        <img src="https://picsum.photos/id/866/1920/800" class="image" alt="Veteran with American flag">
-        <p>Born from the same spirit that built the University of Tennessee Vols and the rugged hills of East Tennessee, we stand with our brothers and sisters who answered the call.</p>
-        
-        <p>The uniform comes off, but the mission never ends. Vols4Vets is here to help with real support — no bureaucracy, no empty words, just action from veterans who understand.</p>
+
+    <section class="max-w-5xl mx-auto px-6 py-20">
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+            <div>
+                <h2 class="text-4xl font-bold text-[#FF8200] mb-8">Our Story</h2>
+                <p class="text-lg leading-relaxed mb-6">We are a veteran-owned limited liability company based in Sevierville, Tennessee. Born in the shadow of the Great Smoky Mountains and the Volunteer spirit of East Tennessee.</p>
+                <p class="text-lg leading-relaxed">We know the cost of service. We know the struggle that comes after. That's why we built Vols4Vets — to cut through the red tape and deliver real help to our brothers and sisters.</p>
+            </div>
+            <div>
+                <img src="https://picsum.photos/id/1016/800/600" class="rounded-xl shadow-2xl" alt="Smoky Mountains">
+            </div>
+        </div>
     </section>
-    <footer>
-        <p>© 2026 Vols4Vets LLC • Sevierville, Tennessee</p>
-        <p>Serving East Tennessee Veterans with Honor</p>
+
+    <section class="bg-white py-20">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-[#FF8200] mb-12">The Volunteer Way</h2>
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="text-center">
+                    <img src="https://picsum.photos/id/866/600/400" class="mx-auto rounded-xl mb-6" alt="Veteran">
+                    <h3 class="text-xl font-semibold mb-3">Rooted in Service</h3>
+                    <p>From the battlefield to the hills of East Tennessee, we continue the mission.</p>
+                </div>
+                <div class="text-center">
+                    <img src="https://picsum.photos/id/1015/600/400" class="mx-auto rounded-xl mb-6" alt="Tennessee">
+                    <h3 class="text-xl font-semibold mb-3">Volunteer State Pride</h3>
+                    <p>UT Vols spirit runs deep. We fight for our own the same way we fought for our country.</p>
+                </div>
+                <div class="text-center">
+                    <img src="https://picsum.photos/id/870/600/400" class="mx-auto rounded-xl mb-6" alt="Flag">
+                    <h3 class="text-xl font-semibold mb-3">No Empty Promises</h3>
+                    <p>Real help. Straight talk. Results that matter.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#4B4B4B] text-white py-12">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <p class="text-2xl font-bold logo-font text-[#FF8200] mb-4">Vols4Vets</p>
+            <p>Sevierville, Tennessee • Serving East Tennessee Veterans</p>
+            <p class="mt-8 text-sm">© 2026 Vols4Vets LLC. All Rights Reserved.</p>
+        </div>
     </footer>
 </body>
 </html>
