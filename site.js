@@ -9,19 +9,24 @@ document.addEventListener('DOMContentLoaded',function(){
     });
   }
 
-  document.querySelectorAll('a[href^="tel:+18657713114"],a[href^="mailto:vols4vets"]').forEach(function(link){
-    link.setAttribute('href','/about#contact');
-    link.removeAttribute('target');
-    link.removeAttribute('rel');
-    link.textContent='Protected contact details';
+  var p=['865','771','3114'].join('-');
+  var e=['vols4','vets','@','gmail','.','com'].join('');
+  var tel='tel:+1'+p.replace(/-/g,'');
+  var mail='mailto:'+e;
+  document.querySelectorAll('a').forEach(function(link){
+    var href=link.getAttribute('href')||'';
+    if(href===tel||href===mail){
+      link.setAttribute('href','/about#contact');
+      link.removeAttribute('target');
+      link.removeAttribute('rel');
+      link.textContent='Protected contact section';
+    }
   });
 
   var reveal=document.querySelector('[data-reveal-contact]');
   var target=document.querySelector('[data-contact-target]');
   if(reveal&&target){
     reveal.addEventListener('click',function(){
-      var p=['865','771','3114'].join('-');
-      var e=['vols4','vets','@','gmail','.','com'].join('');
       target.hidden=false;
       target.innerHTML='<h3>Contact details</h3><p><strong>Phone</strong><br><span>'+p+'</span></p><p><strong>Email</strong><br><span>'+e.replace('@',' [at] ').replace('.', ' [dot] ')+'</span></p><p class="small">Copy the details manually. Direct call and email links are disabled to reduce bot scraping. Do not send Social Security numbers, claim numbers, medical records or passwords.</p>';
       reveal.setAttribute('aria-expanded','true');
