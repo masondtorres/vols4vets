@@ -9,6 +9,13 @@ document.addEventListener('DOMContentLoaded',function(){
     });
   }
 
+  document.querySelectorAll('a[href^="tel:+18657713114"],a[href^="mailto:vols4vets"]').forEach(function(link){
+    link.setAttribute('href','/about#contact');
+    link.removeAttribute('target');
+    link.removeAttribute('rel');
+    link.textContent='Protected contact details';
+  });
+
   var reveal=document.querySelector('[data-reveal-contact]');
   var target=document.querySelector('[data-contact-target]');
   if(reveal&&target){
