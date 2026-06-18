@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /components/
 
 Sitemap: https://www.vols4vets.com/sitemap.xml
