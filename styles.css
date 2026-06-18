@@ -99,6 +99,9 @@ img { display: block; max-width: 100%; }
 }
 .hero-logo {
   width: min(315px, 36vw);
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
   margin: 0 auto;
   filter: drop-shadow(0 12px 24px rgba(0,0,0,.26));
 }
