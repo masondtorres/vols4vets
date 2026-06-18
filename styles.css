@@ -86,10 +86,13 @@ img { display: block; max-width: 100%; }
 .container { width: min(var(--max), calc(100% - 2rem)); margin: auto; }
 .hero {
   background:
-    radial-gradient(circle at 76% 20%, rgba(255,130,0,.18), transparent 30%),
-    linear-gradient(135deg, var(--navy-deep), var(--navy));
+    linear-gradient(90deg, rgba(7,24,32,.9) 0%, rgba(7,24,32,.68) 48%, rgba(7,24,32,.38) 100%),
+    url('/east-tennessee-hero.webp') center 48% / cover no-repeat;
   color: white;
-  padding: 4.5rem 0;
+  padding: 5.5rem 0;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
 }
 .hero-grid {
   display: grid;
