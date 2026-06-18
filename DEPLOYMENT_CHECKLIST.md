@@ -8,7 +8,8 @@
 6. Submit `https://www.vols4vets.com/sitemap.xml` in Google Search Console.
 7. Request removal of old ScreenTools URLs if they still appear in Google.
 8. Create or update Google Business Profile for Vols4Vets LLC in Sevierville.
-9. Add real founder photos with the alt text instructions included in `about.html`.
-10. Replace testimonial placeholders only after written permission.
+9. Add real founder photos when ready.
+10. Replace testimonials only after written permission.
 11. Run a speed test and mobile check.
 12. Review all external links monthly.
+13. Confirm production reflects the latest `main` cleanup release.
