@@ -10,16 +10,18 @@
         :root { --orange: #FF8200; --gray: #4B4B4B; }
         body { font-family: 'Roboto', sans-serif; margin:0; color:var(--gray); }
         header { 
-            background: #F7F1E6; 
-            color:#0F2D3D; 
+            background: #0F2D3D; 
+            color:white; 
             text-align:center; 
-            padding:180px 20px 100px; 
+            padding:32px 20px 60px; 
         }
         .logo { 
-            max-width: 300px; 
-            height: auto; 
-            margin: 20px auto; 
-            display: block; 
+            width: min(300px, 82vw);
+            height: auto;
+            margin: 0 auto 14px;
+            display: block;
+            clip-path: polygon(50% 2%, 90% 12%, 93% 16%, 93% 64%, 91% 72%, 86% 80%, 77% 88%, 64% 94%, 50% 98%, 36% 94%, 23% 88%, 14% 80%, 9% 72%, 7% 64%, 7% 16%, 10% 12%);
+            filter: drop-shadow(0 8px 16px rgba(0,0,0,0.28)); 
         }
         nav { background:#58595B; padding:15px; text-align:center; }
         nav a { color:white; margin:0 15px; text-decoration:none; font-weight:700; }
