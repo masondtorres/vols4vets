@@ -1,0 +1,71 @@
+name: Recolor Vols4Vets logo orange
+
+on:
+  push:
+    paths:
+      - '.github/workflows/recolor-logo-orange.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  recolor-logo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Recolor only old orange pixels
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pillow
+          python <<'PY'
+          from PIL import Image
+          from pathlib import Path
+          import math
+
+          logo = Path('vols4vets-original-patch.webp')
+          old = (255, 130, 0)
+          new = (247, 127, 0)
+          delta = tuple(n - o for o, n in zip(old, new))
+
+          img = Image.open(logo).convert('RGBA')
+          pixels = img.load()
+          changed = 0
+
+          def is_old_orange(r, g, b, a):
+              if a == 0:
+                  return False
+              distance = math.sqrt((r - old[0]) ** 2 + (g - old[1]) ** 2 + (b - old[2]) ** 2)
+              orange_channel_gate = r >= 150 and 55 <= g <= 190 and b <= 90 and r > g and g > b
+              return distance <= 92 and orange_channel_gate
+
+          for y in range(img.height):
+              for x in range(img.width):
+                  r, g, b, a = pixels[x, y]
+                  if is_old_orange(r, g, b, a):
+                      nr = max(0, min(255, r + delta[0]))
+                      ng = max(0, min(255, g + delta[1]))
+                      nb = max(0, min(255, b + delta[2]))
+                      pixels[x, y] = (nr, ng, nb, a)
+                      changed += 1
+
+          if changed == 0:
+              raise SystemExit('No old orange pixels found to recolor.')
+
+          img.save(logo, 'WEBP', quality=100, lossless=True, method=6)
+          print(f'Recolored {changed} orange pixels in {logo}.')
+          PY
+
+      - name: Commit updated logo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add vols4vets-original-patch.webp
+          if git diff --cached --quiet; then
+            echo "No logo changes to commit."
+          else
+            git commit -m "Update logo orange to #f77f00"
+            git push
+          fi
