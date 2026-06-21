@@ -69,3 +69,5 @@ jobs:
             git commit -m "Update logo orange to #f77f00"
             git push
           fi
+
+# Triggered after workflow creation so GitHub Actions can run it.
