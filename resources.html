@@ -9,10 +9,55 @@
   <meta name="theme-color" content="#f77f00">
   <link rel="stylesheet" href="/main.css">
   <script defer src="/site.js"></script>
+  <style>
+    .resource-search-shell{background:var(--paper);border-bottom:1px solid var(--line);padding:1rem 0}
+    .resource-search-panel{border:1px solid var(--line);border-radius:14px;background:#fff;padding:1rem;box-shadow:0 8px 22px rgba(88,89,91,.07)}
+    .resource-search-label{display:block;margin:0 0 .45rem;color:var(--smoky-dark);font-weight:900}
+    .resource-search-input,.resource-filter-select{width:100%;border:1px solid #cfd6dc;border-radius:10px;background:#fff;color:var(--ink);font:inherit;padding:.78rem .85rem}
+    .resource-search-input:focus,.resource-filter-select:focus{outline:3px solid rgba(247,127,0,.24);border-color:var(--orange)}
+    .resource-filter-row{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:.85rem}
+    .resource-filter-field label{display:block;margin:0 0 .35rem;color:var(--muted);font-size:.88rem;font-weight:900}
+    .resource-results-note{margin:.85rem 0 0;color:var(--muted);font-size:.92rem;font-weight:800}
+    .resource-empty{margin-top:1rem;border-left:5px solid var(--orange);background:var(--cream);padding:1rem;border-radius:10px;color:var(--smoky-dark);font-weight:800}
+    .is-filter-hidden{display:none!important}
+    @media(max-width:560px){.resource-filter-row{grid-template-columns:1fr}.resource-search-shell{padding:.85rem 0}.resource-search-panel{padding:.85rem}}
+  </style>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
 <div class="crisis-bar">Veteran in crisis? Call <a href="tel:988">988</a>, then press 1, or text <a href="sms:838255">838255</a>.</div>
+<section class="resource-search-shell" aria-label="Search resources">
+  <div class="container">
+    <div class="resource-search-panel">
+      <label class="resource-search-label" for="resource-search">Search resources</label>
+      <input class="resource-search-input" id="resource-search" type="search" placeholder="Find help for benefits, crisis, jobs, housing or discounts" autocomplete="off" data-resource-search>
+      <div class="resource-filter-row">
+        <div class="resource-filter-field">
+          <label for="county-filter">County</label>
+          <select class="resource-filter-select" id="county-filter" data-county-filter>
+            <option value="all">All East TN</option>
+            <option value="sevier">Sevier</option>
+            <option value="knox">Knox</option>
+            <option value="state">Statewide Tennessee</option>
+            <option value="national">National</option>
+          </select>
+        </div>
+        <div class="resource-filter-field">
+          <label for="category-filter">Category</label>
+          <select class="resource-filter-select" id="category-filter" data-category-filter>
+            <option value="all">All categories</option>
+            <option value="most-used">Most used</option>
+            <option value="work-housing-family">Work, housing and family</option>
+            <option value="discounts-travel-local-offers">Discounts, travel and local offers</option>
+            <option value="more-resource-categories">More resource categories</option>
+          </select>
+        </div>
+      </div>
+      <p class="resource-results-note" aria-live="polite" data-resource-count></p>
+      <div class="resource-empty" hidden data-resource-empty>No matching resources on this page. Try a broader search or reset the filters.</div>
+    </div>
+  </div>
+</section>
 <header class="site-header">
   <div class="nav-wrap">
     <a class="brand" href="/"><img class="brand-mark" src="/vols4vets-original-patch.webp" alt="" width="34" height="34"><span>Vols4Vets</span></a>
@@ -42,52 +87,52 @@
     </div>
   </section>
 
-  <section class="section section-soft">
+  <section class="section section-soft" data-resource-group>
     <div class="container">
       <div class="section-heading">
         <p class="eyebrow">Most used</p>
         <h2>Start here first.</h2>
       </div>
       <div class="grid grid-3">
-        <article class="card card-critical priority-card"><h3>Crisis help</h3><p>24/7 crisis lines, urgent support and housing risk resources.</p><a href="/resources-crisis-support">Get urgent support</a></article>
-        <article class="card card-local priority-card"><h3>Local East Tennessee help</h3><p>Sevier County, Knoxville, Mountain Home VA and regional contacts.</p><a href="/resources-east-tennessee">Find local help</a></article>
-        <article class="card priority-card"><h3>VA benefits and health care</h3><p>Claims, health care, disability, education, home loans and VA locations.</p><a href="/resources-va-benefits-healthcare">Use VA resources</a></article>
+        <article class="card card-critical priority-card" data-resource-card data-counties="all-east-tn state national" data-category="most-used"><h3>Crisis help</h3><p>24/7 crisis lines, urgent support and housing risk resources.</p><a href="/resources-crisis-support">Get urgent support</a></article>
+        <article class="card card-local priority-card" data-resource-card data-counties="all-east-tn sevier knox" data-category="most-used"><h3>Local East Tennessee help</h3><p>Sevier County, Knoxville, Mountain Home VA and regional contacts.</p><a href="/resources-east-tennessee">Find local help</a></article>
+        <article class="card priority-card" data-resource-card data-counties="all-east-tn state national" data-category="most-used"><h3>VA benefits and health care</h3><p>Claims, health care, disability, education, home loans and VA locations.</p><a href="/resources-va-benefits-healthcare">Use VA resources</a></article>
       </div>
     </div>
   </section>
 
   <section class="section">
     <div class="container">
-      <div class="resource-group">
+      <div class="resource-group" data-resource-group>
         <h2>Work, housing and family</h2>
         <div class="grid grid-3">
-          <article class="card"><h3>Jobs and training</h3><p>Employment tools, veteran hiring programs, training and transition help.</p><a href="/resources-jobs-training">Find job help</a></article>
-          <article class="card"><h3>Housing and legal</h3><p>Housing help, legal aid, home loans, burial benefits and state support.</p><a href="/resources-housing-legal">Find support</a></article>
-          <article class="card"><h3>Family support</h3><p>Support for spouses, children, caregivers and military families.</p><a href="/resources-family-support">Support the family</a></article>
+          <article class="card" data-resource-card data-counties="all-east-tn state national" data-category="work-housing-family"><h3>Jobs and training</h3><p>Employment tools, veteran hiring programs, training and transition help.</p><a href="/resources-jobs-training">Find job help</a></article>
+          <article class="card" data-resource-card data-counties="all-east-tn state national" data-category="work-housing-family"><h3>Housing and legal</h3><p>Housing help, legal aid, home loans, burial benefits and state support.</p><a href="/resources-housing-legal">Find support</a></article>
+          <article class="card" data-resource-card data-counties="all-east-tn state national" data-category="work-housing-family"><h3>Family support</h3><p>Support for spouses, children, caregivers and military families.</p><a href="/resources-family-support">Support the family</a></article>
         </div>
       </div>
 
-      <div class="resource-group">
+      <div class="resource-group" data-resource-group>
         <h2>Discounts, travel and local offers</h2>
         <div class="grid grid-3">
-          <article class="card"><h3>East Tennessee discounts</h3><p>Smokies attractions, shows, tickets and local military offers.</p><a href="/resources-east-tennessee-discounts">Check local offers</a></article>
-          <article class="card"><h3>Travel and tickets</h3><p>Vet Tix, military travel and recreation resources.</p><a href="/resources-travel-tickets">View travel resources</a></article>
-          <article class="card"><h3>Discount directories</h3><p>Changing retail offers, ID.me and Veterans Day deal directories.</p><a href="/resources-discounts-deals">View discounts</a></article>
+          <article class="card" data-resource-card data-counties="all-east-tn sevier knox" data-category="discounts-travel-local-offers"><h3>East Tennessee discounts</h3><p>Smokies attractions, shows, tickets and local military offers.</p><a href="/resources-east-tennessee-discounts">Check local offers</a></article>
+          <article class="card" data-resource-card data-counties="all-east-tn state national" data-category="discounts-travel-local-offers"><h3>Travel and tickets</h3><p>Vet Tix, military travel and recreation resources.</p><a href="/resources-travel-tickets">View travel resources</a></article>
+          <article class="card" data-resource-card data-counties="state national" data-category="discounts-travel-local-offers"><h3>Discount directories</h3><p>Changing retail offers, ID.me and Veterans Day deal directories.</p><a href="/resources-discounts-deals">View discounts</a></article>
         </div>
       </div>
 
-      <div class="resource-group">
+      <div class="resource-group" data-resource-group>
         <h2>More resource categories</h2>
         <div class="grid grid-3">
-          <article class="card"><h3>Education</h3><p>GI Bill, scholarships, tuition help and certification programs.</p><a href="/resources-education">Education resources</a></article>
-          <article class="card"><h3>Money and insurance</h3><p>Military banking, insurance and counseling resources.</p><a href="/resources-banking-insurance">Money resources</a></article>
-          <article class="card"><h3>State benefits</h3><p>State offices, tax relief, license plates, parks and other programs.</p><a href="/resources-state-benefits">State benefits</a></article>
-          <article class="card"><h3>Business</h3><p>SBA programs, contracting, certifications and veteran business support.</p><a href="/resources-business-entrepreneurship">Business resources</a></article>
-          <article class="card"><h3>Special support</h3><p>Adaptive services, caregiver help and wounded veteran organizations.</p><a href="/resources-disability-caregiver">Special support</a></article>
-          <article class="card"><h3>Women veterans</h3><p>VA health care, transition support and programs for women veterans.</p><a href="/resources-women-veterans">Women veteran resources</a></article>
-          <article class="card"><h3>Retirees</h3><p>Retirement pay, TRICARE, DFAS and survivor benefit resources.</p><a href="/resources-retirees">Retiree resources</a></article>
-          <article class="card"><h3>National directories</h3><p>Large resource directories for veterans, active duty and families.</p><a href="/resources-national-global">National directories</a></article>
-          <article class="card"><h3>Veteran-owned businesses</h3><p>Local directory status and future verified business listings.</p><a href="/resources-veteran-owned-businesses">Directory status</a></article>
+          <article class="card" data-resource-card data-counties="all-east-tn state national" data-category="more-resource-categories"><h3>Education</h3><p>GI Bill, scholarships, tuition help and certification programs.</p><a href="/resources-education">Education resources</a></article>
+          <article class="card" data-resource-card data-counties="state national" data-category="more-resource-categories"><h3>Money and insurance</h3><p>Military banking, insurance and counseling resources.</p><a href="/resources-banking-insurance">Money resources</a></article>
+          <article class="card" data-resource-card data-counties="state" data-category="more-resource-categories"><h3>State benefits</h3><p>State offices, tax relief, license plates, parks and other programs.</p><a href="/resources-state-benefits">State benefits</a></article>
+          <article class="card" data-resource-card data-counties="all-east-tn state national" data-category="more-resource-categories"><h3>Business</h3><p>SBA programs, contracting, certifications and veteran business support.</p><a href="/resources-business-entrepreneurship">Business resources</a></article>
+          <article class="card" data-resource-card data-counties="all-east-tn state national" data-category="more-resource-categories"><h3>Special support</h3><p>Adaptive services, caregiver help and wounded veteran organizations.</p><a href="/resources-disability-caregiver">Special support</a></article>
+          <article class="card" data-resource-card data-counties="all-east-tn state national" data-category="more-resource-categories"><h3>Women veterans</h3><p>VA health care, transition support and programs for women veterans.</p><a href="/resources-women-veterans">Women veteran resources</a></article>
+          <article class="card" data-resource-card data-counties="state national" data-category="more-resource-categories"><h3>Retirees</h3><p>Retirement pay, TRICARE, DFAS and survivor benefit resources.</p><a href="/resources-retirees">Retiree resources</a></article>
+          <article class="card" data-resource-card data-counties="national" data-category="more-resource-categories"><h3>National directories</h3><p>Large resource directories for veterans, active duty and families.</p><a href="/resources-national-global">National directories</a></article>
+          <article class="card" data-resource-card data-counties="all-east-tn sevier knox" data-category="more-resource-categories"><h3>Veteran-owned businesses</h3><p>Local directory status and future verified business listings.</p><a href="/resources-veteran-owned-businesses">Directory status</a></article>
         </div>
       </div>
     </div>
@@ -110,5 +155,52 @@
     <div class="footer-bottom">© 2026 Vols4Vets LLC • Sevierville, Tennessee. Verify current information directly with each provider.</div>
   </div>
 </footer>
+<script>
+  document.addEventListener('DOMContentLoaded',function(){
+    var searchInput=document.querySelector('[data-resource-search]');
+    var countyFilter=document.querySelector('[data-county-filter]');
+    var categoryFilter=document.querySelector('[data-category-filter]');
+    var cards=Array.prototype.slice.call(document.querySelectorAll('[data-resource-card]'));
+    var groups=Array.prototype.slice.call(document.querySelectorAll('[data-resource-group]'));
+    var count=document.querySelector('[data-resource-count]');
+    var empty=document.querySelector('[data-resource-empty]');
+
+    if(!searchInput||!countyFilter||!categoryFilter||!cards.length){return;}
+
+    function applyResourceFilters(){
+      var query=searchInput.value.trim().toLowerCase();
+      var county=countyFilter.value;
+      var category=categoryFilter.value;
+      var visible=0;
+
+      cards.forEach(function(card){
+        var text=card.textContent.toLowerCase();
+        var counties=(card.getAttribute('data-counties')||'').split(/\s+/);
+        var cardCategory=card.getAttribute('data-category')||'';
+        var matchesSearch=!query||text.indexOf(query)>-1;
+        var matchesCounty=county==='all'||counties.indexOf(county)>-1||counties.indexOf('all-east-tn')>-1&&county!=='national'&&county!=='state';
+        var matchesCategory=category==='all'||cardCategory===category;
+        var show=matchesSearch&&matchesCounty&&matchesCategory;
+
+        card.classList.toggle('is-filter-hidden',!show);
+        if(show){visible+=1;}
+      });
+
+      groups.forEach(function(group){
+        var groupCards=Array.prototype.slice.call(group.querySelectorAll('[data-resource-card]'));
+        var hasVisible=groupCards.some(function(card){return !card.classList.contains('is-filter-hidden');});
+        group.classList.toggle('is-filter-hidden',!hasVisible);
+      });
+
+      if(count){count.textContent=visible+' resource '+(visible===1?'match':'matches')+' shown.';}
+      if(empty){empty.hidden=visible!==0;}
+    }
+
+    searchInput.addEventListener('input',applyResourceFilters);
+    countyFilter.addEventListener('change',applyResourceFilters);
+    categoryFilter.addEventListener('change',applyResourceFilters);
+    applyResourceFilters();
+  });
+</script>
 </body>
 </html>
