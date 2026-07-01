@@ -31,10 +31,79 @@
 </header>
 
 <main id="main">
+  <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span>Find My Next Step</span></nav>
   <section class="hero"><div class="container page-intro"><p class="eyebrow">No login. No private records.</p><h1>Tell us what is going on.</h1><p class="lead">Answer five simple questions. Get a starting path you can print, copy or save on this device. Pick the closest answer. This does not submit anything. Do not enter Social Security numbers, claim numbers, DD214 uploads, medical records, passwords or private case details.</p></div></section>
   <section class="section">
     <div class="container triage-shell">
-      <form data-triage-form><p>Loading action-plan questions...</p></form>
+      <form data-triage-form>
+        <p class="notice"><strong>Pick the closest answer.</strong> This does not submit anything.</p>
+        <fieldset class="question-card">
+          <legend><span class="progress-label">Question 1 of 5</span><strong>What is the main issue?</strong></legend>
+          <div class="option-grid">
+            <label><input type="radio" name="issue" value="Crisis or immediate danger" checked> Crisis or immediate danger</label>
+            <label><input type="radio" name="issue" value="Homeless or may lose housing"> Homeless or may lose housing</label>
+            <label><input type="radio" name="issue" value="VA benefits or disability claim"> VA benefits or disability claim</label>
+            <label><input type="radio" name="issue" value="Health care or Mountain Home VA"> Health care or Mountain Home VA</label>
+            <label><input type="radio" name="issue" value="DD214 or military records"> DD214 or military records</label>
+            <label><input type="radio" name="issue" value="Job, resume or training"> Job, resume or training</label>
+            <label><input type="radio" name="issue" value="Legal aid or court deadline"> Legal aid or court deadline</label>
+            <label><input type="radio" name="issue" value="Women veteran support"> Women veteran support</label>
+            <label><input type="radio" name="issue" value="Family or caregiver help"> Family or caregiver help</label>
+            <label><input type="radio" name="issue" value="Local office or VSO help"> Local office or VSO help</label>
+            <label><input type="radio" name="issue" value="I am not sure"> I am not sure</label>
+          </div>
+        </fieldset>
+        <fieldset class="question-card">
+          <legend><span class="progress-label">Question 2 of 5</span><strong>Where are you located?</strong></legend>
+          <div class="option-grid">
+            <label><input type="radio" name="location" value="Sevier County" checked> Sevier County</label>
+            <label><input type="radio" name="location" value="Knox County"> Knox County</label>
+            <label><input type="radio" name="location" value="East Tennessee, other county"> East Tennessee, other county</label>
+            <label><input type="radio" name="location" value="Tennessee, not East Tennessee"> Tennessee, not East Tennessee</label>
+            <label><input type="radio" name="location" value="Outside Tennessee"> Outside Tennessee</label>
+            <label><input type="radio" name="location" value="I am helping someone else"> I am helping someone else</label>
+          </div>
+        </fieldset>
+        <fieldset class="question-card">
+          <legend><span class="progress-label">Question 3 of 5</span><strong>How urgent is it?</strong></legend>
+          <div class="option-grid">
+            <label><input type="radio" name="urgency" value="Immediate danger" checked> Immediate danger</label>
+            <label><input type="radio" name="urgency" value="Today"> Today</label>
+            <label><input type="radio" name="urgency" value="This week"> This week</label>
+            <label><input type="radio" name="urgency" value="This month"> This month</label>
+            <label><input type="radio" name="urgency" value="No deadline yet"> No deadline yet</label>
+          </div>
+        </fieldset>
+        <fieldset class="question-card">
+          <legend><span class="progress-label">Question 4 of 5</span><strong>What do you already have?</strong></legend>
+          <div class="option-grid">
+            <label><input type="checkbox" name="ready" value="Photo ID"> Photo ID</label>
+            <label><input type="checkbox" name="ready" value="DD214"> DD214</label>
+            <label><input type="checkbox" name="ready" value="VA letters"> VA letters</label>
+            <label><input type="checkbox" name="ready" value="Medical records"> Medical records</label>
+            <label><input type="checkbox" name="ready" value="Court or eviction papers"> Court or eviction papers</label>
+            <label><input type="checkbox" name="ready" value="Resume"> Resume</label>
+            <label><input type="checkbox" name="ready" value="Safe callback number"> Safe callback number</label>
+            <label><input type="checkbox" name="ready" value="None of these ready"> None of these ready</label>
+          </div>
+        </fieldset>
+        <fieldset class="question-card">
+          <legend><span class="progress-label">Question 5 of 5</span><strong>What kind of next step do you want?</strong></legend>
+          <div class="option-grid">
+            <label><input type="radio" name="goal" value="Call the right official office" checked> Call the right official office</label>
+            <label><input type="radio" name="goal" value="Know what to bring"> Know what to bring</label>
+            <label><input type="radio" name="goal" value="Find a local office guide"> Find a local office guide</label>
+            <label><input type="radio" name="goal" value="Start with an official website"> Start with an official website</label>
+            <label><input type="radio" name="goal" value="Print or save a checklist"> Print or save a checklist</label>
+          </div>
+        </fieldset>
+        <button class="button" type="submit">Get my next steps</button>
+        <div class="noscript-fallback">
+          <strong>Results need JavaScript.</strong> You can still use the Toolkits, Resources or Search pages below.
+          <ul class="plain-list"><li><a href="/toolkits">Toolkits</a></li><li><a href="/resources">Resources</a></li><li><a href="/search">Search</a></li><li><a href="/resources-crisis-support">Crisis Support</a></li></ul>
+        </div>
+      </form>
+      <noscript><div class="container noscript-fallback"><strong>JavaScript is turned off.</strong> The action-plan result cannot be generated here, but you can still use <a href="/toolkits">Toolkits</a>, <a href="/resources">Resources</a> and <a href="/search">Search</a>. If there is immediate danger, call 911. For veteran crisis support, call 988 then press 1 or text 838255.</div></noscript>
       <div>
         <div class="danger-box"><strong>Safety first.</strong> Call 911 if there is immediate danger. For veteran crisis support, call 988 then press 1 or text 838255. Vols4Vets does not monitor emergencies.</div>
         <div class="result-block" data-triage-result><h2>Your action plan will appear here.</h2><p>Choose the options that fit your situation. This tool gives starting points only. It does not diagnose, file claims, give legal advice, give medical advice or contact any office for you.</p><p class="small">Saved paths stay in this browser on this device. They are not sent to Vols4Vets.</p></div>

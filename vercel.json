@@ -284,6 +284,14 @@
       "destination": "/weekly-update-signup.html"
     },
     {
+      "source": "/site-map",
+      "destination": "/site-map.html"
+    },
+    {
+      "source": "/feedback-guidelines",
+      "destination": "/feedback-guidelines.html"
+    },
+    {
       "source": "/removed-utility-content",
       "destination": "/removed-utility-content.html"
     }
