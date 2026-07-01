@@ -3,11 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Search Veteran Resources | Vols4Vets</title>
-  <meta name="description" content="Search Vols4Vets resources by problem, county, audience or resource type.">
+  <title>Search Verified Veteran Resources | Vols4Vets</title>
+  <meta name="description" content="Search verified Vols4Vets resources by problem, county, audience, resource type, purpose, verification status or East Tennessee note.">
   <link rel="canonical" href="https://www.vols4vets.com/search">
   <link rel="stylesheet" href="/main.css">
   <script defer src="/resources-data.js"></script>
+  <script defer src="/resources-seed-expanded.js"></script>
   <script defer src="/site.js"></script>
   <script defer src="/search.js"></script>
 </head>
@@ -22,9 +23,8 @@
       <a href="/">Home</a>
       <a class="nav-cta" href="/find-my-next-step">Find My Next Step</a>
       <a href="/search">Search</a>
-      <a href="/resources">Resources</a>
-      <a href="/resources-crisis-support">Urgent Help</a>
-      <a href="/resources-east-tennessee">East Tennessee</a>
+      <a href="/resources">All Paths</a>
+      <a href="/most-used">Most Used</a>
       <a href="/about">About</a>
     </nav>
   </div>
@@ -32,14 +32,14 @@
 
 <main id="main">
   <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/resources">Resources</a><span aria-hidden="true">/</span><span>Search</span></nav>
-  <section class="hero"><div class="container page-intro"><p class="eyebrow">Search</p><h1>Search veteran resources.</h1><p class="lead">Search by problem, county or resource type. Try DD214, VSO, housing risk, VA claim, Mountain Home VA, job help, legal aid, women veterans or caregiver.</p></div></section>
+  <section class="hero"><div class="container page-intro"><p class="eyebrow">Search</p><h1>Search verified veteran resources.</h1><p class="lead">Search by problem, county, purpose or resource type. Try AFVC, resort stays, Amtrak, JetBlue, NRD, Tennessee Veterans Connect, DD214, VSO, housing risk, VA claim, Mountain Home VA, job help, legal aid or caregiver.</p></div></section>
   <section class="section">
     <div class="container">
       <form class="search-form" role="search">
         <label class="sr-only" for="site-search">What do you need help with?</label>
         <input id="site-search" type="search" placeholder="What do you need help with?" autocomplete="off" data-site-search>
         <button class="button" type="submit">Search</button>
-      </form><div class="suggested-searches" aria-label="Suggested searches"><strong>Suggested searches:</strong> <a href="/search?q=DD214">DD214</a><a href="/search?q=VSO">VSO</a><a href="/search?q=housing+risk">housing risk</a><a href="/search?q=VA+claim">VA claim</a><a href="/search?q=Mountain+Home+VA">Mountain Home VA</a><a href="/search?q=Sevier+County+VSO">Sevier County VSO</a><a href="/search?q=Knox+County+VSO">Knox County VSO</a><a href="/search?q=job+help">job help</a><a href="/search?q=legal+aid">legal aid</a><a href="/search?q=women+veterans">women veterans</a><a href="/search?q=caregiver">caregiver</a><a href="/search?q=after+next+steps">after next steps</a><a href="/search?q=call+script">call script</a><a href="/search?q=weekly+updates">weekly updates</a></div>
+      </form><div class="suggested-searches" aria-label="Suggested searches"><strong>Suggested searches:</strong> <a href="/search?q=AFVC">AFVC</a><a href="/search?q=resort+stays">resort stays</a><a href="/search?q=Amtrak">Amtrak</a><a href="/search?q=JetBlue">JetBlue</a><a href="/search?q=NRD">NRD</a><a href="/search?q=Tennessee+Veterans+Connect">Tennessee Veterans Connect</a><a href="/search?q=DD214">DD214</a><a href="/search?q=VSO">VSO</a><a href="/search?q=housing+risk">housing risk</a><a href="/search?q=VA+claim">VA claim</a><a href="/search?q=Mountain+Home+VA">Mountain Home VA</a><a href="/search?q=Sevier+County+VSO">Sevier County VSO</a><a href="/search?q=job+help">job help</a><a href="/search?q=legal+aid">legal aid</a><a href="/search?q=caregiver">caregiver</a></div>
       <div class="filter-row">
         <select data-category-filter aria-label="Category"><option value="">All categories</option></select>
         <select data-county-filter aria-label="County"><option value="">All counties</option></select>
@@ -49,7 +49,7 @@
       <div class="checkbox-row"><label><input type="checkbox" data-official-filter> Official source only</label></div>
       <p class="small" aria-live="polite" data-result-count></p>
       <div class="empty-state" hidden data-empty>
-        <strong>No match found.</strong> Try a simpler phrase like DD214, VSO, housing, jobs, legal aid or Mountain Home VA.
+        <strong>No match found.</strong> Try a simpler phrase like AFVC, NRD, DD214, VSO, housing, jobs, legal aid or Mountain Home VA.
         <p>Try one of these: <a href="/toolkits">toolkits</a>, <a href="/find-my-next-step">Find My Next Step</a>, or <a href="/resources">Resources</a>. For immediate danger, call 911. For veteran crisis support, call 988 then press 1 or text 838255.</p>
       </div>
       <div data-results></div>
@@ -63,8 +63,8 @@
         <a class="brand" href="/"><img class="brand-mark" src="/vols4vets-original-patch.webp" alt="" width="34" height="34"><span>Vols4Vets</span></a>
         <p>Independent veteran resource routing from Sevierville, Tennessee. Vols4Vets is not the VA, not a crisis line, not a law firm, not a medical provider, not an emergency service and not an accredited claims representative.</p>
       </div>
-      <div><h3>Start</h3><ul class="footer-links"><li><a href="/resources">Resources</a></li><li><a href="/resources-crisis-support">Urgent Help</a></li><li><a href="/find-my-next-step">Find My Next Step</a></li><li><a href="/search">Search</a></li><li><a href="/about">About</a></li></ul></div>
-      <div><h3>Trust</h3><ul class="footer-links"><li><a href="/verification-policy">Verification Policy</a></li><li><a href="/correction-request">Correction Request</a></li><li><a href="/privacy-safety">Privacy and Safety</a></li><li><a href="/partner-sponsor-policy">Partner and Sponsor Policy</a></li><li><a href="/no-claims-representation">No Claims Representation</a></li><li><a href="/crisis-emergency-disclaimer">Crisis and Emergency Disclaimer</a></li><li><a href="/monthly-update-log">Monthly Update Log</a></li></ul></div>
+      <div><h3>Start</h3><ul class="footer-links"><li><a href="/">Home</a></li><li><a href="/search">Search</a></li><li><a href="/resources">All Paths</a></li><li><a href="/most-used">Most Used</a></li><li><a href="/find-my-next-step">Find My Next Step</a></li><li><a href="/about">About</a></li></ul></div>
+      <div><h3>Trust and feedback</h3><ul class="footer-links"><li><a href="/privacy-safety">Privacy</a></li><li><a href="/verification-policy">Verification Policy</a></li><li><a href="/feedback-guidelines">Feedback Guidelines</a></li><li><a href="/report-broken-link">Report a Broken Link</a></li><li><a href="/correction-request">Correction Request</a></li><li><a href="/about#contact">Contact</a></li></ul></div>
     </div>
     <div class="footer-bottom">&copy; 2026 Vols4Vets LLC. Verify current information directly with each official source before you drive, apply, call or send records.</div>
   </div>
