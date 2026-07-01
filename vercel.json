@@ -25,7 +25,27 @@
     { "source": "/resources-women-veterans", "destination": "/resources-women-veterans.html" },
     { "source": "/resources-retirees", "destination": "/resources-retirees.html" },
     { "source": "/resources-east-tennessee-discounts", "destination": "/resources-east-tennessee-discounts.html" },
-    { "source": "/resources-veteran-owned-businesses", "destination": "/resources-veteran-owned-businesses.html" }
+    { "source": "/resources-veteran-owned-businesses", "destination": "/resources-veteran-owned-businesses.html" },
+    { "source": "/search", "destination": "/search.html" },
+    { "source": "/find-my-next-step", "destination": "/find-my-next-step.html" },
+    { "source": "/verification-policy", "destination": "/verification-policy.html" },
+    { "source": "/correction-request", "destination": "/correction-request.html" },
+    { "source": "/privacy-safety", "destination": "/privacy-safety.html" },
+    { "source": "/partner-sponsor-policy", "destination": "/partner-sponsor-policy.html" },
+    { "source": "/no-claims-representation", "destination": "/no-claims-representation.html" },
+    { "source": "/crisis-emergency-disclaimer", "destination": "/crisis-emergency-disclaimer.html" },
+    { "source": "/monthly-update-log", "destination": "/monthly-update-log.html" },
+    { "source": "/removed-utility-content", "destination": "/removed-utility-content.html" }
+  ],
+  "redirects": [
+    { "source": "/screen-flashlight", "destination": "/removed-utility-content", "permanent": false },
+    { "source": "/dvd-screensaver", "destination": "/removed-utility-content", "permanent": false },
+    { "source": "/glitch-screen", "destination": "/removed-utility-content", "permanent": false },
+    { "source": "/guides/how-to-clean-your-screen-safely", "destination": "/removed-utility-content", "permanent": false },
+    { "source": "/guides/how-to-use-a-white-screen-for-video-calls", "destination": "/removed-utility-content", "permanent": false },
+    { "source": "/guides/dead-pixel-vs-stuck-pixel", "destination": "/removed-utility-content", "permanent": false },
+    { "source": "/guides/best-screen-colors-for-focus", "destination": "/removed-utility-content", "permanent": false },
+    { "source": "/guides/how-to-check-backlight-bleed", "destination": "/removed-utility-content", "permanent": false }
   ],
   "headers": [
     {
@@ -40,6 +60,12 @@
     },
     {
       "source": "/components/(.*)",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
+      ]
+    },
+    {
+      "source": "/removed-utility-content",
       "headers": [
         { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
       ]
