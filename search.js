@@ -1,11 +1,16 @@
 (function(){
   function text(item){
-    return [item.title,item.description,item.category,item.county,item.state,item.audience,(item.tags||[]).join(' '),item.phone].join(' ').toLowerCase();
+    return [item.title,item.description,item.purpose,item.eastTnNote,item.category,item.county,item.state,item.audience,(item.tags||[]).join(' '),item.phone,item.sourceType].join(' ').toLowerCase();
   }
   function unique(values){return Array.from(new Set(values.filter(Boolean))).sort();}
   function option(value){return '<option value="'+value+'">'+value+'</option>';}
+  function external(url){return /^https?:\/\//.test(url);}
+  function safe(value){return String(value||'').replace(/[&<>"']/g,function(char){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char];});}
   function render(item){
-    return '<article class="result-card"><h2>'+item.title+'</h2><p>'+item.description+'</p><div class="result-meta"><span>'+item.category+'</span><span>'+item.county+'</span><span>'+item.audience+'</span>'+(item.official?'<span>Official source</span>':'')+'<span>Last verified '+item.lastVerified+'</span></div><a class="button" href="'+item.url+'">'+(item.category==='Urgent help'?'Start here':'View resource')+'</a></article>';
+    var url=item.url||'#';
+    var note=item.eastTnNote?'<p class="small"><strong>East TN note:</strong> '+safe(item.eastTnNote)+'</p>':'';
+    var meta='<div class="result-meta"><span>'+safe(item.category)+'</span><span>'+safe(item.county)+'</span><span>'+safe(item.audience)+'</span>'+(item.official?'<span>Official source</span>':'')+(item.sourceType?'<span>'+safe(item.sourceType)+'</span>':'')+'<span>Last checked '+safe(item.lastVerified||item.lastChecked)+'</span></div>';
+    return '<article class="result-card"><h2>'+safe(item.title)+'</h2><p>'+safe(item.purpose||item.description)+'</p>'+note+meta+'<a class="button" href="'+safe(url)+'"'+(external(url)?' target="_blank" rel="noopener noreferrer"':'')+'>'+(item.category==='Urgent help'?'Start here':'View resource')+'</a></article>';
   }
   document.addEventListener('DOMContentLoaded',function(){
     var data=window.VOLS4VETS_RESOURCES||[];
