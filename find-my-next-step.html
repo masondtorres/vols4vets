@@ -20,6 +20,7 @@
     <button class="nav-toggle" type="button" aria-controls="main-nav" aria-expanded="false" data-nav-toggle>Menu</button>
     <nav id="main-nav" class="main-nav" aria-label="Main navigation">
       <a href="/">Home</a>
+      <a class="nav-cta" href="/find-my-next-step">Find My Next Step</a>
       <a href="/search">Search</a>
       <a href="/resources">All Paths</a>
       <a href="/most-used">Most Used</a>
@@ -27,7 +28,6 @@
     </nav>
   </div>
 </header>
-
 
 <main id="main">
   <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span>Find My Next Step</span></nav>
@@ -106,14 +106,19 @@
         </fieldset>
         <button class="button" type="submit">Get my next steps</button>
         <div class="noscript-fallback">
-          <strong>Results need JavaScript.</strong> You can still use the Toolkits, Resources or Search pages below.
-          <ul class="plain-list"><li><a href="/toolkits">Toolkits</a></li><li><a href="/resources">Resources</a></li><li><a href="/search">Search</a></li><li><a href="/resources-crisis-support">Crisis Support</a></li></ul>
+          <strong>If the tool does not load, use these first.</strong>
+          <ol>
+            <li>If there is immediate danger, call 911.</li>
+            <li>For veteran crisis support, call 988 then press 1 or text 838255.</li>
+            <li>For homelessness or housing risk, call the VA National Call Center for Homeless Veterans at 877-424-3838.</li>
+          </ol>
+          <div class="actions"><a class="button" href="/resources-crisis-support">Urgent Help</a><a class="button button-secondary" href="/homeless-veteran-help-east-tennessee">Housing Help</a><a class="button button-secondary" href="/resources">All Paths</a></div>
         </div>
       </form>
-      <noscript><div class="container noscript-fallback"><strong>JavaScript is turned off.</strong> The action-plan result cannot be generated here, but you can still use <a href="/toolkits">Toolkits</a>, <a href="/resources">Resources</a> and <a href="/search">Search</a>. If there is immediate danger, call 911. For veteran crisis support, call 988 then press 1 or text 838255.</div></noscript>
+      <noscript><div class="container noscript-fallback"><strong>JavaScript is turned off.</strong><ol><li>If there is immediate danger, call 911.</li><li>For veteran crisis support, call 988 then press 1 or text 838255.</li><li>For homeless veteran support, call 877-424-3838 or open the housing help page.</li></ol><div class="actions"><a class="button" href="/resources-crisis-support">Urgent Help</a><a class="button button-secondary" href="/homeless-veteran-help-east-tennessee">Housing Help</a><a class="button button-secondary" href="/resources">All Paths</a><a class="button button-secondary" href="/search">Search</a></div></div></noscript>
       <div>
         <div class="danger-box"><strong>Safety first.</strong> Call 911 if there is immediate danger. For veteran crisis support, call 988 then press 1 or text 838255. Vols4Vets does not monitor emergencies.</div>
-        <div class="result-block" data-triage-result><h2>Your action plan will appear here.</h2><p>Choose the options that fit your situation. This tool gives starting points only. It does not diagnose, file claims, give legal advice, give medical advice or contact any office for you.</p><p class="small"><strong>Privacy:</strong> This plan stays in this browser on this device. It is not sent to Vols4Vets.</p></div>
+        <div class="result-block" data-triage-result><h2>Start here while the plan loads.</h2><p>If you are in immediate danger, call 911. If this is a veteran crisis, call 988 then press 1 or text 838255. If housing is unstable, call the VA National Call Center for Homeless Veterans at 877-424-3838.</p><div class="actions"><a class="button" href="/resources-crisis-support">Urgent Help</a><a class="button button-secondary" href="/homeless-veteran-help-east-tennessee">Housing Help</a><a class="button button-secondary" href="/resources">All Paths</a></div><p class="small"><strong>Privacy:</strong> This plan stays in this browser on this device. It is not sent to Vols4Vets.</p></div>
       </div>
     </div>
   </section>
@@ -131,7 +136,6 @@
     <div class="footer-bottom">&copy; 2026 Vols4Vets LLC. Verify current information directly with each official source before you drive, apply, call or send records.</div>
   </div>
 </footer>
-
 
 </body>
 </html>
