@@ -1,6 +1,19 @@
 document.addEventListener('DOMContentLoaded',function(){
-  var button=document.querySelector('[data-nav-toggle]');
+  var current=location.pathname.replace(/\/$/,'')||'/';
   var nav=document.getElementById('main-nav');
+
+  if(nav){
+    nav.querySelectorAll('a[href]').forEach(function(link){
+      var href=(link.getAttribute('href')||'').replace(/\/$/,'')||'/';
+      if(href===current){
+        link.setAttribute('aria-current','page');
+      }else{
+        link.removeAttribute('aria-current');
+      }
+    });
+  }
+
+  var button=document.querySelector('[data-nav-toggle]');
   if(button&&nav){
     button.addEventListener('click',function(){
       var open=button.getAttribute('aria-expanded')==='true';

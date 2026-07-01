@@ -70,9 +70,9 @@
 ## SEO launch checklist
 
 1. Confirm Vercel production deployment returns 200 for every sitemap URL.
-2. Confirm old ScreenTools routes return branded 404 pages and are not linked anywhere.
+2. Confirm old unrelated utility routes redirect to the noindex cleanup page and are not linked anywhere.
 3. Submit `https://www.vols4vets.com/sitemap.xml` in Google Search Console.
-4. Request removal of stale ScreenTools URLs in Search Console if they still appear.
+4. Request removal of stale unrelated utility URLs in Search Console if they still appear. Use `docs/search-console-cleanup.md`.
 5. Add Google Search Console verification meta tag in each page head or use DNS verification.
 6. Add GA4 only after a property is created and approved.
 7. Create or claim Google Business Profile for Vols4Vets LLC in Sevierville.

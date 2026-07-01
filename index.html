@@ -3,53 +3,61 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>East Tennessee Veteran Help | Vols4Vets Sevierville TN</title>
-  <meta name="description" content="Vols4Vets helps East Tennessee veterans, service members and military families find practical self-serve VA resources, urgent support, benefits, jobs, discounts and local starting points.">
+  <title>Find the Next Right Step | Vols4Vets</title>
+  <meta name="description" content="Tell us what is going on. Get your next three steps. Vols4Vets routes veterans, families and caregivers to clear starting points for benefits, housing, work, health care and East Tennessee resources.">
   <link rel="canonical" href="https://www.vols4vets.com/">
   <meta name="theme-color" content="#f77f00">
-  <link rel="preload" as="image" href="/east-tennessee-hero.webp">
   <link rel="stylesheet" href="/main.css">
+  <script defer src="/resources-data.js"></script>
   <script defer src="/site.js"></script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":["Organization","LocalBusiness"],"@id":"https://www.vols4vets.com/#organization","name":"Vols4Vets","url":"https://www.vols4vets.com/","description":"Veteran-owned resource site serving Sevierville and East Tennessee veterans, service members and military families.","address":{"@type":"PostalAddress","addressLocality":"Sevierville","addressRegion":"TN","addressCountry":"US"},"areaServed":[{"@type":"Place","name":"Sevierville, Tennessee"},{"@type":"Place","name":"East Tennessee"},{"@type":"Place","name":"Great Smoky Mountains"}],"founder":[{"@type":"Person","name":"Mason Torres"},{"@type":"Person","name":"Jen Torres"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":["Organization","LocalBusiness"],"@id":"https://www.vols4vets.com/#organization","name":"Vols4Vets","url":"https://www.vols4vets.com/","description":"Independent veteran resource router serving East Tennessee veterans, service members, families and caregivers.","address":{"@type":"PostalAddress","addressLocality":"Sevierville","addressRegion":"TN","addressCountry":"US"},"areaServed":[{"@type":"Place","name":"Sevierville, Tennessee"},{"@type":"Place","name":"East Tennessee"},{"@type":"Place","name":"United States"}],"founder":[{"@type":"Person","name":"Mason Torres"},{"@type":"Person","name":"Jen Torres"}]}</script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
-
-  <div class="crisis-bar">
-    Veteran in crisis? Call <a href="tel:&#57;88">988</a>, then press 1, or text <a href="sms:&#56;38255">838255</a>.
+<div class="crisis-bar">Veteran in crisis or worried about one? Call <a href="tel:988">988</a>, then press 1. Text <a href="sms:838255">838255</a>. If there is immediate danger, call <a href="tel:911">911</a>.</div>
+<header class="site-header">
+  <div class="nav-wrap">
+    <a class="brand" href="/"><img class="brand-mark" src="/vols4vets-original-patch.webp" alt="" width="34" height="34"><span>Vols4Vets</span></a>
+    <button class="nav-toggle" type="button" aria-controls="main-nav" aria-expanded="false" data-nav-toggle>Menu</button>
+    <nav id="main-nav" class="main-nav" aria-label="Main navigation">
+      <a href="/">Home</a>
+      <a class="nav-cta" href="/find-my-next-step">Find My Next Step</a>
+      <a href="/search">Search</a>
+      <a href="/resources">Resources</a>
+      <a href="/resources-crisis-support">Urgent Help</a>
+      <a href="/resources-east-tennessee">East Tennessee</a>
+      <a href="/about">About</a>
+    </nav>
   </div>
+</header>
 
-  <header class="site-header">
-    <div class="nav-wrap">
-      <a class="brand" href="/">
-        <img class="brand-mark" src="/vols4vets-original-patch.webp" alt="" width="52" height="52">
-        <span>Vols4Vets</span>
-      </a>
-
-      <button class="nav-toggle" type="button" aria-controls="main-nav" aria-expanded="false" data-nav-toggle>
-        Menu
-      </button>
-
-      <nav id="main-nav" class="main-nav" aria-label="Main navigation">
-        <a href="/" aria-current="page">Home</a>
-        <a href="/resources">Directory</a>
-        <a href="/about">About</a>
-        <a href="/events">Events</a>
-      </nav>
-    </div>
-  </header>
 
   <main id="main">
-    <section class="hero hero-home">
+    <section class="hero router-hero">
       <div class="container">
-        <div class="hero-panel">
-          <p class="eyebrow">Veteran-owned in East Tennessee</p>
-          <h1>By Veterans.<br>For Veterans.</h1>
-          <p class="lead">Self-serve resource links for East Tennessee veterans, service members and military families.</p>
-          <div class="actions">
-            <a class="button" href="/resources">Start With Resources</a>
-            <a class="button button-secondary" href="/about">About Vols4Vets</a>
+        <p class="eyebrow">Tell us what is going on. Get your next three steps.</p>
+        <h1>Find the next right step.</h1>
+        <p class="lead">Vols4Vets helps veterans, service members, families and caregivers find clear starting points for benefits, health care, housing, work, family support and East Tennessee resources.</p>
+        <div class="actions">
+          <a class="button" href="/find-my-next-step">Find My Next Step</a>
+          <a class="button button-secondary" href="/resources-crisis-support">Get urgent help</a>
+          <a class="button button-secondary" href="/search">Search resources</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-compact">
+      <div class="container">
+        <div class="search-panel">
+          <div>
+            <h2>Search veteran resources</h2>
+            <p>Search by problem, county or resource type. Try housing, VA claim, DD214, jobs, women veterans or Sevier County.</p>
           </div>
+          <form action="/search" method="get" class="search-form">
+            <label class="sr-only" for="home-search">What do you need help with?</label>
+            <input id="home-search" name="q" type="search" placeholder="What do you need help with?">
+            <button class="button" type="submit">Search</button>
+          </form>
         </div>
       </div>
     </section>
@@ -57,55 +65,16 @@
     <section class="section">
       <div class="container">
         <div class="section-heading">
-          <p class="eyebrow">Start here</p>
-          <h2>Pick the problem in front of you.</h2>
-          <p>Start with the resource cards and links on this site. They point to official offices, public resources and practical starting points. Check current details yourself before you drive, apply, call or make plans.</p>
+          <p class="eyebrow">Start by problem</p>
+          <h2>Pick what is happening.</h2>
         </div>
-
         <div class="grid grid-3">
-          <article class="card card-critical">
-            <div class="card-icon" aria-hidden="true">!</div>
-            <span class="pill">Urgent</span>
-            <h3>Crisis and urgent support</h3>
-            <p>Use this first if a veteran is in crisis, homeless or close to it.</p>
-            <a href="/resources-crisis-support">Get urgent support</a>
-          </article>
-
-          <article class="card card-local">
-            <div class="card-icon" aria-hidden="true">⌂</div>
-            <span class="pill">Local</span>
-            <h3>Sevierville and East Tennessee</h3>
-            <p>Veteran service offices, VA clinics and local contacts near the Smokies.</p>
-            <a href="/resources-east-tennessee">Find local help</a>
-          </article>
-
-          <article class="card">
-            <div class="card-icon" aria-hidden="true">+</div>
-            <h3>VA benefits and health care</h3>
-            <p>Claims, health care, records, disability, home loans and VA starting points.</p>
-            <a href="/resources-va-benefits-healthcare">Use VA resources</a>
-          </article>
-
-          <article class="card">
-            <div class="card-icon" aria-hidden="true">$</div>
-            <h3>Jobs and training</h3>
-            <p>Workforce tools, federal jobs, transition help and veteran hiring programs.</p>
-            <a href="/resources-jobs-training">Find career help</a>
-          </article>
-
-          <article class="card">
-            <div class="card-icon" aria-hidden="true">♥</div>
-            <h3>Family and caregiver support</h3>
-            <p>Support for spouses, children, caregivers and military families.</p>
-            <a href="/resources-family-support">Support the family</a>
-          </article>
-
-          <article class="card">
-            <div class="card-icon" aria-hidden="true">%</div>
-            <h3>Smokies military discounts</h3>
-            <p>Official starting points for attractions, shows, travel and local offers.</p>
-            <a href="/resources-east-tennessee-discounts">Check local discounts</a>
-          </article>
+          <article class="card card-critical"><h3>I need help now.</h3><p>For crisis support, homelessness risk or urgent help.</p><a href="/resources-crisis-support">Start here</a></article>
+          <article class="card"><h3>I need VA benefits or health care.</h3><p>For claims, disability, records, appointments, health care and VA locations.</p><a href="/resources-va-benefits-healthcare">Start here</a></article>
+          <article class="card"><h3>I may lose housing.</h3><p>For rent, shelter, legal aid, VA housing help and homeless veteran support.</p><a href="/resources-housing-legal">Start here</a></article>
+          <article class="card"><h3>I need work or training.</h3><p>For jobs, resumes, federal hiring, training, certifications and local workforce help.</p><a href="/resources-jobs-training">Start here</a></article>
+          <article class="card"><h3>I am helping family.</h3><p>For spouses, caregivers, children and family support.</p><a href="/resources-family-support">Start here</a></article>
+          <article class="card card-local"><h3>I need East Tennessee help.</h3><p>For Sevier County, Knoxville, Mountain Home VA and local offices.</p><a href="/resources-east-tennessee">Start here</a></article>
         </div>
       </div>
     </section>
@@ -113,45 +82,76 @@
     <section class="cta-band">
       <div class="container split">
         <div>
-          <h2>Use the directory first.</h2>
-          <p>Vols4Vets is a small veteran-owned site, not a staffed help desk. Contact details are kept on the About page to reduce spam and bot scraping.</p>
+          <h2>Answer five questions. Get your first three moves.</h2>
+          <p>You do not need to create an account. Do not enter private records, Social Security numbers, claim numbers, medical records or passwords. This tool points you to official resources and practical starting points.</p>
         </div>
-        <div class="actions">
-          <a class="button" href="/resources">Open Directory</a>
-          <a class="button button-secondary" href="/about#contact">About and Contact</a>
+        <div class="actions"><a class="button" href="/find-my-next-step">Start</a></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container split">
+        <div>
+          <h2>Not another pile of links.</h2>
+          <p>Veterans do not need more clutter. They need a clear first move. Vols4Vets points you to official offices, public resources and practical next steps. We are independent. We are not the VA, not a crisis line, not a law firm, not a medical provider and not an accredited claims representative.</p>
+        </div>
+        <div>
+          <h2>Built in Sevierville. Useful beyond Sevier County.</h2>
+          <p>Vols4Vets starts in East Tennessee because local details matter. The goal is to build clear, verified starting points that other communities can use too.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Most used resources</p>
+          <h2>Official starting points first.</h2>
+        </div>
+        <div class="grid grid-3 compact-links">
+          <a href="/resources-crisis-support">Veterans Crisis Line</a>
+          <a href="/resources-housing-legal">National Call Center for Homeless Veterans</a>
+          <a href="/resources-va-benefits-healthcare">VA.gov</a>
+          <a href="/resources-va-benefits-healthcare">VA Find Locations</a>
+          <a href="/resources-state-benefits">Tennessee Department of Veterans Services</a>
+          <a href="/resources-east-tennessee">County Veterans Service Offices</a>
+          <a href="/resources-jobs-training">American Job Centers</a>
+          <a href="/resources-housing-legal">Legal Aid of East Tennessee</a>
+          <a href="/resources-women-veterans">Women Veterans Call Center</a>
+          <a href="/resources-family-support">Military OneSource</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container split">
+        <div class="notice">
+          <h2>How we keep this useful.</h2>
+          <p>We list official sources first. We show last verified dates where possible. We remove or update resources when details change. Always confirm hours, eligibility, costs and deadlines before you drive, apply or call.</p>
+          <div class="actions"><a class="button" href="/verification-policy">Read verification policy</a><a class="button button-secondary" href="/correction-request">Send a correction</a></div>
+        </div>
+        <div class="notice">
+          <h2>One useful veteran resource update per week.</h2>
+          <p>No spam. No selling your information. One short update with a useful resource, deadline, event or local note. Email signup is not active yet, so send corrections or update ideas through the correction page.</p>
+          <div class="actions"><a class="button button-secondary" href="/correction-request">Send an update idea</a></div>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <a class="brand" href="/">
-            <img class="brand-mark" src="/vols4vets-original-patch.webp" alt="" width="34" height="34">
-            <span>Vols4Vets</span>
-          </a>
-          <p>By veterans. For veterans. Serving East Tennessee.</p>
-        </div>
-        <div>
-          <h3>Contact</h3>
-          <ul class="footer-links">
-            <li><a href="/about#contact">Protected contact section</a></li>
-            <li>Sevierville, Tennessee</li>
-          </ul>
-        </div>
-        <div>
-          <h3>Explore</h3>
-          <ul class="footer-links">
-            <li><a href="/resources">Veteran Directory</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/events">Events</a></li>
-          </ul>
-        </div>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="/"><img class="brand-mark" src="/vols4vets-original-patch.webp" alt="" width="34" height="34"><span>Vols4Vets</span></a>
+        <p>Independent veteran resource routing from Sevierville, Tennessee. Vols4Vets is not the VA, not a crisis line, not a law firm, not a medical provider, not an emergency service and not an accredited claims representative.</p>
       </div>
-      <div class="footer-bottom">© 2026 Vols4Vets LLC • Sevierville, Tennessee. Last updated June 2026. Verify current information directly with each provider.</div>
+      <div><h3>Start</h3><ul class="footer-links"><li><a href="/resources">Resources</a></li><li><a href="/resources-crisis-support">Urgent Help</a></li><li><a href="/find-my-next-step">Find My Next Step</a></li><li><a href="/search">Search</a></li><li><a href="/about">About</a></li></ul></div>
+      <div><h3>Trust</h3><ul class="footer-links"><li><a href="/verification-policy">Verification Policy</a></li><li><a href="/correction-request">Correction Request</a></li><li><a href="/privacy-safety">Privacy and Safety</a></li><li><a href="/partner-sponsor-policy">Partner and Sponsor Policy</a></li><li><a href="/no-claims-representation">No Claims Representation</a></li><li><a href="/crisis-emergency-disclaimer">Crisis and Emergency Disclaimer</a></li><li><a href="/monthly-update-log">Monthly Update Log</a></li></ul></div>
     </div>
-  </footer>
+    <div class="footer-bottom">&copy; 2026 Vols4Vets LLC. Verify current information directly with each official source before you drive, apply, call or send records.</div>
+  </div>
+</footer>
+
 </body>
 </html>

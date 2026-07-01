@@ -6,7 +6,7 @@
 4. Deploy to Vercel.
 5. Test these paths: `/`, `/about`, `/resources`, `/resources-crisis-support`, `/resources-va-benefits-healthcare`, `/resources-jobs-training`, `/resources-east-tennessee-discounts`, `/resources-veteran-owned-businesses`, `/contact`.
 6. Submit `https://www.vols4vets.com/sitemap.xml` in Google Search Console.
-7. Request removal of old ScreenTools URLs if they still appear in Google.
+7. Request removal of old utility URLs if they still appear in Google. Use `docs/search-console-cleanup.md` for the current cleanup list and steps.
 8. Create or update Google Business Profile for Vols4Vets LLC in Sevierville.
 9. Add real founder photos when ready.
 10. Replace testimonials only after written permission.
