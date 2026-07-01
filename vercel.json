@@ -35,6 +35,16 @@
     { "source": "/no-claims-representation", "destination": "/no-claims-representation.html" },
     { "source": "/crisis-emergency-disclaimer", "destination": "/crisis-emergency-disclaimer.html" },
     { "source": "/monthly-update-log", "destination": "/monthly-update-log.html" },
+    { "source": "/east-tennessee-veteran-resources", "destination": "/east-tennessee-veteran-resources.html" },
+    { "source": "/sevierville-veteran-resources", "destination": "/sevierville-veteran-resources.html" },
+    { "source": "/sevier-county-veteran-resources", "destination": "/sevier-county-veteran-resources.html" },
+    { "source": "/knoxville-veteran-resources", "destination": "/knoxville-veteran-resources.html" },
+    { "source": "/knox-county-veteran-resources", "destination": "/knox-county-veteran-resources.html" },
+    { "source": "/mountain-home-va-guide", "destination": "/mountain-home-va-guide.html" },
+    { "source": "/tennessee-va-benefits-help", "destination": "/tennessee-va-benefits-help.html" },
+    { "source": "/start-va-disability-claim", "destination": "/start-va-disability-claim.html" },
+    { "source": "/what-to-bring-vso", "destination": "/what-to-bring-vso.html" },
+    { "source": "/replace-dd214", "destination": "/replace-dd214.html" },
     { "source": "/removed-utility-content", "destination": "/removed-utility-content.html" }
   ],
   "redirects": [
