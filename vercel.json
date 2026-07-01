@@ -50,6 +50,12 @@
     { "source": "/veteran-legal-aid-east-tennessee", "destination": "/veteran-legal-aid-east-tennessee.html" },
     { "source": "/women-veterans-east-tennessee", "destination": "/women-veterans-east-tennessee.html" },
     { "source": "/military-family-caregiver-help", "destination": "/military-family-caregiver-help.html" },
+    { "source": "/sevier-county-veteran-service-office-guide", "destination": "/sevier-county-veteran-service-office-guide.html" },
+    { "source": "/knox-county-veteran-service-office-guide", "destination": "/knox-county-veteran-service-office-guide.html" },
+    { "source": "/mountain-home-va-location-checklist", "destination": "/mountain-home-va-location-checklist.html" },
+    { "source": "/american-job-center-east-tennessee-veterans", "destination": "/american-job-center-east-tennessee-veterans.html" },
+    { "source": "/legal-aid-east-tennessee-veterans-guide", "destination": "/legal-aid-east-tennessee-veterans-guide.html" },
+    { "source": "/tennessee-department-veterans-services-guide", "destination": "/tennessee-department-veterans-services-guide.html" },
     { "source": "/removed-utility-content", "destination": "/removed-utility-content.html" }
   ],
   "redirects": [
