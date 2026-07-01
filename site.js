@@ -2,6 +2,21 @@ document.addEventListener('DOMContentLoaded',function(){
   var current=location.pathname.replace(/\/$/,'').replace(/\.html$/,'')||'/';
   var nav=document.getElementById('main-nav');
 
+  if(nav&&!nav.querySelector('a[href="/find-my-next-step"]')){
+    var cta=document.createElement('a');
+    cta.className='nav-cta';
+    cta.href='/find-my-next-step';
+    cta.textContent='Find My Next Step';
+    var home=nav.querySelector('a[href="/"]');
+    if(home&&home.nextSibling){
+      nav.insertBefore(cta,home.nextSibling);
+    }else if(home){
+      nav.appendChild(cta);
+    }else{
+      nav.insertBefore(cta,nav.firstChild);
+    }
+  }
+
   if(nav){
     nav.querySelectorAll('a[href]').forEach(function(link){
       var href=(link.getAttribute('href')||'').replace(/\/$/,'')||'/';
@@ -27,6 +42,7 @@ document.addEventListener('DOMContentLoaded',function(){
   var tel='tel:+1'+p.replace(/-/g,'');
   var mail='mailto:'+e;
   document.querySelectorAll('a').forEach(function(link){
+    if(link.hasAttribute('data-direct-contact'))return;
     var href=link.getAttribute('href')||'';
     if(href===tel||href===mail){
       link.setAttribute('href','/about#contact');
