@@ -276,6 +276,14 @@
       "destination": "/resource-submission-guidelines.html"
     },
     {
+      "source": "/after-you-get-your-next-steps",
+      "destination": "/after-you-get-your-next-steps.html"
+    },
+    {
+      "source": "/weekly-update-signup",
+      "destination": "/weekly-update-signup.html"
+    },
+    {
       "source": "/removed-utility-content",
       "destination": "/removed-utility-content.html"
     }

@@ -34,7 +34,7 @@ for (const pattern of utilityPatterns) {
   if (sitemap.includes(pattern)) fail.push('Removed utility URL found in sitemap: ' + pattern);
 }
 vm.runInNewContext(resourcesData, { window: {} });
-const required = ['/toolkits','/va-claim-starter-checklist','/housing-risk-action-checklist','/veteran-job-search-starter-kit','/dd214-replacement-checklist','/vso-appointment-packet','/mountain-home-va-appointment-prep','/legal-aid-deadline-checklist','/women-veterans-official-support-checklist','/family-caregiver-support-checklist','/tennessee-benefits-checklist','/county-office-call-script'];
+const required = ['/toolkits','/va-claim-starter-checklist','/housing-risk-action-checklist','/veteran-job-search-starter-kit','/dd214-replacement-checklist','/vso-appointment-packet','/mountain-home-va-appointment-prep','/legal-aid-deadline-checklist','/women-veterans-official-support-checklist','/family-caregiver-support-checklist','/tennessee-benefits-checklist','/county-office-call-script','/after-you-get-your-next-steps','/weekly-update-signup'];
 for (const route of required) {
   if (!routes.has(route)) fail.push('Missing clean route: ' + route);
   if (!sitemap.includes('https://www.vols4vets.com' + route)) fail.push('Missing sitemap URL: ' + route);
