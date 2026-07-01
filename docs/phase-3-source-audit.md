@@ -62,7 +62,7 @@ These details should be added only after direct verification from official pages
 
 ## Safety Decisions
 
-- No partnership language was used.
+- No affiliation language was used.
 - No claims filing, appeal handling, legal advice or medical advice was offered.
 - Crisis and emergency routing stays direct: call 911 for immediate danger; call 988 then press 1 or text 838255 for veteran crisis support.
 - Private records are routed to official portals or official providers, not to Vols4Vets.

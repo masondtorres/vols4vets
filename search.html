@@ -31,14 +31,14 @@
 </header>
 
 <main id="main">
-  <section class="hero"><div class="container page-intro"><p class="eyebrow">Search</p><h1>Search veteran resources.</h1><p class="lead">Search by problem, county or resource type. Try housing, VA claim, DD214, jobs, women veterans or Sevier County.</p></div></section>
+  <section class="hero"><div class="container page-intro"><p class="eyebrow">Search</p><h1>Search veteran resources.</h1><p class="lead">Search by problem, county or resource type. Try DD214, VSO, housing risk, VA claim, Mountain Home VA, job help, legal aid, women veterans or caregiver.</p></div></section>
   <section class="section">
     <div class="container">
       <form class="search-form" role="search">
         <label class="sr-only" for="site-search">What do you need help with?</label>
         <input id="site-search" type="search" placeholder="What do you need help with?" autocomplete="off" data-site-search>
         <button class="button" type="submit">Search</button>
-      </form>
+      </form><div class="suggested-searches" aria-label="Suggested searches"><strong>Suggested searches:</strong> <a href="/search?q=DD214">DD214</a><a href="/search?q=VSO">VSO</a><a href="/search?q=housing+risk">housing risk</a><a href="/search?q=VA+claim">VA claim</a><a href="/search?q=Mountain+Home+VA">Mountain Home VA</a><a href="/search?q=Sevier+County+VSO">Sevier County VSO</a><a href="/search?q=Knox+County+VSO">Knox County VSO</a><a href="/search?q=job+help">job help</a><a href="/search?q=legal+aid">legal aid</a><a href="/search?q=women+veterans">women veterans</a><a href="/search?q=caregiver">caregiver</a></div>
       <div class="filter-row">
         <select data-category-filter aria-label="Category"><option value="">All categories</option></select>
         <select data-county-filter aria-label="County"><option value="">All counties</option></select>
@@ -48,8 +48,8 @@
       <div class="checkbox-row"><label><input type="checkbox" data-official-filter> Official source only</label></div>
       <p class="small" aria-live="polite" data-result-count></p>
       <div class="empty-state" hidden data-empty>
-        <strong>No match found.</strong> Try a broader word like housing, claim, jobs, crisis or county name.
-        <p>If this is urgent, do not wait on search. Call 911 for immediate danger. For veteran crisis support, call 988, then press 1, or text 838255.</p>
+        <strong>No match found.</strong> Try a simpler phrase like DD214, VSO, housing, jobs, legal aid or Mountain Home VA.
+        <p>Try one of these: <a href="/toolkits">toolkits</a>, <a href="/find-my-next-step">Find My Next Step</a>, or <a href="/resources">Resources</a>. For immediate danger, call 911. For veteran crisis support, call 988 then press 1 or text 838255.</p>
       </div>
       <div data-results></div>
     </div>

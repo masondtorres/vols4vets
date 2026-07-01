@@ -74,7 +74,7 @@
 3. Submit `https://www.vols4vets.com/sitemap.xml` in Google Search Console.
 4. Request removal of stale unrelated utility URLs in Search Console if they still appear. Use `docs/search-console-cleanup.md`.
 5. Add Google Search Console verification meta tag in each page head or use DNS verification.
-6. Add GA4 only after a property is created and approved.
+6. Add GA4 only after a property is created and enabled.
 7. Create or claim Google Business Profile for Vols4Vets LLC in Sevierville.
 8. Add service area: Sevierville, Sevier County, Knoxville, Gatlinburg, Pigeon Forge and East Tennessee.
 9. Add categories carefully. Use veteran organization, veterans affairs related service or community service where available.
