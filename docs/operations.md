@@ -29,17 +29,17 @@
 - Most used page:
 - Most searched topic:
 - Top local need:
-- New partners verified:
+- New public resources verified:
 - Known gaps:
 - Next month's focus:
 
 ## Analytics Scorecard
 
-Total users; organic search users; homepage clicks to triage tool; triage starts; triage completions; top selected problem; outbound clicks to official resources; correction requests; broken links; most visited page; pages with no traffic; top search query; top county page; email subscribers; email open rate; partner replies; pages updated in last 30 days.
+Total users; organic search users; homepage clicks to triage tool; triage starts; triage completions; top selected problem; outbound clicks to official resources; correction requests; broken links; most visited page; pages with no traffic; top search query; top county page; email subscribers; email open rate; resource replies; pages updated in last 30 days.
 
 ## Roles
 
-Mason: final decision maker, voice and trust standard, high-risk content approval, partner calls, monthly update note, sponsor approval.
+Mason: final decision maker, voice and trust standard, high-risk content approval, resource calls, monthly update note, sponsor review.
 
 Jen: family resource review, women veteran and caregiver pages, local accuracy checks, email review, community tone check.
 

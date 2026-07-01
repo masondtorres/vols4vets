@@ -20,7 +20,7 @@ Run this checklist monthly before updating local office pages or submitting site
 
 - Review correction requests and update only after verifying against an official source.
 - Keep warnings against sending Social Security numbers, claim numbers, DD214s, medical records, legal papers, passwords or private case details to Vols4Vets.
-- Re-scan for unsafe claims such as guaranteed, approved, official partner, legal advice or medical advice.
+- Re-scan for unsafe claims such as outcome promises, endorsement language, claims filing, legal advice or medical advice.
 
 ## Search and Indexing
 

@@ -24,7 +24,7 @@ Subject: Quick public-info check for a veteran resource listing
 
 Hello,
 
-We are checking public resource details for Vols4Vets. We are not asking for an endorsement or partnership. We want to avoid sending veterans to outdated phone numbers or wrong doors.
+We are checking public resource details for Vols4Vets. We are not asking for an endorsement or affiliation. We want to avoid sending veterans to outdated phone numbers or wrong doors.
 
 Can you confirm your public contact information, who qualifies, county or city served, any costs, whether appointments are required and what a veteran should bring?
 

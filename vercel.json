@@ -3,92 +3,367 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/about", "destination": "/about.html" },
-    { "source": "/services", "destination": "/services.html" },
-    { "source": "/resources", "destination": "/resources.html" },
-    { "source": "/events", "destination": "/events.html" },
-    { "source": "/contact", "destination": "/contact.html" },
-    { "source": "/resources-crisis-support", "destination": "/resources-crisis-support.html" },
-    { "source": "/resources-va-benefits-healthcare", "destination": "/resources-va-benefits-healthcare.html" },
-    { "source": "/resources-jobs-training", "destination": "/resources-jobs-training.html" },
-    { "source": "/resources-travel-tickets", "destination": "/resources-travel-tickets.html" },
-    { "source": "/resources-discounts-deals", "destination": "/resources-discounts-deals.html" },
-    { "source": "/resources-banking-insurance", "destination": "/resources-banking-insurance.html" },
-    { "source": "/resources-housing-legal", "destination": "/resources-housing-legal.html" },
-    { "source": "/resources-family-support", "destination": "/resources-family-support.html" },
-    { "source": "/resources-east-tennessee", "destination": "/resources-east-tennessee.html" },
-    { "source": "/resources-national-global", "destination": "/resources-national-global.html" },
-    { "source": "/resources-state-benefits", "destination": "/resources-state-benefits.html" },
-    { "source": "/resources-education", "destination": "/resources-education.html" },
-    { "source": "/resources-business-entrepreneurship", "destination": "/resources-business-entrepreneurship.html" },
-    { "source": "/resources-disability-caregiver", "destination": "/resources-disability-caregiver.html" },
-    { "source": "/resources-women-veterans", "destination": "/resources-women-veterans.html" },
-    { "source": "/resources-retirees", "destination": "/resources-retirees.html" },
-    { "source": "/resources-east-tennessee-discounts", "destination": "/resources-east-tennessee-discounts.html" },
-    { "source": "/resources-veteran-owned-businesses", "destination": "/resources-veteran-owned-businesses.html" },
-    { "source": "/search", "destination": "/search.html" },
-    { "source": "/find-my-next-step", "destination": "/find-my-next-step.html" },
-    { "source": "/verification-policy", "destination": "/verification-policy.html" },
-    { "source": "/correction-request", "destination": "/correction-request.html" },
-    { "source": "/privacy-safety", "destination": "/privacy-safety.html" },
-    { "source": "/partner-sponsor-policy", "destination": "/partner-sponsor-policy.html" },
-    { "source": "/no-claims-representation", "destination": "/no-claims-representation.html" },
-    { "source": "/crisis-emergency-disclaimer", "destination": "/crisis-emergency-disclaimer.html" },
-    { "source": "/monthly-update-log", "destination": "/monthly-update-log.html" },
-    { "source": "/east-tennessee-veteran-resources", "destination": "/east-tennessee-veteran-resources.html" },
-    { "source": "/sevierville-veteran-resources", "destination": "/sevierville-veteran-resources.html" },
-    { "source": "/sevier-county-veteran-resources", "destination": "/sevier-county-veteran-resources.html" },
-    { "source": "/knoxville-veteran-resources", "destination": "/knoxville-veteran-resources.html" },
-    { "source": "/knox-county-veteran-resources", "destination": "/knox-county-veteran-resources.html" },
-    { "source": "/mountain-home-va-guide", "destination": "/mountain-home-va-guide.html" },
-    { "source": "/tennessee-va-benefits-help", "destination": "/tennessee-va-benefits-help.html" },
-    { "source": "/start-va-disability-claim", "destination": "/start-va-disability-claim.html" },
-    { "source": "/what-to-bring-vso", "destination": "/what-to-bring-vso.html" },
-    { "source": "/replace-dd214", "destination": "/replace-dd214.html" },
-    { "source": "/homeless-veteran-help-east-tennessee", "destination": "/homeless-veteran-help-east-tennessee.html" },
-    { "source": "/veteran-job-help-east-tennessee", "destination": "/veteran-job-help-east-tennessee.html" },
-    { "source": "/veteran-legal-aid-east-tennessee", "destination": "/veteran-legal-aid-east-tennessee.html" },
-    { "source": "/women-veterans-east-tennessee", "destination": "/women-veterans-east-tennessee.html" },
-    { "source": "/military-family-caregiver-help", "destination": "/military-family-caregiver-help.html" },
-    { "source": "/sevier-county-veteran-service-office-guide", "destination": "/sevier-county-veteran-service-office-guide.html" },
-    { "source": "/knox-county-veteran-service-office-guide", "destination": "/knox-county-veteran-service-office-guide.html" },
-    { "source": "/mountain-home-va-location-checklist", "destination": "/mountain-home-va-location-checklist.html" },
-    { "source": "/american-job-center-east-tennessee-veterans", "destination": "/american-job-center-east-tennessee-veterans.html" },
-    { "source": "/legal-aid-east-tennessee-veterans-guide", "destination": "/legal-aid-east-tennessee-veterans-guide.html" },
-    { "source": "/tennessee-department-veterans-services-guide", "destination": "/tennessee-department-veterans-services-guide.html" },
-    { "source": "/removed-utility-content", "destination": "/removed-utility-content.html" }
+    {
+      "source": "/about",
+      "destination": "/about.html"
+    },
+    {
+      "source": "/services",
+      "destination": "/services.html"
+    },
+    {
+      "source": "/resources",
+      "destination": "/resources.html"
+    },
+    {
+      "source": "/events",
+      "destination": "/events.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact.html"
+    },
+    {
+      "source": "/resources-crisis-support",
+      "destination": "/resources-crisis-support.html"
+    },
+    {
+      "source": "/resources-va-benefits-healthcare",
+      "destination": "/resources-va-benefits-healthcare.html"
+    },
+    {
+      "source": "/resources-jobs-training",
+      "destination": "/resources-jobs-training.html"
+    },
+    {
+      "source": "/resources-travel-tickets",
+      "destination": "/resources-travel-tickets.html"
+    },
+    {
+      "source": "/resources-discounts-deals",
+      "destination": "/resources-discounts-deals.html"
+    },
+    {
+      "source": "/resources-banking-insurance",
+      "destination": "/resources-banking-insurance.html"
+    },
+    {
+      "source": "/resources-housing-legal",
+      "destination": "/resources-housing-legal.html"
+    },
+    {
+      "source": "/resources-family-support",
+      "destination": "/resources-family-support.html"
+    },
+    {
+      "source": "/resources-east-tennessee",
+      "destination": "/resources-east-tennessee.html"
+    },
+    {
+      "source": "/resources-national-global",
+      "destination": "/resources-national-global.html"
+    },
+    {
+      "source": "/resources-state-benefits",
+      "destination": "/resources-state-benefits.html"
+    },
+    {
+      "source": "/resources-education",
+      "destination": "/resources-education.html"
+    },
+    {
+      "source": "/resources-business-entrepreneurship",
+      "destination": "/resources-business-entrepreneurship.html"
+    },
+    {
+      "source": "/resources-disability-caregiver",
+      "destination": "/resources-disability-caregiver.html"
+    },
+    {
+      "source": "/resources-women-veterans",
+      "destination": "/resources-women-veterans.html"
+    },
+    {
+      "source": "/resources-retirees",
+      "destination": "/resources-retirees.html"
+    },
+    {
+      "source": "/resources-east-tennessee-discounts",
+      "destination": "/resources-east-tennessee-discounts.html"
+    },
+    {
+      "source": "/resources-veteran-owned-businesses",
+      "destination": "/resources-veteran-owned-businesses.html"
+    },
+    {
+      "source": "/search",
+      "destination": "/search.html"
+    },
+    {
+      "source": "/find-my-next-step",
+      "destination": "/find-my-next-step.html"
+    },
+    {
+      "source": "/verification-policy",
+      "destination": "/verification-policy.html"
+    },
+    {
+      "source": "/correction-request",
+      "destination": "/correction-request.html"
+    },
+    {
+      "source": "/privacy-safety",
+      "destination": "/privacy-safety.html"
+    },
+    {
+      "source": "/partner-sponsor-policy",
+      "destination": "/partner-sponsor-policy.html"
+    },
+    {
+      "source": "/no-claims-representation",
+      "destination": "/no-claims-representation.html"
+    },
+    {
+      "source": "/crisis-emergency-disclaimer",
+      "destination": "/crisis-emergency-disclaimer.html"
+    },
+    {
+      "source": "/monthly-update-log",
+      "destination": "/monthly-update-log.html"
+    },
+    {
+      "source": "/east-tennessee-veteran-resources",
+      "destination": "/east-tennessee-veteran-resources.html"
+    },
+    {
+      "source": "/sevierville-veteran-resources",
+      "destination": "/sevierville-veteran-resources.html"
+    },
+    {
+      "source": "/sevier-county-veteran-resources",
+      "destination": "/sevier-county-veteran-resources.html"
+    },
+    {
+      "source": "/knoxville-veteran-resources",
+      "destination": "/knoxville-veteran-resources.html"
+    },
+    {
+      "source": "/knox-county-veteran-resources",
+      "destination": "/knox-county-veteran-resources.html"
+    },
+    {
+      "source": "/mountain-home-va-guide",
+      "destination": "/mountain-home-va-guide.html"
+    },
+    {
+      "source": "/tennessee-va-benefits-help",
+      "destination": "/tennessee-va-benefits-help.html"
+    },
+    {
+      "source": "/start-va-disability-claim",
+      "destination": "/start-va-disability-claim.html"
+    },
+    {
+      "source": "/what-to-bring-vso",
+      "destination": "/what-to-bring-vso.html"
+    },
+    {
+      "source": "/replace-dd214",
+      "destination": "/replace-dd214.html"
+    },
+    {
+      "source": "/homeless-veteran-help-east-tennessee",
+      "destination": "/homeless-veteran-help-east-tennessee.html"
+    },
+    {
+      "source": "/veteran-job-help-east-tennessee",
+      "destination": "/veteran-job-help-east-tennessee.html"
+    },
+    {
+      "source": "/veteran-legal-aid-east-tennessee",
+      "destination": "/veteran-legal-aid-east-tennessee.html"
+    },
+    {
+      "source": "/women-veterans-east-tennessee",
+      "destination": "/women-veterans-east-tennessee.html"
+    },
+    {
+      "source": "/military-family-caregiver-help",
+      "destination": "/military-family-caregiver-help.html"
+    },
+    {
+      "source": "/sevier-county-veteran-service-office-guide",
+      "destination": "/sevier-county-veteran-service-office-guide.html"
+    },
+    {
+      "source": "/knox-county-veteran-service-office-guide",
+      "destination": "/knox-county-veteran-service-office-guide.html"
+    },
+    {
+      "source": "/mountain-home-va-location-checklist",
+      "destination": "/mountain-home-va-location-checklist.html"
+    },
+    {
+      "source": "/american-job-center-east-tennessee-veterans",
+      "destination": "/american-job-center-east-tennessee-veterans.html"
+    },
+    {
+      "source": "/legal-aid-east-tennessee-veterans-guide",
+      "destination": "/legal-aid-east-tennessee-veterans-guide.html"
+    },
+    {
+      "source": "/tennessee-department-veterans-services-guide",
+      "destination": "/tennessee-department-veterans-services-guide.html"
+    },
+    {
+      "source": "/toolkits",
+      "destination": "/toolkits.html"
+    },
+    {
+      "source": "/va-claim-starter-checklist",
+      "destination": "/va-claim-starter-checklist.html"
+    },
+    {
+      "source": "/housing-risk-action-checklist",
+      "destination": "/housing-risk-action-checklist.html"
+    },
+    {
+      "source": "/veteran-job-search-starter-kit",
+      "destination": "/veteran-job-search-starter-kit.html"
+    },
+    {
+      "source": "/dd214-replacement-checklist",
+      "destination": "/dd214-replacement-checklist.html"
+    },
+    {
+      "source": "/vso-appointment-packet",
+      "destination": "/vso-appointment-packet.html"
+    },
+    {
+      "source": "/mountain-home-va-appointment-prep",
+      "destination": "/mountain-home-va-appointment-prep.html"
+    },
+    {
+      "source": "/legal-aid-deadline-checklist",
+      "destination": "/legal-aid-deadline-checklist.html"
+    },
+    {
+      "source": "/women-veterans-official-support-checklist",
+      "destination": "/women-veterans-official-support-checklist.html"
+    },
+    {
+      "source": "/family-caregiver-support-checklist",
+      "destination": "/family-caregiver-support-checklist.html"
+    },
+    {
+      "source": "/tennessee-benefits-checklist",
+      "destination": "/tennessee-benefits-checklist.html"
+    },
+    {
+      "source": "/county-office-call-script",
+      "destination": "/county-office-call-script.html"
+    },
+    {
+      "source": "/how-vols4vets-stays-current",
+      "destination": "/how-vols4vets-stays-current.html"
+    },
+    {
+      "source": "/community-guidelines",
+      "destination": "/community-guidelines.html"
+    },
+    {
+      "source": "/resource-submission-guidelines",
+      "destination": "/resource-submission-guidelines.html"
+    },
+    {
+      "source": "/removed-utility-content",
+      "destination": "/removed-utility-content.html"
+    }
   ],
   "redirects": [
-    { "source": "/screen-flashlight", "destination": "/removed-utility-content", "permanent": false },
-    { "source": "/dvd-screensaver", "destination": "/removed-utility-content", "permanent": false },
-    { "source": "/glitch-screen", "destination": "/removed-utility-content", "permanent": false },
-    { "source": "/guides/how-to-clean-your-screen-safely", "destination": "/removed-utility-content", "permanent": false },
-    { "source": "/guides/how-to-use-a-white-screen-for-video-calls", "destination": "/removed-utility-content", "permanent": false },
-    { "source": "/guides/dead-pixel-vs-stuck-pixel", "destination": "/removed-utility-content", "permanent": false },
-    { "source": "/guides/best-screen-colors-for-focus", "destination": "/removed-utility-content", "permanent": false },
-    { "source": "/guides/how-to-check-backlight-bleed", "destination": "/removed-utility-content", "permanent": false }
+    {
+      "source": "/screen-flashlight",
+      "destination": "/removed-utility-content",
+      "permanent": false
+    },
+    {
+      "source": "/dvd-screensaver",
+      "destination": "/removed-utility-content",
+      "permanent": false
+    },
+    {
+      "source": "/glitch-screen",
+      "destination": "/removed-utility-content",
+      "permanent": false
+    },
+    {
+      "source": "/guides/how-to-clean-your-screen-safely",
+      "destination": "/removed-utility-content",
+      "permanent": false
+    },
+    {
+      "source": "/guides/how-to-use-a-white-screen-for-video-calls",
+      "destination": "/removed-utility-content",
+      "permanent": false
+    },
+    {
+      "source": "/guides/dead-pixel-vs-stuck-pixel",
+      "destination": "/removed-utility-content",
+      "permanent": false
+    },
+    {
+      "source": "/guides/best-screen-colors-for-focus",
+      "destination": "/removed-utility-content",
+      "permanent": false
+    },
+    {
+      "source": "/guides/how-to-check-backlight-bleed",
+      "destination": "/removed-utility-content",
+      "permanent": false
+    }
   ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
-        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" },
-        { "key": "X-Robots-Tag", "value": "index, follow" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        },
+        {
+          "key": "X-Robots-Tag",
+          "value": "index, follow"
+        }
       ]
     },
     {
       "source": "/components/(.*)",
       "headers": [
-        { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
       ]
     },
     {
       "source": "/removed-utility-content",
       "headers": [
-        { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
       ]
     }
   ]
