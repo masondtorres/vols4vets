@@ -9,7 +9,8 @@
   function render(item){
     var url=item.url||'#';
     var note=item.eastTnNote?'<p class="small"><strong>East TN note:</strong> '+safe(item.eastTnNote)+'</p>':'';
-    var meta='<div class="result-meta"><span>'+safe(item.category)+'</span><span>'+safe(item.county)+'</span><span>'+safe(item.audience)+'</span>'+(item.official?'<span>Official source</span>':'')+(item.sourceType?'<span>'+safe(item.sourceType)+'</span>':'')+'<span>Last checked '+safe(item.lastVerified||item.lastChecked)+'</span></div>';
+    var checked=item.lastVerified||item.lastChecked;
+    var meta='<div class="result-meta"><span>'+safe(item.category)+'</span><span>'+safe(item.county)+'</span><span>'+safe(item.audience)+'</span>'+(item.official?'<span>Official source</span>':'')+(item.sourceType?'<span>'+safe(item.sourceType)+'</span>':'')+(checked?'<span>Last checked '+safe(checked)+'</span>':'')+'</div>';
     return '<article class="result-card"><h2>'+safe(item.title)+'</h2><p>'+safe(item.purpose||item.description)+'</p>'+note+meta+'<a class="button" href="'+safe(url)+'"'+(external(url)?' target="_blank" rel="noopener noreferrer"':'')+'>'+(item.category==='Urgent help'?'Start here':'View resource')+'</a></article>';
   }
   document.addEventListener('DOMContentLoaded',function(){
