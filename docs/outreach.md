@@ -12,7 +12,7 @@ Hello,
 
 Vols4Vets is updating a plain-language veteran resource guide for East Tennessee. We are not asking for an endorsement. We only want to verify public information so veterans and families start in the right place.
 
-Can you confirm the best public phone number, website, hours, service area, appointment rules and what documents a veteran should bring?
+Can you confirm the public phone number, website, hours, service area, appointment rules and what documents a veteran should bring?
 
 Please do not send private case details, Social Security numbers, claim numbers, DD214s or medical records.
 

@@ -45,6 +45,11 @@
     { "source": "/start-va-disability-claim", "destination": "/start-va-disability-claim.html" },
     { "source": "/what-to-bring-vso", "destination": "/what-to-bring-vso.html" },
     { "source": "/replace-dd214", "destination": "/replace-dd214.html" },
+    { "source": "/homeless-veteran-help-east-tennessee", "destination": "/homeless-veteran-help-east-tennessee.html" },
+    { "source": "/veteran-job-help-east-tennessee", "destination": "/veteran-job-help-east-tennessee.html" },
+    { "source": "/veteran-legal-aid-east-tennessee", "destination": "/veteran-legal-aid-east-tennessee.html" },
+    { "source": "/women-veterans-east-tennessee", "destination": "/women-veterans-east-tennessee.html" },
+    { "source": "/military-family-caregiver-help", "destination": "/military-family-caregiver-help.html" },
     { "source": "/removed-utility-content", "destination": "/removed-utility-content.html" }
   ],
   "redirects": [
