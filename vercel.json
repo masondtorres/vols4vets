@@ -292,6 +292,14 @@
       "destination": "/feedback-guidelines.html"
     },
     {
+      "source": "/most-used",
+      "destination": "/most-used.html"
+    },
+    {
+      "source": "/report-broken-link",
+      "destination": "/report-broken-link.html"
+    },
+    {
       "source": "/removed-utility-content",
       "destination": "/removed-utility-content.html"
     }

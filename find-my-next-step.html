@@ -20,15 +20,14 @@
     <button class="nav-toggle" type="button" aria-controls="main-nav" aria-expanded="false" data-nav-toggle>Menu</button>
     <nav id="main-nav" class="main-nav" aria-label="Main navigation">
       <a href="/">Home</a>
-      <a class="nav-cta" href="/find-my-next-step">Find My Next Step</a>
       <a href="/search">Search</a>
-      <a href="/resources">Resources</a>
-      <a href="/resources-crisis-support">Urgent Help</a>
-      <a href="/resources-east-tennessee">East Tennessee</a>
+      <a href="/resources">All Paths</a>
+      <a href="/most-used">Most Used</a>
       <a href="/about">About</a>
     </nav>
   </div>
 </header>
+
 
 <main id="main">
   <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span>Find My Next Step</span></nav>
@@ -36,6 +35,14 @@
   <section class="section">
     <div class="container triage-shell">
       <form data-triage-form>
+        <div class="notice"><strong>Example plan:</strong>
+          <ol>
+            <li>Call or contact the first listed resource.</li>
+            <li>Gather these items before you call.</li>
+            <li>Avoid this common mistake.</li>
+            <li>Save or print this plan before you close the page.</li>
+          </ol>
+        </div>
         <p class="notice"><strong>Pick the closest answer.</strong> This does not submit anything.</p>
         <fieldset class="question-card">
           <legend><span class="progress-label">Question 1 of 5</span><strong>What is the main issue?</strong></legend>
@@ -106,7 +113,7 @@
       <noscript><div class="container noscript-fallback"><strong>JavaScript is turned off.</strong> The action-plan result cannot be generated here, but you can still use <a href="/toolkits">Toolkits</a>, <a href="/resources">Resources</a> and <a href="/search">Search</a>. If there is immediate danger, call 911. For veteran crisis support, call 988 then press 1 or text 838255.</div></noscript>
       <div>
         <div class="danger-box"><strong>Safety first.</strong> Call 911 if there is immediate danger. For veteran crisis support, call 988 then press 1 or text 838255. Vols4Vets does not monitor emergencies.</div>
-        <div class="result-block" data-triage-result><h2>Your action plan will appear here.</h2><p>Choose the options that fit your situation. This tool gives starting points only. It does not diagnose, file claims, give legal advice, give medical advice or contact any office for you.</p><p class="small">Saved paths stay in this browser on this device. They are not sent to Vols4Vets.</p></div>
+        <div class="result-block" data-triage-result><h2>Your action plan will appear here.</h2><p>Choose the options that fit your situation. This tool gives starting points only. It does not diagnose, file claims, give legal advice, give medical advice or contact any office for you.</p><p class="small"><strong>Privacy:</strong> This plan stays in this browser on this device. It is not sent to Vols4Vets.</p></div>
       </div>
     </div>
   </section>
@@ -118,12 +125,13 @@
         <a class="brand" href="/"><img class="brand-mark" src="/vols4vets-original-patch.webp" alt="" width="34" height="34"><span>Vols4Vets</span></a>
         <p>Independent veteran resource routing from Sevierville, Tennessee. Vols4Vets is not the VA, not a crisis line, not a law firm, not a medical provider, not an emergency service and not an accredited claims representative.</p>
       </div>
-      <div><h3>Start</h3><ul class="footer-links"><li><a href="/resources">Resources</a></li><li><a href="/resources-crisis-support">Urgent Help</a></li><li><a href="/find-my-next-step">Find My Next Step</a></li><li><a href="/search">Search</a></li><li><a href="/about">About</a></li></ul></div>
-      <div><h3>Trust</h3><ul class="footer-links"><li><a href="/verification-policy">Verification Policy</a></li><li><a href="/correction-request">Correction Request</a></li><li><a href="/privacy-safety">Privacy and Safety</a></li><li><a href="/partner-sponsor-policy">Partner and Sponsor Policy</a></li><li><a href="/no-claims-representation">No Claims Representation</a></li><li><a href="/crisis-emergency-disclaimer">Crisis and Emergency Disclaimer</a></li><li><a href="/monthly-update-log">Monthly Update Log</a></li></ul></div>
+      <div><h3>Start</h3><ul class="footer-links"><li><a href="/">Home</a></li><li><a href="/search">Search</a></li><li><a href="/resources">All Paths</a></li><li><a href="/most-used">Most Used</a></li><li><a href="/find-my-next-step">Find My Next Step</a></li><li><a href="/about">About</a></li></ul></div>
+      <div><h3>Trust and feedback</h3><ul class="footer-links"><li><a href="/privacy-safety">Privacy</a></li><li><a href="/verification-policy">Verification Policy</a></li><li><a href="/feedback-guidelines">Feedback Guidelines</a></li><li><a href="/report-broken-link">Report a Broken Link</a></li><li><a href="/correction-request">Correction Request</a></li><li><a href="/about#contact">Contact</a></li></ul></div>
     </div>
     <div class="footer-bottom">&copy; 2026 Vols4Vets LLC. Verify current information directly with each official source before you drive, apply, call or send records.</div>
   </div>
 </footer>
+
 
 </body>
 </html>
