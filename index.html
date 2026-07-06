@@ -3,125 +3,51 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Vols4Vets | Honoring Service</title>
-  <meta name="description" content="Vols4Vets is an East Tennessee-built veteran resource router with national reach for benefits, records, housing, work, discounts, VA offices and verified steps.">
+  <title>Vols4Vets.com | Vols4Vets</title>
+  <meta name="description" content="Living companion site for the Vols4Vets Veteran Resource Guide.">
   <link rel="canonical" href="https://www.vols4vets.com/">
-  <meta name="theme-color" content="#FF8200">
   <link rel="stylesheet" href="/main.css">
-  <style>
-    .home-brand-lockup{display:grid;justify-items:start;gap:.75rem;margin-bottom:1.15rem}
-    .home-brand-logo{width:116px;height:116px;object-fit:contain;filter:drop-shadow(0 12px 24px rgba(88,89,91,.18))}
-    .home-brand-title{margin:0;color:var(--smoky-dark);font-size:clamp(2.15rem,5vw,3.9rem);letter-spacing:-.035em;line-height:1.05}
-    .home-brand-kicker{margin:0;color:var(--orange-dark);font-weight:900;letter-spacing:.08em;text-transform:uppercase;font-size:.86rem}
-    .home-brand-subline{margin:.45rem 0 0;color:#3d464d;font-size:clamp(1.03rem,2vw,1.22rem);max-width:760px}
-    .home-landing-hero{padding-top:3.2rem}
-    .trust-line{margin-top:1rem}
-    @media(max-width:560px){.home-brand-logo{width:92px;height:92px}.home-brand-title{font-size:2.15rem}.home-brand-kicker{font-size:.76rem}.home-landing-hero{padding-top:2.2rem}}
-  </style>
-  <script defer src="/resources-data.js"></script>
+  <script defer src="/book-resources-data.js"></script>
   <script defer src="/site.js"></script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Vols4Vets","url":"https://www.vols4vets.com/","description":"East Tennessee-built veteran resource router with national reach for veterans, service members, families and caregivers."}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Vols4Vets","url":"https://www.vols4vets.com/","description":"Independent veteran resource routing. Vols4Vets is not the VA and does not provide crisis, legal, medical or claims representation services."}</script>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to main content</a>
-  <div class="crisis-bar">Veteran in crisis or worried about one? Call <a href="tel:988">988</a>, then press 1. Text <a href="sms:838255">838255</a>. If there is immediate danger, call <a href="tel:911">911</a>.</div>
-  <header class="site-header">
-    <div class="nav-wrap">
-      <a class="brand" href="/"><img class="brand-mark" src="/vols4vets-original-patch.webp" alt="" width="52" height="52"><span>Vols4Vets</span><small>Honoring service. East Tennessee roots. National reach.</small></a>
-      <button class="nav-toggle" type="button" aria-controls="main-nav" aria-expanded="false" data-nav-toggle>Menu</button>
-      <nav id="main-nav" class="main-nav" aria-label="Main navigation">
-        <a href="/">Home</a>
-        <a class="nav-cta" href="/find-my-next-step">Find Your Next Step</a>
-        <a href="/resources-crisis-support">Crisis</a>
-        <a href="/toolkits">Toolkits</a>
-        <a href="/resources">National Resources</a>
-        <a href="/about">About</a>
-      </nav>
-    </div>
-  </header>
-
-  <main id="main">
-    <section class="hero router-hero home-landing-hero">
-      <div class="container page-intro">
-        <div class="home-brand-lockup">
-          <img class="home-brand-logo" src="/vols4vets-original-patch.webp" width="1024" height="1024" alt="Vols4Vets Honor Serve Support patch">
-          <p class="home-brand-kicker">Vols4Vets</p>
-          <h1 class="home-brand-title">Honoring service. East Tennessee roots. National reach.</h1>
-        </div>
-        <p class="home-brand-subline">Direct paths to benefits, records, housing, work, discounts, VA offices and verified steps.</p>
-        <p class="trust-line"><a href="/about">Built in Sevierville by veterans.</a> Independent. Not the VA.</p>
-      </div>
-    </section>
-
-    <section class="section next-step-section">
-      <div class="container">
-        <div class="next-step-panel">
-          <div>
-            <p class="eyebrow">Start here</p>
-            <h2>Answer five questions. Get the right path.</h2>
-            <p>No account. No private records. Nothing leaves your device.</p>
-          </div>
-          <a class="button button-large" href="/find-my-next-step">Find your next step</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section search-strip">
-      <div class="container">
-        <form action="/search" method="get" class="search-form home-search" role="search">
-          <label class="sr-only" for="home-search">Search veteran resources</label>
-          <input id="home-search" name="q" type="search" placeholder="Search by benefit, record, office, county, state or keyword.">
-          <button class="button" type="submit">Search</button>
-        </form>
-      </div>
-    </section>
-
-    <section id="quick-paths" class="section section-soft">
-      <div class="container">
-        <div class="section-heading"><p class="eyebrow">Quick paths</p><h2>Choose the right door.</h2></div>
-        <div class="grid grid-3 route-grid">
-          <article class="card route-card card-critical"><span class="route-icon" aria-hidden="true">!</span><h3>Crisis resources</h3><p>Private crisis lines and immediate safety contacts.</p><a class="button" href="/resources-crisis-support">Open crisis resources</a></article>
-          <article class="card route-card"><span class="route-icon" aria-hidden="true">VA</span><h3>VA benefits and records</h3><p>Claims, DD214, disability, health care and official VA paths.</p><a class="button" href="/tennessee-va-benefits-help">Start VA path</a></article>
-          <article class="card route-card"><span class="route-icon" aria-hidden="true">⌂</span><h3>Housing options</h3><p>Housing contacts, VA programs, rent, shelter and legal starting points.</p><a class="button" href="/homeless-veteran-help-east-tennessee">Find housing options</a></article>
-          <article class="card route-card"><span class="route-icon" aria-hidden="true">↗</span><h3>Employment and training</h3><p>Jobs, resumes, training, certifications and workforce help.</p><a class="button" href="/veteran-job-help-east-tennessee">Open work path</a></article>
-          <article class="card route-card card-local"><span class="route-icon" aria-hidden="true">$</span><h3>Discounts and Veterans Day</h3><p>Military discounts, Veterans Day offers, travel savings and local deals.</p><a class="button" href="/resources-discounts-deals">Find discounts</a></article>
-          <article class="card route-card"><span class="route-icon" aria-hidden="true">⌖</span><h3>VA offices</h3><p>VA medical centers, clinics, Vet Centers and regional offices by area.</p><a class="button" href="/search?q=VA%20office">Find a VA office</a></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-compact">
-      <div class="container">
-        <div class="section-heading"><p class="eyebrow">Fast wins</p><h2>Useful checklists without the runaround.</h2></div>
-        <div class="fast-wins">
-          <a class="link-item" href="/tennessee-va-benefits-help">VA Claim Starter Checklist</a>
-          <a class="link-item" href="/homeless-veteran-help-east-tennessee">Housing Risk Action Checklist</a>
-          <a class="link-item" href="/veteran-job-help-east-tennessee">Veteran Job Search Starter Kit</a>
-          <a class="link-item" href="/replace-a-dd214">DD214 Replacement Checklist</a>
-          <a class="link-item" href="/what-to-bring-to-a-vso">County Office Call Script</a>
-          <a class="link-item all-toolkits" href="/toolkits">All toolkits</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-soft">
-      <div class="container split">
-        <div class="notice"><h2>Why this exists</h2><p>Veterans gave what was asked. They should not waste time hunting through scattered systems. Vols4Vets points straight to official sources and verified steps. Start here in East Tennessee. Use it anywhere.</p></div>
-        <div class="notice smoky-note"><h2>Built in Sevierville</h2><p>East Tennessee is home. The standard respects service nationwide.</p></div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div><a class="brand" href="/"><img class="brand-mark" src="/vols4vets-original-patch.webp" alt="" width="34" height="34"><span>Vols4Vets</span></a><p>Vols4Vets | Honoring service. East Tennessee roots. National reach.</p></div>
-        <div><h3>Start</h3><ul class="footer-links"><li><a href="/">Home</a></li><li><a href="/resources-crisis-support">Crisis</a></li><li><a href="/toolkits">Toolkits</a></li><li><a href="/resources">National Resources</a></li><li><a href="/about">About</a></li></ul></div>
-        <div><h3>More routes</h3><ul class="footer-links"><li><a href="/search">Search</a></li><li><a href="/most-used">Most Used</a></li><li><a href="/resources-discounts-deals">Discounts</a></li><li><a href="/find-my-next-step">Find Your Next Step</a></li><li><a href="/privacy-safety">Privacy and Safety</a></li></ul></div>
-      </div>
-      <div class="footer-bottom">&copy; 2026 Vols4Vets LLC. Verify current information directly with each official source before you drive, apply, call or send records.</div>
-    </div>
-  </footer>
+<a class="skip-link" href="#main">Skip to main content</a>
+<div class="crisis-bar">Veteran in crisis or worried about one? Call <a href="tel:988">988</a>, then press 1. Text <a href="sms:838255">838255</a>. If there is immediate danger, call <a href="tel:911">911</a>.</div>
+<header class="site-header">
+  <div class="nav-wrap">
+    <a class="brand" href="/"><img class="brand-mark" src="/vols4vets-original-patch.webp" alt="" width="34" height="34"><span>Vols4Vets</span></a>
+    <button class="nav-toggle" type="button" aria-controls="main-nav" aria-expanded="false" data-nav-toggle>Menu</button>
+    <nav id="main-nav" class="main-nav" aria-label="Main navigation">
+      <a href="/">Home</a>
+      <a class="nav-cta" href="/find-my-next-step">Find My Next Step</a>
+      <a href="/search">Search</a>
+      <a href="/resources">Resources</a>
+      <a href="/sections/start-here-when-it-is-urgent">Browse by Section</a>
+      <a href="/about">About</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+  <section class="hero router-hero home-landing-hero"><div class="container page-intro">
+    <p class="eyebrow">Vols4Vets.com</p>
+    <h1>Current links and local details for the Vols4Vets Veteran Resource Guide.</h1>
+    <p class="lead">The printed book gives the stable path. Vols4Vets.com keeps phone numbers, dates, resource links and East Tennessee details easier to check.</p>
+    <p class="trust-line">Independent. Official sources first. Not the VA.</p>
+  </div></section>
+  <section class="section next-step-section"><div class="container"><div class="next-step-panel"><div><p class="eyebrow">Start here</p><h2>Need a clear first move?</h2><p>Use the book companion pages to choose the right official source before you call, drive, apply or send records.</p></div><a class="button button-large" href="/find-my-next-step">Find my starting point</a></div></div></section>
+  <section class="section search-strip"><div class="container"><form action="/search" method="get" class="search-form home-search" role="search"><label class="sr-only" for="home-search">Search resources</label><input id="home-search" name="q" type="search" placeholder="Search crisis, DD214, VA.gov, caregivers, discounts, East Tennessee or records"><button class="button" type="submit">Search resources</button></form></div></section>
+  <section class="section section-soft"><div class="container"><div class="section-heading"><p class="eyebrow">Clear paths</p><h2>Pick the lane that matches today.</h2></div><div class="grid grid-3 route-grid">
+    <article class="card route-card card-critical"><span class="route-icon" aria-hidden="true">!</span><h3>Urgent help</h3><p>Crisis, homelessness, emergency communication and cannot-wait needs.</p><a class="button" href="/sections/start-here-when-it-is-urgent">Start urgent help</a></article>
+    <article class="card route-card"><span class="route-icon" aria-hidden="true">?</span><h3>Find my starting point</h3><p>Answer a few questions and get a practical next path.</p><a class="button" href="/find-my-next-step">Open the tool</a></article>
+    <article class="card route-card"><span class="route-icon" aria-hidden="true">#</span><h3>Browse by section</h3><p>Use the book structure to find the update page for your chapter.</p><a class="button" href="/sections/start-here-when-it-is-urgent">Browse sections</a></article>
+    <article class="card route-card card-local"><span class="route-icon" aria-hidden="true">ET</span><h3>East Tennessee</h3><p>Sevier County, the Smokies, clinics, offices, local help and local offers.</p><a class="button" href="/sections/east-tennessee-and-the-smokies">Open East Tennessee</a></article>
+    <article class="card route-card"><span class="route-icon" aria-hidden="true">$</span><h3>Discounts and travel</h3><p>Verify military discounts, travel, parks, tickets and Veterans Day offers.</p><a class="button" href="/sections/discounts-travel-parks-recreation-and-veterans-day-deals">Open discounts</a></article>
+    <article class="card route-card"><span class="route-icon" aria-hidden="true">VA</span><h3>Records and VA starting points</h3><p>VA.gov, DD214, enrollment, claims starting points and official caution.</p><a class="button" href="/records-dd214-and-account-access">Start with records</a></article>
+    <article class="card route-card"><span class="route-icon" aria-hidden="true">F</span><h3>Family and caregivers</h3><p>Support for spouses, caregivers, survivors and Gold Star families.</p><a class="button" href="/sections/family-caregivers-survivors-and-gold-star-families">Open family help</a></article>
+  </div></div></section>
+  <section class="section"><div class="container"><div class="section-heading"><p class="eyebrow">Book sections</p><h2>All 11 companion sections.</h2></div><div class="grid grid-3 compact-links"><a class="link-item" href="/sections/start-here-when-it-is-urgent">Start Here When It Is Urgent<span>Someone needs help now and does not know which first door is safe.</span></a><a class="link-item" href="/sections/active-duty-guard-and-reserve">Active Duty, Guard and Reserve<span>The person is still serving and needs help before discharge, during PCS, deployment or family strain.</span></a><a class="link-item" href="/sections/transitioning-out">Transitioning Out<span>The clock is running and missed steps can create avoidable problems.</span></a><a class="link-item" href="/sections/veterans">Veterans<span>The person already left service and needs a clean route into benefits, care, jobs or records.</span></a><a class="link-item" href="/sections/retired-military">Retired Military<span>The person finished a military career and needs pay, health coverage and family paperwork.</span></a><a class="link-item" href="/sections/family-caregivers-survivors-and-gold-star-families">Family, Caregivers, Survivors and Gold Star Families<span>The household needs help and the veteran may not be the one making the call.</span></a><a class="link-item" href="/sections/housing-money-legal-starting-points-and-state-benefits">Housing, Money, Legal Starting Points and State Benefits<span>The person needs help before housing, debt, paperwork or state benefit questions become worse.</span></a><a class="link-item" href="/sections/jobs-school-training-and-business">Jobs, School, Training and Business<span>The person wants work, school, training or a business path that starts in the right place.</span></a><a class="link-item" href="/sections/discounts-travel-parks-recreation-and-veterans-day-deals">Discounts, Travel, Parks, Recreation and Veterans Day Deals<span>The person wants savings without stale lists and fine-print surprises.</span></a><a class="link-item" href="/sections/overseas-oconus-and-returning-home">Overseas, OCONUS and Returning Home<span>The person is outside the United States or coming home and needs the right route back into the system.</span></a><a class="link-item" href="/sections/east-tennessee-and-the-smokies">East Tennessee and the Smokies<span>The national guide keeps its local roots and gives East Tennessee readers a safe local starting point.</span></a></div></div></section>
+  <section class="cta-band"><div class="container split"><div><h2>Use official sources before you act.</h2><p>Vols4Vets.com helps you find the right door. The official source controls the rule, form, deadline and decision.</p></div><div class="actions"><a class="button" href="/resources-crisis-support">Urgent help</a><a class="button button-secondary" href="/search">Search resources</a></div></div></section>
+</main>
+<footer class="site-footer"><div class="container"><div class="footer-grid"><div><a class="brand" href="/"><img class="brand-mark" src="/vols4vets-original-patch.webp" alt="" width="34" height="34"><span>Vols4Vets</span></a><p>Independent veteran resource routing. Vols4Vets is not the VA, not a crisis line, not a law firm, not a medical provider, not a benefits office and not an accredited claims representative.</p></div><div><h3>Start</h3><ul class="footer-links"><li><a href="/">Home</a></li><li><a href="/search">Search</a></li><li><a href="/resources">Resources</a></li><li><a href="/find-my-next-step">Find My Next Step</a></li></ul></div><div><h3>Trust</h3><ul class="footer-links"><li><a href="/verification-policy">Verification Policy</a></li><li><a href="/privacy-safety">Privacy and Safety</a></li><li><a href="/no-claims-representation">No Claims Representation</a></li><li><a href="/report-broken-link">Report a Broken Link</a></li></ul></div></div><div class="footer-bottom">&copy; 2026 Vols4Vets LLC. Verify current information directly with each official source before you drive, apply, call or send records.</div></div></footer>
 </body>
 </html>

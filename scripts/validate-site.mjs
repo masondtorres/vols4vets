@@ -8,7 +8,18 @@ const fail = [];
 const vercel = JSON.parse(read('vercel.json'));
 const sitemap = read('sitemap.xml');
 const resourcesData = read('resources-data.js');
-const htmlFiles = fs.readdirSync(root).filter((file) => file.endsWith('.html'));
+function listHtmlFiles(dir = root, prefix = '') {
+  return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+    const full = path.join(dir, entry.name);
+    const rel = path.join(prefix, entry.name).replace(/\\/g, '/');
+    if (entry.isDirectory()) {
+      if (entry.name.startsWith('.') || entry.name === 'node_modules' || entry.name === 'components') return [];
+      return listHtmlFiles(full, rel);
+    }
+    return entry.isFile() && entry.name.endsWith('.html') ? [rel] : [];
+  });
+}
+const htmlFiles = listHtmlFiles();
 const routes = new Map();
 for (const file of htmlFiles) routes.set('/' + file.replace(/\.html$/, '').replace(/^index$/, ''), file);
 routes.set('/', 'index.html');
