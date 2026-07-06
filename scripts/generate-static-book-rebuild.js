@@ -232,11 +232,24 @@ function bookDataFile(sections, chapters, resources) {
 
 function homepage(sections) {
   const sectionLinks = sections.map((section) => `<a class="link-item" href="${sectionRoute(section)}">${escapeHtml(section.title)}<span>${escapeHtml(clean(section.description))}</span></a>`).join('');
+  const homeStyles = `<style>
+    .home-brand-lockup{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:1.15rem;margin-bottom:1rem}
+    .home-brand-logo{width:clamp(72px,10vw,116px);height:auto;filter:drop-shadow(0 10px 18px rgba(88,89,91,.18))}
+    .home-brand-title{margin:.1rem 0 .35rem;font-size:clamp(3rem,8vw,5.8rem);line-height:.92;color:var(--smoky-dark)}
+    .home-brand-kicker{margin:0;color:var(--orange);font-size:.86rem;font-weight:900;letter-spacing:0;text-transform:uppercase}
+    .home-brand-subline{max-width:760px;margin:0 auto 1rem;color:var(--smoky-dark);font-size:clamp(1.08rem,2.2vw,1.35rem);font-weight:800;line-height:1.45}
+    .home-purpose-line{max-width:700px;margin:0 auto;color:var(--muted);font-size:1.02rem}
+    .home-landing-hero{background:linear-gradient(180deg,#fff 0%,#fff7ef 58%,#f4f6f8 100%)}
+    @media(max-width:640px){.home-brand-lockup{grid-template-columns:1fr;text-align:center}.home-brand-logo{margin:0 auto}.home-brand-title{font-size:3.25rem}}
+  </style>`;
   const main = `<main id="main">
   <section class="hero router-hero home-landing-hero"><div class="container page-intro">
-    <p class="eyebrow">Vols4Vets.com</p>
-    <h1>Current links and local details for the Vols4Vets Veteran Resource Guide.</h1>
-    <p class="lead">The printed book gives the stable path. Vols4Vets.com keeps phone numbers, dates, resource links and East Tennessee details easier to check.</p>
+    <div class="home-brand-lockup">
+      <img class="home-brand-logo" src="/vols4vets-original-patch.webp" alt="Vols4Vets Honor Serve Support patch" width="116" height="116">
+      <div><p class="home-brand-kicker">Living companion site</p><h1 class="home-brand-title">Vols4Vets.com</h1></div>
+    </div>
+    <p class="home-brand-subline">East Tennessee roots. National reach. Current links, phone numbers and local details for the Vols4Vets Veteran Resource Guide.</p>
+    <p class="home-purpose-line">The printed book gives the stable path. This site keeps source checks, dates, resource links and chapter updates easier to verify.</p>
     <p class="trust-line">Independent. Official sources first. Not the VA.</p>
   </div></section>
   <section class="section next-step-section"><div class="container"><div class="next-step-panel"><div><p class="eyebrow">Start here</p><h2>Need a clear first move?</h2><p>Use the book companion pages to choose the right official source before you call, drive, apply or send records.</p></div><a class="button button-large" href="/find-my-next-step">Find my starting point</a></div></div></section>
@@ -253,7 +266,7 @@ function homepage(sections) {
   <section class="section"><div class="container"><div class="section-heading"><p class="eyebrow">Book sections</p><h2>All 11 companion sections.</h2></div><div class="grid grid-3 compact-links">${sectionLinks}</div></div></section>
   <section class="cta-band"><div class="container split"><div><h2>Use official sources before you act.</h2><p>Vols4Vets.com helps you find the right door. The official source controls the rule, form, deadline and decision.</p></div><div class="actions"><a class="button" href="/resources-crisis-support">Urgent help</a><a class="button button-secondary" href="/search">Search resources</a></div></div></section>
 </main>`;
-  return layout({ title: 'Vols4Vets.com', description: 'Living companion site for the Vols4Vets Veteran Resource Guide.', route: '/', main, extraHead: '<script defer src="/book-resources-data.js"></script>' });
+  return layout({ title: 'Vols4Vets.com', description: 'Living companion site for the Vols4Vets Veteran Resource Guide.', route: '/', main, extraHead: `${homeStyles}\n  <script defer src="/book-resources-data.js"></script>` });
 }
 
 function insertBookSectionIntoResources(html, sections, resources) {
@@ -263,7 +276,8 @@ function insertBookSectionIntoResources(html, sections, resources) {
     const category = clean(resource.sectionTitle).includes('Discounts') ? 'discounts-travel-local-offers' : 'book-companion';
     const url = resourceUrl(resource);
     const official = isHttpUrl(url) ? `<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(url)}</a>` : escapeHtml(url || 'Check the official source for the current page');
-    return `<article class="card" data-resource-card data-counties="${county}" data-category="${category}"><h3>${escapeHtml(resourceTitle(resource))}</h3><p>${escapeHtml(clean(resource['Best use'] || resource['Best first step']))}</p><p class="small"><strong>Phone:</strong> ${escapeHtml(resourcePhone(resource))}</p><p class="small"><strong>Official website:</strong> ${official}</p><p class="small"><strong>Date checked:</strong> ${escapeHtml(clean(resource['Date checked']))}</p><a href="/${escapeHtml(resource.chapterSlug)}">Open chapter page</a></article>`;
+    const safety = clean(resource['Safety note']);
+    return `<article class="card" data-resource-card data-counties="${county}" data-category="${category}"><h3>${escapeHtml(resourceTitle(resource))}</h3><p>${escapeHtml(clean(resource['Best use'] || resource['Best first step']))}</p><p class="small"><strong>Phone:</strong> ${escapeHtml(resourcePhone(resource))}</p><p class="small"><strong>Official website:</strong> ${official}</p><p class="small"><strong>Date checked:</strong> ${escapeHtml(clean(resource['Date checked']))}</p>${safety ? `<p class="small"><strong>Safety note:</strong> ${escapeHtml(safety)}</p>` : ''}<a href="/${escapeHtml(resource.chapterSlug)}">Open chapter page</a></article>`;
   }).join('');
   const block = `<section class="section" data-resource-group>
     <div class="container">
