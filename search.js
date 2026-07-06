@@ -10,11 +10,17 @@
     var url=item.url||'#';
     var note=item.eastTnNote?'<p class="small"><strong>East TN note:</strong> '+safe(item.eastTnNote)+'</p>':'';
     var checked=item.lastVerified||item.lastChecked;
+    var visibleUrl=item.officialUrl||(/^https?:\/\//.test(url)?url:'');
+    var phone=item.phone&&item.phone!=='No phone'?'<p class="small"><strong>Phone:</strong> '+safe(item.phone)+'</p>':'';
+    var officialUrl=visibleUrl?'<p class="small"><strong>Official website:</strong> <a href="'+safe(visibleUrl)+'" target="_blank" rel="noopener noreferrer">'+safe(visibleUrl)+'</a></p>':'';
+    var officialNote=item.officialWebsiteNote?'<p class="small"><strong>Official website:</strong> '+safe(item.officialWebsiteNote)+'</p>':'';
+    var safety=item.safetyNote?'<p class="small"><strong>Safety note:</strong> '+safe(item.safetyNote)+'</p>':'';
+    var chapter=item.chapterPath?'<p class="small"><a href="'+safe(item.chapterPath)+'">Open related chapter update page</a></p>':'';
     var meta='<div class="result-meta"><span>'+safe(item.category)+'</span><span>'+safe(item.county)+'</span><span>'+safe(item.audience)+'</span>'+(item.official?'<span>Official source</span>':'')+(item.sourceType?'<span>'+safe(item.sourceType)+'</span>':'')+(checked?'<span>Last checked '+safe(checked)+'</span>':'')+'</div>';
-    return '<article class="result-card"><h2>'+safe(item.title)+'</h2><p>'+safe(item.purpose||item.description)+'</p>'+note+meta+'<a class="button" href="'+safe(url)+'"'+(external(url)?' target="_blank" rel="noopener noreferrer"':'')+'>'+(item.category==='Urgent help'?'Start here':'View resource')+'</a></article>';
+    return '<article class="result-card"><h2>'+safe(item.title)+'</h2><p>'+safe(item.purpose||item.description)+'</p>'+note+phone+officialUrl+officialNote+safety+chapter+meta+'<a class="button" href="'+safe(url)+'"'+(external(url)?' target="_blank" rel="noopener noreferrer"':'')+'>'+(item.category==='Urgent help'?'Start here':'View resource')+'</a></article>';
   }
   document.addEventListener('DOMContentLoaded',function(){
-    var data=window.VOLS4VETS_RESOURCES||[];
+    var data=(window.VOLS4VETS_RESOURCES||[]).concat(window.VOLS4VETS_BOOK_RESOURCES||[]);
     var input=document.querySelector('[data-site-search]');
     var results=document.querySelector('[data-results]');
     if(!input||!results){return;}
