@@ -383,11 +383,20 @@
       ]
     },
     {
-      "source": "/(.*)\\.(css|js|woff2|webp|svg|jpg|jpeg|png)",
+      "source": "/(.*)\\.(woff2|webp|svg|jpg|jpeg|png)",
       "headers": [
         {
           "key": "Cache-Control",
           "value": "public, max-age=604800, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)\\.(css|js)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=300, must-revalidate"
         }
       ]
     }
