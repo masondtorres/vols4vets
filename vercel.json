@@ -298,44 +298,88 @@
   ],
   "redirects": [
     {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "vols4vets.com"
+        }
+      ],
+      "destination": "https://www.vols4vets.com/",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "vols4vets.com"
+        }
+      ],
+      "destination": "https://www.vols4vets.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "vols4vets.vercel.app"
+        }
+      ],
+      "destination": "https://www.vols4vets.com/",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "vols4vets.vercel.app"
+        }
+      ],
+      "destination": "https://www.vols4vets.com/:path*",
+      "permanent": true
+    },
+    {
       "source": "/screen-flashlight",
       "destination": "/removed-utility-content",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/dvd-screensaver",
       "destination": "/removed-utility-content",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/glitch-screen",
       "destination": "/removed-utility-content",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/guides/how-to-clean-your-screen-safely",
       "destination": "/removed-utility-content",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/guides/how-to-use-a-white-screen-for-video-calls",
       "destination": "/removed-utility-content",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/guides/dead-pixel-vs-stuck-pixel",
       "destination": "/removed-utility-content",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/guides/best-screen-colors-for-focus",
       "destination": "/removed-utility-content",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/guides/how-to-check-backlight-bleed",
       "destination": "/removed-utility-content",
-      "permanent": false
+      "permanent": true
     }
   ],
   "headers": [
@@ -359,8 +403,8 @@
           "value": "camera=(), microphone=(), geolocation=()"
         },
         {
-          "key": "X-Robots-Tag",
-          "value": "index, follow"
+          "key": "Strict-Transport-Security",
+          "value": "max-age=31536000; includeSubDomains"
         }
       ]
     },
@@ -397,6 +441,24 @@
         {
           "key": "Cache-Control",
           "value": "public, max-age=300, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/404",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/404.html",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
         }
       ]
     }

@@ -19,7 +19,7 @@ CRISIS_HEADER = '''<a class="skip-link" href="#main">Skip to main content</a>
 <header class="site-header">
   <div class="nav-wrap">
     <a class="brand" href="/">
-      <img class="brand-mark" src="/brand-mark.webp" alt="" width="46" height="46">
+      <img class="brand-mark" src="/brand-mark.webp" alt="Vols4Vets" width="46" height="46">
       <span class="brand-text"><span class="brand-name">Vols4Vets</span><span class="brand-tag">Veteran Resource Guide</span></span>
     </a>
     <form class="header-search" action="/search" method="get" role="search">
@@ -45,7 +45,7 @@ FOOTER = '''<footer class="site-footer">
     <div class="footer-grid">
       <div>
         <a class="brand" href="/">
-          <img class="brand-mark" src="/brand-mark.webp" alt="" width="46" height="46">
+          <img class="brand-mark" src="/brand-mark.webp" alt="Vols4Vets" width="46" height="46">
           <span class="brand-text"><span class="brand-name">Vols4Vets</span><span class="brand-tag">Veteran Resource Guide</span></span>
         </a>
         <p>Independent veteran resource routing from Sevierville, Tennessee. Vols4Vets is not the VA, not a crisis line, not a law firm, not a medical provider, not a benefits office and not an accredited claims representative.</p>
