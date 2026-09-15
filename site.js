@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function syncAskGrok() {
       var existing = triageResult.querySelector('[data-ask-grok-wrap]');
-      if (existing) existing.remove();
+      if (existing) return;
       if (!triageResult.querySelector('.action-plan-print')) return;
 
       var issue = selectedValue('issue');
