@@ -93,4 +93,51 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
   }
+
+  var triageForm = document.querySelector('[data-triage-form]');
+  var triageResult = document.querySelector('[data-triage-result]');
+  if (triageForm && triageResult) {
+    function selectedValue(name) {
+      var input = triageForm.querySelector('[name="' + name + '"]:checked');
+      return input ? input.value : '';
+    }
+
+    function syncAskGrok() {
+      var existing = triageResult.querySelector('[data-ask-grok-wrap]');
+      if (existing) existing.remove();
+      if (!triageResult.querySelector('.action-plan-print')) return;
+
+      var issue = selectedValue('issue');
+      var locationValue = selectedValue('location');
+      var urgency = selectedValue('urgency');
+      var goal = selectedValue('goal');
+      if (!issue || !locationValue || !urgency || !goal) return;
+      if (/crisis|danger/i.test(issue) || urgency === 'Immediate danger') return;
+
+      var wrap = document.createElement('div');
+      wrap.className = 'no-print';
+      wrap.setAttribute('data-ask-grok-wrap', '');
+      wrap.innerHTML = '<div class="notice"><strong>Want a second opinion?</strong> Ask Grok opens in a new tab with only these four choices: issue, location, urgency and goal. It does not send your documents, checklist items, saved records or anything you typed elsewhere. AI can be wrong; verify rules, phone numbers, eligibility and deadlines with the official source.</div><div class="tool-actions"><button class="button button-secondary" type="button" data-ask-grok>Ask Grok about this plan</button></div>';
+      var actions = triageResult.querySelector('.tool-actions');
+      if (actions && actions.parentNode) actions.parentNode.insertBefore(wrap, actions.nextSibling);
+      else triageResult.appendChild(wrap);
+
+      var askButton = wrap.querySelector('[data-ask-grok]');
+      askButton.addEventListener('click', function () {
+        var prompt = [
+          'I used the Vols4Vets Find My Next Step tool and want a second opinion on the safest next move.',
+          'Issue: ' + issue + '.',
+          'Location: ' + locationValue + '.',
+          'Urgency: ' + urgency + '.',
+          'Goal: ' + goal + '.',
+          'Use current official government, VA, state, county, or accredited-provider sources for any factual claim. Distinguish confirmed facts from suggestions. Do not invent phone numbers, office hours, deadlines, eligibility rules, benefits, medical advice, or legal advice. Prefer direct official-source links. Keep the answer concise and give no more than five next actions. If the situation may actually be an emergency or crisis, stop general guidance and tell me to call 911 for immediate danger or contact the Veterans Crisis Line at 988 then press 1 or text 838255.'
+        ].join('\n');
+        window.open('https://grok.com/?q=' + encodeURIComponent(prompt), '_blank', 'noopener,noreferrer');
+      });
+    }
+
+    var observer = new MutationObserver(syncAskGrok);
+    observer.observe(triageResult, { childList: true, subtree: true });
+    syncAskGrok();
+  }
 });
