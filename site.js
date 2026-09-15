@@ -1,6 +1,13 @@
 document.addEventListener('DOMContentLoaded',function(){
   var current=location.pathname.replace(/\/$/,'').replace(/\.html$/,'')||'/';
   var nav=document.getElementById('main-nav');
+  if(nav){
+    nav.querySelectorAll('a[href="/sections/start-here-when-it-is-urgent"]').forEach(function(link){
+      if((link.textContent||'').replace(/\s+/g,' ').trim()==='Browse by Section'){
+        link.setAttribute('href','/sections');
+      }
+    });
+  }
 
   if(current==='/'&&!document.getElementById('homepage-visual-finish')){
     var visual=document.createElement('style');
