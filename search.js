@@ -132,7 +132,13 @@
         return matchesFilters(item, q.toLowerCase(), category.value, county.value, audience.value, urgent.checked, official.checked);
       });
       filtered.sort(function(a,b){return score(b, parsed)-score(a, parsed);});
-      return filtered;
+      var seen={};
+      return filtered.filter(function(item){
+        var key=((item.officialUrl||item.url||'')+'|'+item.title).toLowerCase();
+        if(seen[key]) return false;
+        seen[key]=true;
+        return true;
+      });
     }
     function apply(resetPage){
       if(resetPage) shown=PAGE;
