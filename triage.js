@@ -71,7 +71,7 @@
   function renderPlan(plan,answers){
     var related=mergeLinks(plan.related,locationLinks(answers.location));
     var official=plan.official;
-    if (answers.location === 'Outside Tennessee') {
+    if (answers.location === 'Outside Tennessee' && answers.urgency !== 'Immediate danger' && planKey(answers.issue) !== 'crisis') {
       if (planKey(answers.issue) === 'jobs') {
         official=[['U.S. Department of Labor American Job Center finder','https://www.careeronestop.org/LocalHelp/AmericanJobCenters/american-job-centers.aspx']];
       } else if (planKey(answers.issue) === 'local') {
