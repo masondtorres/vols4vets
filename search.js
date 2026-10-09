@@ -21,7 +21,7 @@
   function unique(values){return Array.from(new Set(values.filter(Boolean))).sort();}
   function option(value){return '<option value="'+value+'">'+value+'</option>';}
   function external(url){return /^https?:\/\//.test(url);}
-  function safe(value){return String(value||'').replace(/[&<>"']/g,function(char){return {'&':'&','<':'<','>':'>','"':'"',"'":'&#39;'}[char];});}
+  function safe(value){return String(value||'').replace(/[&<>"']/g,function(char){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char];});}
   function normalize(value){
     return String(value||'').toLowerCase()
       .replace(/dd[-\s]?214/g,'dd214')

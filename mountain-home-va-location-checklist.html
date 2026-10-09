@@ -15,7 +15,7 @@
   <meta property="og:image" content="https://www.vols4vets.com/og-card.jpg">
   <meta name="theme-color" content="#16302a">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="stylesheet" href="/main.css?v=20260915-ux2">
+  <link rel="stylesheet" href="/main.css?v=20261009-needs">
   <script defer src="/site.js"></script>
 </head>
 <body>
@@ -38,17 +38,35 @@
     </a>
     <form class="header-search" action="/search" method="get" role="search">
       <label class="sr-only" for="nav-search">Search resources</label>
-      <input id="nav-search" name="q" type="search" placeholder="Search DD214, VA, housing, jobs…">
+      <input id="nav-search" name="q" type="search" placeholder="Search DD214, VA, housing, jobs…" autocomplete="off">
       <button type="submit">Search</button>
     </form>
     <button class="nav-toggle" type="button" aria-controls="main-nav" aria-expanded="false" data-nav-toggle>Menu</button>
     <nav id="main-nav" class="main-nav" aria-label="Main navigation">
-      <a href="/find-my-next-step">Start</a>
-      <a href="/search">Search</a>
-      <a href="/resources">Resources</a>
-      <a href="/sections">Book sections</a>
+      <a href="/resources#needs">Help</a>
+      <a href="/sections/start-here-when-it-is-urgent">Urgent</a>
       <a href="/sections/east-tennessee-and-the-smokies">East Tennessee</a>
+      <a href="/sections">Book</a>
       <a href="/about">About</a>
+      <div class="nav-needs">
+        <p class="nav-needs-label" id="nav-needs-label">Help by need</p>
+        <a href="/sections/start-here-when-it-is-urgent">Emergency</a>
+        <a href="/resources-va-benefits-healthcare">VA benefits and claims</a>
+        <a href="/health-care-enrollment-and-va-locations">Healthcare</a>
+        <a href="/housing-help-before-it-becomes-a-crisis">Housing</a>
+        <a href="/resources-jobs-training">Jobs</a>
+        <a href="/education-gi-bill-vrande-and-training">Education</a>
+        <a href="/sections/family-caregivers-survivors-and-gold-star-families">Military families</a>
+        <a href="/caregivers-and-the-va-caregiver-path">Caregivers</a>
+        <a href="/survivors-dependents-and-gold-star-families">Survivors</a>
+        <a href="/money-debt-taxes-and-consumer-protection">Money</a>
+        <a href="/legal-help-without-guessing">Legal</a>
+        <a href="/sections/east-tennessee-and-the-smokies">Local services</a>
+        <a href="/sections/discounts-travel-parks-recreation-and-veterans-day-deals">Discounts</a>
+        <a href="/sections/transitioning-out">After leaving service</a>
+        <a href="/search">Search all pages</a>
+        <a href="/suggest-a-resource">Suggest a resource</a>
+      </div>
       <a class="nav-cta" href="/find-my-next-step">Find my next step</a>
     </nav>
   </div>
@@ -86,7 +104,7 @@
         <ul class="footer-links">
           <li><a href="/find-my-next-step">Find my next step</a></li>
           <li><a href="/search">Search</a></li>
-          <li><a href="/resources">Resources</a></li>
+          <li><a href="/resources#needs">Help by need</a></li>
           <li><a href="/sections">Book sections</a></li>
           <li><a href="/sections/start-here-when-it-is-urgent">Urgent help</a></li>
         </ul>
@@ -104,10 +122,12 @@
       <div>
         <h3>Trust</h3>
         <ul class="footer-links">
+          <li><a href="/suggest-a-resource">Suggest a resource</a></li>
+          <li><a href="/partner-sponsor-policy">Sponsorship</a></li>
           <li><a href="/verification-policy">Verification policy</a></li>
           <li><a href="/privacy-safety">Privacy and safety</a></li>
           <li><a href="/no-claims-representation">No claims representation</a></li>
-          <li><a href="/correction-request">Correction request</a></li>
+          <li><a href="/correction-request">Report incorrect information</a></li>
           <li><a href="/monthly-update-log">Monthly update log</a></li>
           <li><a href="/crisis-emergency-disclaimer">Crisis disclaimer</a></li>
         </ul>

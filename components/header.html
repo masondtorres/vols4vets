@@ -17,17 +17,35 @@
     </a>
     <form class="header-search" action="/search" method="get" role="search">
       <label class="sr-only" for="nav-search">Search resources</label>
-      <input id="nav-search" name="q" type="search" placeholder="Search DD214, VA, housing, jobs…">
+      <input id="nav-search" name="q" type="search" placeholder="Search DD214, VA, housing, jobs…" autocomplete="off">
       <button type="submit">Search</button>
     </form>
     <button class="nav-toggle" type="button" aria-controls="main-nav" aria-expanded="false" data-nav-toggle>Menu</button>
     <nav id="main-nav" class="main-nav" aria-label="Main navigation">
-      <a href="/find-my-next-step">Start</a>
-      <a href="/search">Search</a>
-      <a href="/resources">Resources</a>
-      <a href="/sections">Book sections</a>
+      <a href="/resources#needs">Help</a>
+      <a href="/sections/start-here-when-it-is-urgent">Urgent</a>
       <a href="/sections/east-tennessee-and-the-smokies">East Tennessee</a>
+      <a href="/sections">Book</a>
       <a href="/about">About</a>
+      <div class="nav-needs">
+        <p class="nav-needs-label" id="nav-needs-label">Help by need</p>
+        <a href="/sections/start-here-when-it-is-urgent">Emergency</a>
+        <a href="/resources-va-benefits-healthcare">VA benefits and claims</a>
+        <a href="/health-care-enrollment-and-va-locations">Healthcare</a>
+        <a href="/housing-help-before-it-becomes-a-crisis">Housing</a>
+        <a href="/resources-jobs-training">Jobs</a>
+        <a href="/education-gi-bill-vrande-and-training">Education</a>
+        <a href="/sections/family-caregivers-survivors-and-gold-star-families">Military families</a>
+        <a href="/caregivers-and-the-va-caregiver-path">Caregivers</a>
+        <a href="/survivors-dependents-and-gold-star-families">Survivors</a>
+        <a href="/money-debt-taxes-and-consumer-protection">Money</a>
+        <a href="/legal-help-without-guessing">Legal</a>
+        <a href="/sections/east-tennessee-and-the-smokies">Local services</a>
+        <a href="/sections/discounts-travel-parks-recreation-and-veterans-day-deals">Discounts</a>
+        <a href="/sections/transitioning-out">After leaving service</a>
+        <a href="/search">Search all pages</a>
+        <a href="/suggest-a-resource">Suggest a resource</a>
+      </div>
       <a class="nav-cta" href="/find-my-next-step">Find my next step</a>
     </nav>
   </div>
