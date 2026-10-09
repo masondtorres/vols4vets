@@ -36,7 +36,7 @@ const good = {
 };
 
 const ok = validate(good, { now, startedAt: now - 5000 });
-check('valid free resource', ok.ok && ok.packet.status === 'pending-review' && ok.packet.published === false && ok.packet.listingLane === 'free-verified');
+check('valid free resource', ok.ok && ok.packet.status === 'draft-not-sent' && ok.packet.published === false && ok.packet.listingLane === 'free-verified');
 
 const ssn = validate(Object.assign({}, good, { publicNotes: 'SSN 123-45-6789' }), { now, startedAt: now - 5000 });
 check('rejects SSN', !ssn.ok);
@@ -52,7 +52,7 @@ const accredited = validate(Object.assign({}, good, {
   claimsRelated: 'yes',
   claimsAccreditation: 'VA accredited attorney, confirm on the VA accreditation search'
 }), { now, startedAt: now - 5000 });
-check('holds accredited claims interest unpublished', accredited.ok && accredited.packet.status === 'pending-review' && accredited.packet.sponsorRelationship === 'interest-only-not-paid');
+check('holds accredited claims interest unpublished', accredited.ok && accredited.packet.status === 'draft-not-sent' && accredited.packet.sponsorRelationship === 'interest-only-not-paid');
 
 const bot = validate(Object.assign({}, good, { honeypot: 'https://spam.example' }), { now, startedAt: now - 5000 });
 check('rejects honeypot', !bot.ok);

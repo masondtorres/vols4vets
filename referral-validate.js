@@ -80,7 +80,7 @@
     });
 
     var packet = {
-      status: 'pending-review',
+      status: 'draft-not-sent',
       published: false,
       listingLane: lane,
       resourceName: organizationName,

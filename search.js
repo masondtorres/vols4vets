@@ -19,7 +19,7 @@
     return [item.title,item.description,item.purpose,item.eastTnNote,item.category,item.county,item.state,item.audience,(item.tags||[]).join(' '),item.phone,item.sourceType].join(' ').toLowerCase();
   }
   function unique(values){return Array.from(new Set(values.filter(Boolean))).sort();}
-  function option(value){return '<option value="'+value+'">'+value+'</option>';}
+  function option(value){return '<option value="'+safe(value)+'">'+safe(value)+'</option>';}
   function external(url){return /^https?:\/\//.test(url);}
   function safe(value){return String(value||'').replace(/[&<>"']/g,function(char){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char];});}
   function normalize(value){

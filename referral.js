@@ -70,7 +70,7 @@
         attested: field(form, 'attested')
       }, { now: now, startedAt: startedAt });
 
-      if (limit.limited) outcome.errors.push('This browser already sent three suggestions in the past hour. Wait and try again, or use the correction page if something already listed is wrong.');
+      if (limit.limited) outcome.errors.push('This browser already prepared three review packets in the past hour. Wait and try again, or use the correction page if something already listed is wrong.');
       if (errors) {
         errors.hidden = outcome.errors.length === 0;
         errors.innerHTML = outcome.errors.length ? '<strong>Fix these before a review packet can be created.</strong><ul>' + outcome.errors.map(function (item) {
@@ -87,24 +87,24 @@
       var ref = reference(now);
       var packet = outcome.packet;
       packet.reference = ref;
-      packet.submittedAt = new Date(now).toISOString();
+      packet.preparedAt = new Date(now).toISOString();
       var pretty = JSON.stringify(packet, null, 2);
       var mail = ['vols4', 'vets', '@', 'gmail', '.', 'com'].join('');
       var body = [
         'Vols4Vets resource suggestion ' + ref,
-        'Status: pending editorial review. Do not publish from this email alone.',
+        'Status: received for review only if this email was actually sent and delivered. Nothing here authorizes publication.',
         '',
         pretty
       ].join('\n');
       if (result) {
         result.hidden = false;
-        result.innerHTML = '<h2>Not published. Pending editorial review.</h2><p>Reference <strong>' + ref + '</strong>. No listing goes live from this form. A person must check the official website, who it serves, cost, licensing, and whether it is a free resource, a community referral, or a clearly labeled sponsorship request.</p><p><a class="button" data-direct-contact href="mailto:' + mail + '?subject=' + encodeURIComponent('Resource suggestion ' + ref) + '&body=' + encodeURIComponent(body) + '">Email this review packet</a></p><label for="referral-packet">Review packet</label><textarea id="referral-packet" readonly rows="14">' + pretty.replace(/[&<>]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]; }) + '</textarea><div class="tool-actions"><button class="button button-secondary" type="button" data-copy-packet>Copy review packet</button></div><p class="small" data-copy-packet-status aria-live="polite"></p><p class="small">Sponsorship interest is not payment and not approval. Claims help still has to be free accredited VSO help or a VA-accredited attorney or claims agent. Emergency pages do not take sponsors.</p>';
+        result.innerHTML = '<h2>Review packet prepared — not sent or published.</h2><p>Reference <strong>' + ref + '</strong>. This page has NOT submitted anything to Vols4Vets. To send your request, tap "Open email draft", then press Send in your email app. You can also copy the packet and send it yourself. This page cannot confirm whether an email is delivered. No listing goes live without editorial review of the official website, service area, costs, licensing, and any commercial relationship.</p><p><a class="button" data-direct-contact href="mailto:' + mail + '?subject=' + encodeURIComponent('Resource suggestion ' + ref) + '&body=' + encodeURIComponent(body) + '">Open email draft</a></p><label for="referral-packet">Review packet</label><textarea id="referral-packet" readonly rows="14">' + pretty.replace(/[&<>]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]; }) + '</textarea><div class="tool-actions"><button class="button button-secondary" type="button" data-copy-packet>Copy review packet</button></div><p class="small" data-copy-packet-status aria-live="polite"></p><p class="small">Sponsorship interest is not payment and not approval. Claims help still has to be free accredited VSO help or a VA-accredited attorney or claims agent. Emergency pages do not take sponsors.</p>';
         var copy = result.querySelector('[data-copy-packet]');
         var status = result.querySelector('[data-copy-packet-status]');
         if (copy) copy.addEventListener('click', function () {
           if (navigator.clipboard) {
             navigator.clipboard.writeText(pretty).then(function () {
-              if (status) status.textContent = 'Copied. Nothing was published.';
+              if (status) status.textContent = 'Copied. Your packet is NOT sent or published.';
             }, function () {
               if (status) status.textContent = 'Select the packet and copy it manually.';
             });
