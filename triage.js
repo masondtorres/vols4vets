@@ -42,7 +42,7 @@
     if (missingDD214 && issueKey === 'claim') {
       extra += '<div class="notice"><strong>No DD214 ready?</strong> VA says it requests your DD214 after receiving a benefits application. You do not need to request one from the National Archives first. Do not postpone a filing or miss a deadline just to obtain it. Ask VA or an accredited representative about your particular claim.</div>';
     } else if (missingDD214 && issueKey === 'records') {
-      steps.unshift('Request a copy of your DD214 or military records through the National Archives eVetRecs service or SF-180. Check the official instructions before sending private details.');
+      steps[0]='Request a copy of your DD214 or military records through the National Archives eVetRecs service or SF-180. Check the official instructions before sending private details.';
     } else if (missingDD214 && issueKey === 'local') {
       extra += '<div class="notice"><strong>No DD214 ready?</strong> Contact your VSO or official office anyway and ask what is required for your specific appointment. Do not postpone asking for help simply because you lack the record.</div>';
     }
