@@ -40,6 +40,8 @@ check('valid free resource', ok.ok && ok.packet.status === 'draft-not-sent' && o
 
 const ssn = validate(Object.assign({}, good, { publicNotes: 'SSN 123-45-6789' }), { now, startedAt: now - 5000 });
 check('rejects SSN', !ssn.ok);
+const ssnPhone = validate(Object.assign({}, good, { contactPhone: '123456789' }), { now, startedAt: now - 5000 });
+check('rejects SSN in phone field', !ssnPhone.ok);
 
 const fast = validate(good, { now, startedAt: now - 500 });
 check('rejects instant submit', !fast.ok);

@@ -70,7 +70,7 @@
       }
     }
 
-    [organizationName, website, serviceOffered, whoItServes, geographicArea, licensing, relationshipDetail, contactName, publicNotes, claimsAccreditation].forEach(function (value) {
+    [organizationName, website, serviceOffered, whoItServes, geographicArea, licensing, relationshipDetail, contactName, contactPhone, publicNotes, claimsAccreditation].forEach(function (value) {
       if (looksSensitive(value)) errors.push('Remove Social Security numbers, claim numbers, medical records, passwords, and document uploads. Vols4Vets does not take private case files.');
     });
 
