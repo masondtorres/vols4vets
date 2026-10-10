@@ -19,9 +19,15 @@
     return [item.title,item.description,item.purpose,item.eastTnNote,item.category,item.county,item.state,item.audience,(item.tags||[]).join(' '),item.phone,item.sourceType].join(' ').toLowerCase();
   }
   function unique(values){return Array.from(new Set(values.filter(Boolean))).sort();}
-  function option(value){return '<option value="'+value+'">'+value+'</option>';}
-  function external(url){return /^https?:\/\//.test(url);}
-  function safe(value){return String(value||'').replace(/[&<>"']/g,function(char){return {'&':'&','<':'<','>':'>','"':'"',"'":'&#39;'}[char];});}
+  function option(value){var text=safe(value);return '<option value="'+text+'">'+text+'</option>';}
+  function external(url){return /^https?:\/\//i.test(url);}
+  function safe(value){return String(value==null?'':value).replace(/[&<>"']/g,function(char){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char];});}
+  function safeUrl(url){
+    var value=String(url||'').replace(/^\s+|\s+$/g,'');
+    if(!/^(https?:\/\/|\/|#)/i.test(value)) return '#';
+    if(/[\u0000-\u001F\u007F\s]/.test(value)) return '#';
+    return safe(value);
+  }
   function normalize(value){
     return String(value||'').toLowerCase()
       .replace(/dd[-\s]?214/g,'dd214')
@@ -92,13 +98,14 @@
     var checked=item.lastVerified||item.lastChecked;
     var visibleUrl=item.officialUrl||(/^https?:\/\//.test(url)?url:'');
     var phone=item.phone&&item.phone!=='No phone'?'<p class="small"><strong>Phone:</strong> '+safe(item.phone)+'</p>':'';
-    var officialUrl=visibleUrl?'<p class="small"><strong>Official website:</strong> <a href="'+safe(visibleUrl)+'" target="_blank" rel="noopener noreferrer">'+safe(visibleUrl)+'</a></p>':'';
+    var officialHref=safeUrl(visibleUrl);
+    var officialUrl=visibleUrl&&officialHref!=='#'?'<p class="small"><strong>Official website:</strong> <a href="'+officialHref+'" target="_blank" rel="noopener noreferrer">'+safe(visibleUrl)+'</a></p>':'';
     var officialNote=item.officialWebsiteNote?'<p class="small"><strong>Official website:</strong> '+safe(item.officialWebsiteNote)+'</p>':'';
     var safety=item.safetyNote?'<p class="small"><strong>Safety note:</strong> '+safe(item.safetyNote)+'</p>':'';
-    var chapter=item.chapterPath?'<p class="small"><a href="'+safe(item.chapterPath)+'">Open related chapter update page</a></p>':'';
+    var chapter=item.chapterPath?'<p class="small"><a href="'+safeUrl(item.chapterPath)+'">Open related chapter update page</a></p>':'';
     var officialBadge=item.official?'<span class="badge-official">Official source</span>':'';
     var meta='<div class="result-meta">'+officialBadge+'<span>'+safe(item.category)+'</span><span>'+safe(item.county)+'</span><span>'+safe(item.audience)+'</span>'+(item.sourceType?'<span>'+safe(item.sourceType)+'</span>':'')+(checked?'<span>Last checked '+safe(checked)+'</span>':'')+'</div>';
-    return '<article class="result-card'+(item.official?' is-official':'')+'"><h2>'+safe(item.title)+'</h2><p>'+safe(item.purpose||item.description)+'</p>'+note+phone+officialUrl+officialNote+safety+chapter+meta+'<a class="button" href="'+safe(url)+'"'+(external(url)?' target="_blank" rel="noopener noreferrer"':'')+'>'+(item.category==='Urgent help'?'Start here':'View resource')+'</a></article>';
+    return '<article class="result-card'+(item.official?' is-official':'')+'"><h2>'+safe(item.title)+'</h2><p>'+safe(item.purpose||item.description)+'</p>'+note+phone+officialUrl+officialNote+safety+chapter+meta+'<a class="button" href="'+safeUrl(url)+'"'+(external(url)?' target="_blank" rel="noopener noreferrer"':'')+'>'+(item.category==='Urgent help'?'Start here':'View resource')+'</a></article>';
   }
   document.addEventListener('DOMContentLoaded',function(){
     var data=(window.VOLS4VETS_RESOURCES||[]).concat(window.VOLS4VETS_BOOK_RESOURCES||[]);
