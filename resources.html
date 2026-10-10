@@ -126,7 +126,9 @@
     </div>
   </section>
 
-  <section class="section"><div class="container"><div class="section-heading"><p class="eyebrow">Most-used toolkits</p><h2>Action plans and printable checklists.</h2></div><div class="grid grid-3"><article class="card"><h3>Find My Next Step</h3><p>Answer five questions and get a starting path.</p><a href="/find-my-next-step">Open tool</a></article><article class="card"><h3>After You Get Your Next Steps</h3><p>Save, call, write down answers and come back if you hit a dead end.</p><a href="/after-you-get-your-next-steps">Open guide</a></article><article class="card"><h3>Site Map</h3><p>Find all major Vols4Vets pages in one place.</p><a href="/site-map">Open site map</a></article><article class="card"><h3>VA Claim Starter Checklist</h3><p>Prepare for official or accredited claim help.</p><a href="/va-claim-starter-checklist">Open checklist</a></article><article class="card"><h3>Housing Risk Action Checklist</h3><p>Urgent first moves for housing instability.</p><a href="/housing-risk-action-checklist">Open checklist</a></article><article class="card"><h3>Veteran Job Search Starter Kit</h3><p>Resume and workforce starting points.</p><a href="/veteran-job-search-starter-kit">Open kit</a></article><article class="card"><h3>DD214 Replacement Checklist</h3><p>Prepare for official records requests.</p><a href="/dd214-replacement-checklist">Open checklist</a></article><article class="card"><h3>VSO Appointment Packet</h3><p>What to bring to an official appointment.</p><a href="/vso-appointment-packet">Open packet</a></article><article class="card"><h3>County Office Call Script</h3><p>Plain language for calling official offices.</p><a href="/county-office-call-script">Open script</a></article><article class="card"><h3>Weekly Updates</h3><p>Email updates are not active yet. Check what future signup may include.</p><a href="/weekly-update-signup">Check status</a></article></div></div></section><section class="section section-soft"><div class="container"><div class="section-heading"><p class="eyebrow">Local office guides</p><h2>Check before you call or drive.</h2></div><div class="grid grid-3 compact-links"><a href="/sevier-county-veteran-service-office-guide">Sevier County VSO Guide</a><a href="/knox-county-veteran-service-office-guide">Knox County VSO Guide</a><a href="/mountain-home-va-location-checklist">Mountain Home VA Location Checklist</a><a href="/tennessee-department-veterans-services-guide">Tennessee Department of Veterans Services Guide</a><a href="/american-job-center-east-tennessee-veterans">American Job Center Guide</a><a href="/legal-aid-east-tennessee-veterans-guide">Legal Aid of East Tennessee Veterans Guide</a></div></div></section><section class="section section-soft" data-resource-group>
+  <details class="aux-resources"><summary class="container">More tools: checklists and local office guides</summary>
+<section class="section"><div class="container"><div class="section-heading"><p class="eyebrow">Most-used toolkits</p><h2>Action plans and printable checklists.</h2></div><div class="grid grid-3"><article class="card"><h3>Find My Next Step</h3><p>Answer five questions and get a starting path.</p><a href="/find-my-next-step">Open tool</a></article><article class="card"><h3>After You Get Your Next Steps</h3><p>Save, call, write down answers and come back if you hit a dead end.</p><a href="/after-you-get-your-next-steps">Open guide</a></article><article class="card"><h3>Site Map</h3><p>Find all major Vols4Vets pages in one place.</p><a href="/site-map">Open site map</a></article><article class="card"><h3>VA Claim Starter Checklist</h3><p>Prepare for official or accredited claim help.</p><a href="/va-claim-starter-checklist">Open checklist</a></article><article class="card"><h3>Housing Risk Action Checklist</h3><p>Urgent first moves for housing instability.</p><a href="/housing-risk-action-checklist">Open checklist</a></article><article class="card"><h3>Veteran Job Search Starter Kit</h3><p>Resume and workforce starting points.</p><a href="/veteran-job-search-starter-kit">Open kit</a></article><article class="card"><h3>DD214 Replacement Checklist</h3><p>Prepare for official records requests.</p><a href="/dd214-replacement-checklist">Open checklist</a></article><article class="card"><h3>VSO Appointment Packet</h3><p>What to bring to an official appointment.</p><a href="/vso-appointment-packet">Open packet</a></article><article class="card"><h3>County Office Call Script</h3><p>Plain language for calling official offices.</p><a href="/county-office-call-script">Open script</a></article><article class="card"><h3>Weekly Updates</h3><p>Email updates are not active yet. Check what future signup may include.</p><a href="/weekly-update-signup">Check status</a></article></div></div></section><section class="section section-soft"><div class="container"><div class="section-heading"><p class="eyebrow">Local office guides</p><h2>Check before you call or drive.</h2></div><div class="grid grid-3 compact-links"><a href="/sevier-county-veteran-service-office-guide">Sevier County VSO Guide</a><a href="/knox-county-veteran-service-office-guide">Knox County VSO Guide</a><a href="/mountain-home-va-location-checklist">Mountain Home VA Location Checklist</a><a href="/tennessee-department-veterans-services-guide">Tennessee Department of Veterans Services Guide</a><a href="/american-job-center-east-tennessee-veterans">American Job Center Guide</a><a href="/legal-aid-east-tennessee-veterans-guide">Legal Aid of East Tennessee Veterans Guide</a></div></div></section></details>
+<section class="section section-soft" data-resource-group>
     <div class="container">
       <div class="section-heading">
         <p class="eyebrow">Most used</p>
@@ -275,6 +277,7 @@
     var countyFilter=document.querySelector('[data-county-filter]');
     var categoryFilter=document.querySelector('[data-category-filter]');
     var cards=Array.prototype.slice.call(document.querySelectorAll('[data-resource-card]'));
+    var bookPack=document.querySelector('.card-pack');
     var groups=Array.prototype.slice.call(document.querySelectorAll('[data-resource-group]'));
     var count=document.querySelector('[data-resource-count]');
     var empty=document.querySelector('[data-resource-empty]');
@@ -306,8 +309,18 @@
         group.classList.toggle('is-filter-hidden',!hasVisible);
       });
 
-      if(count){count.textContent=visible+' resource '+(visible===1?'match':'matches')+' shown.';}
-      if(empty){empty.hidden=visible!==0;}
+      // Filtered book references should never remain hidden inside a collapsed archive.
+      var bookMatches=bookPack ? cards.filter(function(card) {
+        return bookPack.contains(card) && !card.classList.contains('is-filter-hidden');
+      }).length : 0;
+      if(bookPack && (query || category==='book-companion' || county!=='all')){
+        bookPack.open=bookMatches>0;
+      }
+      var hiddenMatches=bookPack && !bookPack.open ? bookMatches : 0;
+      var visibleNow=visible-hiddenMatches;
+      if(count){count.textContent=visibleNow+' visible resource '+(visibleNow===1?'match':'matches')+
+        (hiddenMatches?' ('+hiddenMatches+' more in the collapsed book reference cards)':'')+'.';}
+      if(empty){empty.hidden=visibleNow!==0;}
     }
 
     searchInput.addEventListener('input',applyResourceFilters);
