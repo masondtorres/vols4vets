@@ -6,8 +6,10 @@
   <title>Veteran Resource Directory | Vols4Vets</title>
   <meta property="og:title" content="Veteran Resource Directory | Vols4Vets">
 
-  <meta <meta name="description" content="Browse Vols4Vets resource categories for crisis help, VA benefits, housing, jobs, legal aid, family support, discounts and East Tennessee offices.">>
-  <meta property="og:description" content="A simple Vols4Vets resource directory for East Tennessee veterans, service members and military families.">
+  <meta name="description" content="Find veteran help by need: crisis support, VA benefits, health care, housing, jobs, family support, legal aid and East Tennessee offices.">
+  <meta name="twitter:title" content="Veteran Resource Directory | Vols4Vets">
+  <meta name="twitter:description" content="Find veteran help by need: crisis support, VA benefits, housing, jobs, family support and East Tennessee offices.">
+  <meta property="og:description" content="Find veteran help by need: crisis support, VA benefits, housing, jobs, family support and East Tennessee offices.">
   <link rel="canonical" href="https://www.vols4vets.com/resources">
   <meta property="og:url" content="https://www.vols4vets.com/resources">
   <meta name="theme-color" content="#16302a">
@@ -15,7 +17,7 @@
   <link rel="stylesheet" href="/fonts/fonts.css">
   <meta property="og:image" content="https://www.vols4vets.com/og-card.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="stylesheet" href="/main.css?v=20260915-ux2">
+  <link rel="stylesheet" href="/main.css?v=20261009-ux3">
   <script defer src="/site.js"></script>
 </head>
 <body>
@@ -281,26 +283,27 @@
     var groups=Array.prototype.slice.call(document.querySelectorAll('[data-resource-group]'));
     var count=document.querySelector('[data-resource-count]');
     var empty=document.querySelector('[data-resource-empty]');
+    var lastKey='';
+    var adjusting=false;
 
     if(!searchInput||!countyFilter||!categoryFilter||!cards.length){return;}
 
-    function applyResourceFilters(){
+    function applyResourceFilters(fromToggle){
       var query=searchInput.value.trim().toLowerCase();
       var county=countyFilter.value;
       var category=categoryFilter.value;
-      var visible=0;
+      var matched=0;
 
       cards.forEach(function(card){
         var text=card.textContent.toLowerCase();
         var counties=(card.getAttribute('data-counties')||'').split(/\s+/);
         var cardCategory=card.getAttribute('data-category')||'';
         var matchesSearch=!query||text.indexOf(query)>-1;
-        var matchesCounty=county==='all'||counties.indexOf(county)>-1||counties.indexOf('all-east-tn')>-1&&county!=='national'&&county!=='state';
+        var matchesCounty=county==='all'||counties.indexOf(county)>-1||(counties.indexOf('all-east-tn')>-1&&county!=='national'&&county!=='state');
         var matchesCategory=category==='all'||cardCategory===category;
         var show=matchesSearch&&matchesCounty&&matchesCategory;
-
         card.classList.toggle('is-filter-hidden',!show);
-        if(show){visible+=1;}
+        if(show){matched+=1;}
       });
 
       groups.forEach(function(group){
@@ -309,24 +312,38 @@
         group.classList.toggle('is-filter-hidden',!hasVisible);
       });
 
-      // Filtered book references should never remain hidden inside a collapsed archive.
-      var bookMatches=bookPack ? cards.filter(function(card) {
+      var bookMatches=bookPack ? cards.filter(function(card){
         return bookPack.contains(card) && !card.classList.contains('is-filter-hidden');
       }).length : 0;
-      if(bookPack && (query || category==='book-companion' || county!=='all')){
-        bookPack.open=bookMatches>0;
+      var filterKey=query+'|'+county+'|'+category;
+      var filtering=!!(query || category!=='all' || county!=='all');
+      if(bookPack && !fromToggle && filterKey!==lastKey){
+        adjusting=true;
+        bookPack.open=filtering && bookMatches>0;
+        adjusting=false;
       }
+      if(!fromToggle){lastKey=filterKey;}
+
       var hiddenMatches=bookPack && !bookPack.open ? bookMatches : 0;
-      var visibleNow=visible-hiddenMatches;
-      if(count){count.textContent=visibleNow+' visible resource '+(visibleNow===1?'match':'matches')+
-        (hiddenMatches?' ('+hiddenMatches+' more in the collapsed book reference cards)':'')+'.';}
-      if(empty){empty.hidden=visibleNow!==0;}
+      var visibleNow=matched-hiddenMatches;
+      if(visibleNow<0){visibleNow=0;}
+      if(count){
+        var noun=visibleNow===1?'match':'matches';
+        count.textContent=visibleNow+' visible resource '+noun+(hiddenMatches?' ('+hiddenMatches+' more in the collapsed book reference cards)':'')+'.';
+      }
+      if(empty){empty.hidden=visibleNow!==0 || bookMatches>0;}
     }
 
-    searchInput.addEventListener('input',applyResourceFilters);
-    countyFilter.addEventListener('change',applyResourceFilters);
-    categoryFilter.addEventListener('change',applyResourceFilters);
-    applyResourceFilters();
+    if(bookPack){
+      bookPack.addEventListener('toggle',function(){
+        if(adjusting){return;}
+        applyResourceFilters(true);
+      });
+    }
+    searchInput.addEventListener('input',function(){applyResourceFilters(false);});
+    countyFilter.addEventListener('change',function(){applyResourceFilters(false);});
+    categoryFilter.addEventListener('change',function(){applyResourceFilters(false);});
+    applyResourceFilters(false);
   });
 </script>
 </body>

@@ -1,5 +1,5 @@
+document.documentElement.classList.add('is-enhanced');
 document.addEventListener('DOMContentLoaded', function () {
-  document.documentElement.classList.add('is-enhanced');
   var current = location.pathname.replace(/\/$/, '').replace(/\.html$/, '') || '/';
   var nav = document.getElementById('main-nav');
   var button = document.querySelector('[data-nav-toggle]');
