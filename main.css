@@ -151,7 +151,7 @@ button:not(:disabled),[role="button"]:not(:disabled){cursor:pointer}
   border-bottom:1px solid var(--line);
 }
 .hero-home,.home-photo-hero{
-  position:relative;min-height:560px;display:flex;align-items:flex-end;
+  position:relative;min-height:420px;display:flex;align-items:flex-end;
   color:#f6f3eb;padding:0;
   background:
     linear-gradient(90deg,rgba(15,31,28,.88) 0%,rgba(15,31,28,.55) 46%,rgba(15,31,28,.22) 100%),
@@ -528,3 +528,15 @@ a.button.button-secondary,
 .card-pack>summary{cursor:pointer;font-weight:700;padding:1rem 0;font-size:1.05rem;list-style:inside}
 .main .resource-search-shell{border:0;background:transparent;padding:1.1rem 0 0}
 .search-form .button{flex:0 0 auto;white-space:nowrap}
+
+/* Prioritize user problems while keeping the existing layout. */
+html{scroll-padding-top:95px}
+.topic-card{display:flex;flex-direction:column;align-items:flex-start}
+.topic-card p{flex:1}
+.topic-card .button{margin-top:auto}
+.home-book-band .actions{align-items:center}
+.quick-links{display:flex;flex-wrap:wrap;align-items:center;gap:.55rem 1rem;margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--line);font-size:.96rem}
+.quick-links a{color:var(--clay);font-weight:700;text-underline-offset:3px}
+.resource-need-chooser{background:var(--surface)}
+.resource-need-chooser h1{margin-bottom:.35rem}
+@media(max-width:560px){.topic-card .button{width:100%}.quick-links{align-items:flex-start;flex-direction:column}.home-photo-hero .container{padding:2.4rem 0 2rem}}
