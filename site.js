@@ -5,6 +5,13 @@ document.addEventListener('DOMContentLoaded', function () {
   var button = document.querySelector('[data-nav-toggle]');
 
   if (nav) {
+    // One navigation definition for all existing pages; older static menus remain a fallback.
+    nav.innerHTML = '<a href="/resources">Find help</a>' +
+      '<a href="/resources-family-support">Family</a>' +
+      '<a href="/east-tennessee-veteran-resources">East Tennessee</a>' +
+      '<a href="/sections">Book companion</a>' +
+      '<a href="/search">Search</a>' +
+      '<a class="nav-cta" href="/find-my-next-step">My next step</a>';
     nav.querySelectorAll('a[href]').forEach(function (link) {
       var href = (link.getAttribute('href') || '').replace(/\/$/, '').replace(/\.html$/, '') || '/';
       if (href === current) link.setAttribute('aria-current', 'page');
@@ -25,6 +32,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     document.addEventListener('keydown', function (event) {
       if (event.key === 'Escape') setNav(false);
+    });
+    nav.addEventListener('click', function (event) {
+      if (event.target.closest('a[href]')) setNav(false);
     });
   }
 
