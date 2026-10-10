@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Vols4Vets | Veteran Resource Guide companion - East Tennessee roots, national reach</title>
-  <meta name="description" content="Independent companion site for the Vols4Vets Veteran Resource Guide. Find the next official door for crisis help, VA starting points, records, housing, jobs, family support and East Tennessee offices. Not the VA.">
+  <meta name="description" content="Find crisis help, VA benefits, health care, housing, jobs, school, family support, and East Tennessee veteran offices. Independent. Official sources first. Not the VA.">
   <link rel="canonical" href="https://www.vols4vets.com/">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="/fonts/source-sans-4.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/fraunces-1.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" as="image" href="/east-tennessee-hero.webp" fetchpriority="high">
   <link rel="stylesheet" href="/fonts/fonts.css">
-  <link rel="stylesheet" href="/main.css?v=20261009-ux">
+  <link rel="stylesheet" href="/main.css?v=20261009-needs">
   <meta name="theme-color" content="#16302a">
   <meta property="og:title" content="Vols4Vets Veteran Resource Guide companion">
   <meta property="og:description" content="East Tennessee roots. National reach. Official sources first. Not the VA.">
@@ -48,17 +48,35 @@
     </a>
     <form class="header-search" action="/search" method="get" role="search">
       <label class="sr-only" for="nav-search">Search resources</label>
-      <input id="nav-search" name="q" type="search" placeholder="Search DD214, VA, housing, jobs…">
+      <input id="nav-search" name="q" type="search" placeholder="Search DD214, VA, housing, jobs…" autocomplete="off">
       <button type="submit">Search</button>
     </form>
     <button class="nav-toggle" type="button" aria-controls="main-nav" aria-expanded="false" data-nav-toggle>Menu</button>
     <nav id="main-nav" class="main-nav" aria-label="Main navigation">
-      <a href="/find-my-next-step">Start</a>
-      <a href="/search">Search</a>
-      <a href="/resources">Resources</a>
-      <a href="/sections">Book sections</a>
+      <a href="/resources#needs">Help</a>
+      <a href="/sections/start-here-when-it-is-urgent">Urgent</a>
       <a href="/sections/east-tennessee-and-the-smokies">East Tennessee</a>
+      <a href="/sections">Book</a>
       <a href="/about">About</a>
+      <div class="nav-needs">
+        <p class="nav-needs-label" id="nav-needs-label">Help by need</p>
+        <a href="/sections/start-here-when-it-is-urgent">Emergency</a>
+        <a href="/resources-va-benefits-healthcare">VA benefits and claims</a>
+        <a href="/health-care-enrollment-and-va-locations">Healthcare</a>
+        <a href="/housing-help-before-it-becomes-a-crisis">Housing</a>
+        <a href="/resources-jobs-training">Jobs</a>
+        <a href="/education-gi-bill-vrande-and-training">Education</a>
+        <a href="/sections/family-caregivers-survivors-and-gold-star-families">Military families</a>
+        <a href="/caregivers-and-the-va-caregiver-path">Caregivers</a>
+        <a href="/survivors-dependents-and-gold-star-families">Survivors</a>
+        <a href="/money-debt-taxes-and-consumer-protection">Money</a>
+        <a href="/legal-help-without-guessing">Legal</a>
+        <a href="/sections/east-tennessee-and-the-smokies">Local services</a>
+        <a href="/sections/discounts-travel-parks-recreation-and-veterans-day-deals">Discounts</a>
+        <a href="/sections/transitioning-out">After leaving service</a>
+        <a href="/search">Search all pages</a>
+        <a href="/suggest-a-resource">Suggest a resource</a>
+      </div>
       <a class="nav-cta" href="/find-my-next-step">Find my next step</a>
     </nav>
   </div>
@@ -66,14 +84,13 @@
 <main id="main">
   <section class="hero home-photo-hero">
     <div class="container">
-      <p class="hero-kicker">Living companion to the printed guide</p>
-      <h1>Find the next official door.</h1>
-      <p class="lead">East Tennessee roots. National reach. Current links, phone numbers and chapter updates for the Vols4Vets Veteran Resource Guide. The printed book is the stable path. This site keeps official sources easier to verify.</p>
+      <p class="hero-kicker">East Tennessee roots. National reach.</p>
+      <h1>Find the right door for help today.</h1>
+      <p class="lead">Crisis support, VA benefits, health care, housing, work, school, and family help. Official sources first. The printed guide stays the stable path. This site is not the VA.</p>
       <ul class="trust-chips">
         <li>Independent</li>
         <li>Official sources first</li>
         <li>Not the VA</li>
-        <li>Not Vets4Vets</li>
       </ul>
       <div class="actions hero-actions">
         <a class="button button-large" href="/find-my-next-step">Find my starting point</a>
@@ -94,77 +111,54 @@
   <section class="section home-paths">
     <div class="container">
       <div class="section-heading">
-        <p class="eyebrow">Clear paths</p>
-        <h2>Pick the lane that matches today.</h2>
-        <p>Use the companion pages to choose the right official source before you call, drive, apply or send records.</p>
+        <p class="eyebrow">Start with the problem</p>
+        <h2>What do you need help with?</h2>
+        <p>Pick the closest door. Each one leads to a page already on this site. Official sources still control the rule, form, deadline, and decision.</p>
       </div>
-      <div class="grid grid-3 route-grid">
-        <article class="card route-card card-critical">
-          <span class="route-icon" aria-hidden="true">!</span>
-          <h3>Urgent help</h3>
-          <p>Crisis, homelessness, emergency communication and cannot-wait needs.</p>
-          <a class="button" href="/sections/start-here-when-it-is-urgent">Start urgent help</a>
-        </article>
-        <article class="card route-card">
-          <span class="route-icon" aria-hidden="true">?</span>
-          <h3>Find my starting point</h3>
-          <p>Answer a few questions and get a practical next path. Nothing is submitted.</p>
-          <a class="button" href="/find-my-next-step">Open the tool</a>
-        </article>
-        <article class="card route-card">
-          <span class="route-icon" aria-hidden="true">#</span>
-          <h3>Browse by section</h3>
-          <p>Use the book structure to find the update page for your chapter.</p>
-          <a class="button" href="/sections">Browse sections</a>
-        </article>
-        <article class="card route-card card-local">
-          <span class="route-icon" aria-hidden="true">ET</span>
-          <h3>East Tennessee</h3>
-          <p>Sevier County, the Smokies, clinics, offices, local help and local offers.</p>
-          <a class="button" href="/sections/east-tennessee-and-the-smokies">Open East Tennessee</a>
-        </article>
-        <article class="card route-card">
-          <span class="route-icon" aria-hidden="true">$</span>
-          <h3>Discounts and travel</h3>
-          <p>Verify military discounts, travel, parks, tickets and Veterans Day offers.</p>
-          <a class="button" href="/sections/discounts-travel-parks-recreation-and-veterans-day-deals">Open discounts</a>
-        </article>
-        <article class="card route-card">
-          <span class="route-icon" aria-hidden="true">VA</span>
-          <h3>Records and VA starting points</h3>
-          <p>VA.gov, DD214, enrollment, claims starting points and official caution.</p>
-          <a class="button" href="/records-dd214-and-account-access">Start with records</a>
-        </article>
-        <article class="card route-card">
-          <span class="route-icon" aria-hidden="true">F</span>
-          <h3>Family and caregivers</h3>
-          <p>Support for spouses, caregivers, survivors and Gold Star families.</p>
-          <a class="button" href="/sections/family-caregivers-survivors-and-gold-star-families">Open family help</a>
-        </article>
+      <div class="need-grid" id="needs">
+        <a class="need-link is-urgent" href="/sections/start-here-when-it-is-urgent"><strong>Emergency</strong><span>Crisis, homelessness, and help that cannot wait.</span></a>
+        <a class="need-link" href="/resources-va-benefits-healthcare"><strong>VA benefits and claims</strong><span>Official doors first. Vols4Vets does not file claims.</span></a>
+        <a class="need-link" href="/health-care-enrollment-and-va-locations"><strong>Healthcare</strong><span>Enrollment, clinics, and appointment starting points.</span></a>
+        <a class="need-link" href="/housing-help-before-it-becomes-a-crisis"><strong>Housing</strong><span>A place to start before housing becomes a crisis.</span></a>
+        <a class="need-link" href="/resources-jobs-training"><strong>Jobs</strong><span>Work, resumes, training, and workforce offices.</span></a>
+        <a class="need-link" href="/education-gi-bill-vrande-and-training"><strong>Education</strong><span>GI Bill and school starting points.</span></a>
+        <a class="need-link" href="/sections/family-caregivers-survivors-and-gold-star-families"><strong>Military families</strong><span>Spouses, children, and household support.</span></a>
+        <a class="need-link" href="/caregivers-and-the-va-caregiver-path"><strong>Caregivers</strong><span>The VA caregiver path and family support.</span></a>
+        <a class="need-link" href="/survivors-dependents-and-gold-star-families"><strong>Survivors</strong><span>Survivor, dependent, and Gold Star starting points.</span></a>
+        <a class="need-link" href="/money-debt-taxes-and-consumer-protection"><strong>Money</strong><span>Debt, taxes, and consumer-protection starting points.</span></a>
+        <a class="need-link" href="/legal-help-without-guessing"><strong>Legal</strong><span>Civil legal aid starting points. Not a law firm.</span></a>
+        <a class="need-link" href="/sections/east-tennessee-and-the-smokies"><strong>Local services</strong><span>Sevier County, Knoxville, Mountain Home, and the Smokies.</span></a>
+        <a class="need-link" href="/sections/discounts-travel-parks-recreation-and-veterans-day-deals"><strong>Discounts</strong><span>Check the offer before you count on it.</span></a>
+        <a class="need-link" href="/sections/transitioning-out"><strong>After leaving service</strong><span>The first steps when the uniform comes off.</span></a>
+      </div>
+      <div class="actions">
+        <a class="button" href="/find-my-next-step">Not sure — find my next step</a>
+        <a class="button button-secondary" href="/search">Search instead</a>
       </div>
     </div>
   </section>
   <section class="section section-soft">
     <div class="container">
-      <div class="section-heading">
-        <p class="eyebrow">Book sections</p>
-        <h2>All 11 companion sections.</h2>
-      </div>
-      <div class="grid grid-3 compact-links">
-        <a class="link-item" href="/sections/start-here-when-it-is-urgent"><span class="section-num">01</span>Start Here When It Is Urgent<span>Someone needs help now and does not know which first door is safe.</span></a>
-        <a class="link-item" href="/sections/active-duty-guard-and-reserve"><span class="section-num">02</span>Active Duty, Guard and Reserve<span>The person is still serving and needs help before discharge, during PCS, deployment or family strain.</span></a>
-        <a class="link-item" href="/sections/transitioning-out"><span class="section-num">03</span>Transitioning Out<span>The clock is running and missed steps can create avoidable problems.</span></a>
-        <a class="link-item" href="/sections/veterans"><span class="section-num">04</span>Veterans<span>The person already left service and needs a clean route into benefits, care, jobs or records.</span></a>
-        <a class="link-item" href="/sections/retired-military"><span class="section-num">05</span>Retired Military<span>The person finished a military career and needs pay, health coverage and family paperwork.</span></a>
-        <a class="link-item" href="/sections/family-caregivers-survivors-and-gold-star-families"><span class="section-num">06</span>Family, Caregivers, Survivors and Gold Star Families<span>The household needs help and the veteran may not be the one making the call.</span></a>
-        <a class="link-item" href="/sections/housing-money-legal-starting-points-and-state-benefits"><span class="section-num">07</span>Housing, Money, Legal Starting Points and State Benefits<span>The person needs help before housing, debt, paperwork or state benefit questions become worse.</span></a>
-        <a class="link-item" href="/sections/jobs-school-training-and-business"><span class="section-num">08</span>Jobs, School, Training and Business<span>The person wants work, school, training or a business path that starts in the right place.</span></a>
-        <a class="link-item" href="/sections/discounts-travel-parks-recreation-and-veterans-day-deals"><span class="section-num">09</span>Discounts, Travel, Parks, Recreation and Veterans Day Deals<span>The person wants savings without stale lists and fine-print surprises.</span></a>
-        <a class="link-item" href="/sections/overseas-oconus-and-returning-home"><span class="section-num">10</span>Overseas, OCONUS and Returning Home<span>The person is outside the United States or coming home and needs the right route back into the system.</span></a>
-        <a class="link-item" href="/sections/east-tennessee-and-the-smokies"><span class="section-num">11</span>East Tennessee and the Smokies<span>The national guide keeps its local roots and gives East Tennessee readers a safe local starting point.</span></a>
-      </div>
+      <details class="book-fold">
+        <summary>Printed guide sections</summary>
+        <p>The book is the stable path. These pages keep the chapter updates.</p>
+        <div class="grid grid-3 compact-links">
+          <a class="link-item" href="/sections/start-here-when-it-is-urgent"><span class="section-num">01</span>Start Here When It Is Urgent</a>
+          <a class="link-item" href="/sections/active-duty-guard-and-reserve"><span class="section-num">02</span>Active Duty, Guard and Reserve</a>
+          <a class="link-item" href="/sections/transitioning-out"><span class="section-num">03</span>Transitioning Out</a>
+          <a class="link-item" href="/sections/veterans"><span class="section-num">04</span>Veterans</a>
+          <a class="link-item" href="/sections/retired-military"><span class="section-num">05</span>Retired Military</a>
+          <a class="link-item" href="/sections/family-caregivers-survivors-and-gold-star-families"><span class="section-num">06</span>Family, Caregivers, Survivors and Gold Star Families</a>
+          <a class="link-item" href="/sections/housing-money-legal-starting-points-and-state-benefits"><span class="section-num">07</span>Housing, Money, Legal Starting Points and State Benefits</a>
+          <a class="link-item" href="/sections/jobs-school-training-and-business"><span class="section-num">08</span>Jobs, School, Training and Business</a>
+          <a class="link-item" href="/sections/discounts-travel-parks-recreation-and-veterans-day-deals"><span class="section-num">09</span>Discounts, Travel, Parks, Recreation and Veterans Day Deals</a>
+          <a class="link-item" href="/sections/overseas-oconus-and-returning-home"><span class="section-num">10</span>Overseas, OCONUS and Returning Home</a>
+          <a class="link-item" href="/sections/east-tennessee-and-the-smokies"><span class="section-num">11</span>East Tennessee and the Smokies</a>
+        </div>
+      </details>
     </div>
   </section>
+
   <section class="local-band">
     <div class="container split">
       <div>
@@ -191,7 +185,7 @@
         </div>
         <div class="notice notice-danger">
           <h3>What Vols4Vets is not</h3>
-          <p>Not the VA. Not Vets4Vets. Not a crisis line, law firm, medical provider, benefits office or accredited claims representative. Official sources control rules, eligibility, forms, deadlines and decisions.</p>
+          <p>Not the VA. Not a crisis line, law firm, medical provider, benefits office or accredited claims representative. Official sources control rules, eligibility, forms, deadlines and decisions.</p>
         </div>
       </div>
     </div>
@@ -224,7 +218,7 @@
         <ul class="footer-links">
           <li><a href="/find-my-next-step">Find my next step</a></li>
           <li><a href="/search">Search</a></li>
-          <li><a href="/resources">Resources</a></li>
+          <li><a href="/resources#needs">Help by need</a></li>
           <li><a href="/sections">Book sections</a></li>
           <li><a href="/sections/start-here-when-it-is-urgent">Urgent help</a></li>
         </ul>
@@ -242,10 +236,12 @@
       <div>
         <h3>Trust</h3>
         <ul class="footer-links">
+          <li><a href="/suggest-a-resource">Suggest a resource</a></li>
+          <li><a href="/partner-sponsor-policy">Sponsorship</a></li>
           <li><a href="/verification-policy">Verification policy</a></li>
           <li><a href="/privacy-safety">Privacy and safety</a></li>
           <li><a href="/no-claims-representation">No claims representation</a></li>
-          <li><a href="/correction-request">Correction request</a></li>
+          <li><a href="/correction-request">Report incorrect information</a></li>
           <li><a href="/monthly-update-log">Monthly update log</a></li>
           <li><a href="/crisis-emergency-disclaimer">Crisis disclaimer</a></li>
         </ul>

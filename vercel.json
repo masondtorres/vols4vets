@@ -120,6 +120,10 @@
       "destination": "/partner-sponsor-policy.html"
     },
     {
+      "source": "/suggest-a-resource",
+      "destination": "/suggest-a-resource.html"
+    },
+    {
       "source": "/no-claims-representation",
       "destination": "/no-claims-representation.html"
     },
