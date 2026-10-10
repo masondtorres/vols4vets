@@ -47,7 +47,7 @@ function warn(message) {
 function localHrefToFile(href) {
   const clean = href.split('#')[0].split('?')[0];
   if (!clean || clean.startsWith('http') || clean.startsWith('tel:') || clean.startsWith('sms:') || clean.startsWith('mailto:')) return null;
-  if (/\.(css|js|webp|png|jpg|jpeg|svg|ico|xml|txt|json)$/i.test(clean)) return null;
+  if (/\.(css|js|webp|png|jpg|jpeg|svg|ico|xml|txt|json|woff2?|ttf)$/i.test(clean)) return null;
   if (clean === '/') return 'index.html';
   return `${clean.replace(/^\/+/, '')}.html`;
 }

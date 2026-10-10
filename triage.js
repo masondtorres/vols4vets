@@ -35,9 +35,9 @@
     var issueKey = planKey(answers.issue);
 
     // Document gaps: add practical next action if key items missing for the issue
-    if ((issueKey === 'claim' || issueKey === 'records' || issueKey === 'local') && ready.indexOf('DD214') === -1 && ready.indexOf('None of these ready') === -1) {
-      customSteps.unshift('Start an official DD214 or records request now if you do not have one. Use National Archives eVetRecs or the SF-180 form.');
-      extraHtml += '<div class="notice"><strong>Records gap:</strong> Many official offices ask for a DD214. Request it through the National Archives before the appointment if you can.</div>';
+    if ((issueKey === 'records' || issueKey === 'local') && ready.indexOf('DD214') === -1) {
+      customSteps.unshift('If the office asks for your DD214, use the official VA military-records guide to request it. Do not delay urgent assistance.');
+      extraHtml += '<div class="notice"><strong>Records gap:</strong> If an office specifically needs it, use the official records instructions. For a VA benefits application, VA normally requests your DD214 for you.</div>';
     }
     if (issueKey === 'housing' && ready.indexOf('Court or eviction papers') === -1 && ready.indexOf('None of these ready') === -1) {
       customSteps.push('Gather any eviction notice, utility shutoff notice or court paper and note the exact deadline.');

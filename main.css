@@ -555,3 +555,18 @@ html{scroll-padding-top:95px}
 .aux-resources>summary{cursor:pointer;font-weight:700;color:var(--forest);padding:1.1rem 0;min-height:48px}
 .aux-resources[open]>summary{border-bottom:1px solid var(--line)}
 .aux-resources .section{padding-top:1.6rem;padding-bottom:1.6rem}
+
+/* Outcomes-first routes and accessible progressive question flow */
+.action-shortcuts .card{display:flex;flex-direction:column;gap:.7rem;align-items:flex-start}
+.action-shortcuts .card p{flex:1;margin:0}
+.action-shortcuts .card .button{margin-top:auto}
+.action-shortcuts .card>a:not(.button){font-weight:700;text-underline-offset:3px}
+.action-shortcuts+p{margin-top:1rem}
+.wizard-enhanced fieldset.question-card[hidden],.wizard-enhanced [hidden],.wizard-crisis[hidden]{display:none!important}
+.wizard-controls{margin-top:1.1rem}
+.wizard-progress{font-weight:700}
+.wizard-buttons{display:flex;gap:.65rem;flex-wrap:wrap}
+.wizard-error{font-weight:700;color:#952d20}
+.wizard-crisis{margin:1rem 0}
+.feedback-actions a{display:inline-flex;align-items:center;justify-content:center;min-height:44px}
+@media(max-width:680px){.action-shortcuts .card .button{width:100%;text-align:center}.wizard-buttons .button{flex:1}}

@@ -60,20 +60,10 @@ document.addEventListener('DOMContentLoaded', function () {
   ];
   var main = document.getElementById('main');
   if (pathPages.indexOf(current) > -1 && main) {
-    var feedback = document.createElement('section');
-    feedback.className = 'section section-compact no-print';
-    feedback.innerHTML = '<div class="container"><div class="page-feedback"><h2>Did this give you a clear next step?</h2><div class="feedback-actions"><button type="button" data-feedback-answer="yes">Yes</button><button type="button" data-feedback-answer="not-yet">Not yet</button></div><p class="small" aria-live="polite" data-feedback-status></p><p class="small"><a href="/feedback-guidelines">Feedback guidelines</a>. Do not send private details.</p></div></div>';
-    main.appendChild(feedback);
-    feedback.addEventListener('click', function (event) {
-      var btn = event.target.closest('[data-feedback-answer]');
-      if (!btn) return;
-      var status = feedback.querySelector('[data-feedback-status]');
-      if (status) {
-        status.textContent = btn.getAttribute('data-feedback-answer') === 'yes'
-          ? 'Thanks. Nothing private was collected.'
-          : 'Thanks. Try Search, Resources or Report a broken link if a resource did not work. Nothing private was collected.';
-      }
-    });
+    var help = document.createElement('section');
+    help.className = 'section section-compact no-print';
+    help.innerHTML = '<div class="container"><div class="page-feedback"><h2>Still need help?</h2><p>Get a step-by-step plan, or report a problem by email. No answers are silently submitted and no private records are collected.</p><div class="feedback-actions"><a class="button" href="/find-my-next-step">Get a starting plan</a><a class="button button-secondary" href="/contact">Report a problem by email</a></div></div></div>';
+    main.appendChild(help);
   }
 
   if (main && (document.querySelector('.resource-card') || document.querySelector('.link-list'))) {
