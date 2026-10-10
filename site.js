@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
       '<a href="/east-tennessee-veteran-resources">East Tennessee</a>' +
       '<a href="/sections">Book companion</a>' +
       '<a href="/search">Search</a>' +
+      '<a href="/contact">Contact Us</a>' +
       '<a class="nav-cta" href="/find-my-next-step">My next step</a>';
     nav.querySelectorAll('a[href]').forEach(function (link) {
       var href = (link.getAttribute('href') || '').replace(/\/$/, '').replace(/\.html$/, '') || '/';
@@ -38,29 +39,18 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  var p = ['865', '771', '3114'].join('-');
   var e = ['vols4', 'vets', '@', 'gmail', '.', 'com'].join('');
-  var tel = 'tel:+1' + p.replace(/-/g, '');
   var mail = 'mailto:' + e;
-  document.querySelectorAll('a').forEach(function (link) {
-    if (link.hasAttribute('data-direct-contact')) return;
-    var href = link.getAttribute('href') || '';
-    if (href === tel || href === mail) {
-      link.setAttribute('href', '/about#contact');
-      link.removeAttribute('target');
-      link.removeAttribute('rel');
-      link.textContent = 'Protected contact section';
-    }
-  });
 
   var reveal = document.querySelector('[data-reveal-contact]');
   var target = document.querySelector('[data-contact-target]');
   if (reveal && target) {
     reveal.addEventListener('click', function () {
       target.hidden = false;
-      target.innerHTML = '<h3>Contact details</h3><p><strong>Phone</strong><br><span>' + p + '</span></p><p><strong>Email</strong><br><span>' + e.replace('@', ' [at] ').replace('.', ' [dot] ') + '</span></p><p class="small">Copy the details manually. Direct call and email links are disabled to reduce bot scraping. Do not send Social Security numbers, claim numbers, medical records or passwords.</p>';
+      var display = e.replace('@', ' [at] ').replace('.', ' [dot] ');
+      target.innerHTML = '<h3>Email Vols4Vets</h3><p><strong>Email only</strong><br><a href="' + mail + '">' + display + '</a></p><p class="small">We prefer email. We do not accept telephone calls from website visitors. Do not send Social Security numbers, claim numbers, medical records or passwords. Vols4Vets is not an emergency service.</p>';
       reveal.setAttribute('aria-expanded', 'true');
-      reveal.textContent = 'Contact details shown';
+      reveal.textContent = 'Email shown';
       reveal.disabled = true;
     });
   }

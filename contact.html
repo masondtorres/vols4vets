@@ -3,19 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Contact Vols4Vets | Correction path, not a crisis line</title>
-  <meta property="og:title" content="Contact Vols4Vets | Correction path, not a crisis line">
-
-  <meta name="description" content="Vols4Vets is not a help desk. Use Resources first. Report a wrong official link through Correction Request. Crisis help is 988 press 1.">
-  <meta property="og:description" content="Vols4Vets is not a help desk. Use Resources first. Report a wrong official link through Correction Request. Crisis help is 988 press 1.">
+  <title>Contact Us | Vols4Vets</title>
+  <meta name="description" content="Email Vols4Vets for corrections, resource suggestions, nonprofit listings or general questions. We are not an emergency service. Email only.">
   <link rel="canonical" href="https://www.vols4vets.com/contact">
-  <meta property="og:url" content="https://www.vols4vets.com/contact">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <meta name="theme-color" content="#16302a">
   <link rel="stylesheet" href="/fonts/fonts.css">
+  <link rel="stylesheet" href="/main.css?v=20261009-ux3">
+  <meta property="og:title" content="Contact Us | Vols4Vets">
+  <meta property="og:description" content="Email Vols4Vets. We are not an emergency service. Corrections, suggestions and general inquiries welcome.">
+  <meta property="og:url" content="https://www.vols4vets.com/contact">
   <meta property="og:image" content="https://www.vols4vets.com/og-card.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="stylesheet" href="/main.css?v=20261009-ux3">
   <script defer src="/site.js"></script>
 </head>
 <body>
@@ -43,36 +42,53 @@
     </form>
     <button class="nav-toggle" type="button" aria-controls="main-nav" aria-expanded="false" data-nav-toggle>Menu</button>
     <nav id="main-nav" class="main-nav" aria-label="Main navigation">
-      <a href="/find-my-next-step">Start</a>
+      <a href="/resources">Find help</a>
+      <a href="/resources-family-support">Family</a>
+      <a href="/east-tennessee-veteran-resources">East Tennessee</a>
+      <a href="/sections">Book companion</a>
       <a href="/search">Search</a>
-      <a href="/resources">Resources</a>
-      <a href="/sections">Book sections</a>
-      <a href="/sections/east-tennessee-and-the-smokies">East Tennessee</a>
-      <a href="/about">About</a>
-      <a class="nav-cta" href="/find-my-next-step">Find my next step</a>
+      <a href="/contact">Contact Us</a>
+      <a class="nav-cta" href="/find-my-next-step">My next step</a>
     </nav>
   </div>
 </header>
 <main id="main">
   <section class="hero">
     <div class="container page-intro">
-      <p class="eyebrow">Contact</p>
-      <h1>Use resources first. Contact only if needed.</h1>
-      <p class="lead">Vols4Vets is a small companion site, not a staffed help desk. Report a dead link or wrong number through Correction Request. Do not send private records.</p>
-      <div class="actions"><a class="button" href="/resources">Open Resources</a><a class="button button-secondary" href="/correction-request">Correction Request</a></div>
+      <p class="eyebrow">Contact Us</p>
+      <h1>Email Vols4Vets</h1>
+      <p class="lead">We are a small veteran-owned guide. We help people find official starting points. We are not the VA, not a help desk and not an emergency service.</p>
     </div>
   </section>
   <section class="section">
-    <div class="container split">
-      <div class="card">
-        <h2>Before you reach out</h2>
-        <p>Use the directory first. If you still need the owners, include your East Tennessee county, the kind of resource you need and how to reply. Owner contact stays on the About page to reduce scraping.</p>
-        <p class="small">Do not send Social Security numbers, claim numbers, medical records or passwords.</p>
-        <a class="button button-secondary" href="/about#contact">Protected owner contact</a>
-      </div>
+    <div class="container">
       <div class="notice notice-danger">
         <h2>This is not a crisis line.</h2>
-        <p>If you or someone you know is in crisis, call 988 and press 1 or text 838255. For immediate danger, call 911.</p>
+        <p>If you or someone you know is in crisis, call 988 and press 1 or text 838255. For immediate danger, call 911. Do not email us for emergencies.</p>
+      </div>
+      <div class="grid grid-2" style="margin-top:1.5rem;">
+        <article class="card">
+          <h2>What you can email us about</h2>
+          <ul>
+            <li>A correction or wrong link on the site</li>
+            <li>A resource suggestion or nonprofit listing request</li>
+            <li>General questions about the guide</li>
+            <li>Feedback on the website</li>
+          </ul>
+          <p class="small">Do not send Social Security numbers, claim numbers, medical records, passwords or other private documents.</p>
+        </article>
+        <article class="card">
+          <h2>How to reach us</h2>
+          <p>We prefer email only. We do not accept telephone calls from website visitors.</p>
+          <p>Click the button below to open your email app with our address. The address is built in your browser so it is not left in plain text for scrapers.</p>
+          <button class="button" type="button" id="open-email" data-direct-contact>Open email to Vols4Vets</button>
+          <p class="small" id="email-status" aria-live="polite"></p>
+          <p class="small">If the button does not open an email, copy this address after you click: <span id="email-display">click the button first</span></p>
+        </article>
+      </div>
+      <div class="actions" style="margin-top:1.5rem;">
+        <a class="button button-secondary" href="/correction-request">Use the correction form instead</a>
+        <a class="button button-secondary" href="/resources">Browse resources first</a>
       </div>
     </div>
   </section>
@@ -94,17 +110,17 @@
           <li><a href="/search">Search</a></li>
           <li><a href="/resources">Resources</a></li>
           <li><a href="/sections">Book sections</a></li>
-          <li><a href="/sections/start-here-when-it-is-urgent">Urgent help</a></li>
+          <li><a href="/contact">Contact Us</a></li>
         </ul>
       </div>
       <div>
         <h3>Local</h3>
         <ul class="footer-links">
-          <li><a href="/sections/east-tennessee-and-the-smokies">East Tennessee</a></li>
+          <li><a href="/east-tennessee-veteran-resources">East Tennessee</a></li>
           <li><a href="/sevier-county-veteran-resources">Sevier County</a></li>
           <li><a href="/knoxville-veteran-resources">Knoxville</a></li>
           <li><a href="/mountain-home-va-guide">Mountain Home VA</a></li>
-          <li><a href="/about">About and contact</a></li>
+          <li><a href="/about">About</a></li>
         </ul>
       </div>
       <div>
@@ -114,7 +130,6 @@
           <li><a href="/privacy-safety">Privacy and safety</a></li>
           <li><a href="/no-claims-representation">No claims representation</a></li>
           <li><a href="/correction-request">Correction request</a></li>
-          <li><a href="/monthly-update-log">Monthly update log</a></li>
           <li><a href="/crisis-emergency-disclaimer">Crisis disclaimer</a></li>
         </ul>
       </div>
@@ -122,5 +137,16 @@
     <div class="footer-bottom">&copy; 2026 Vols4Vets LLC. Verify current information directly with each official source before you drive, apply, call or send records.</div>
   </div>
 </footer>
+<script>
+document.getElementById('open-email').addEventListener('click', function () {
+  var parts = ['vols4', 'vets', '@', 'gmail', '.', 'com'];
+  var addr = parts.join('');
+  var subject = encodeURIComponent('Vols4Vets website inquiry');
+  var body = encodeURIComponent('Hello Vols4Vets,\n\nI am writing about:\n\n(Please do not include private records, Social Security numbers, claim numbers or medical details.)\n');
+  window.location.href = 'mailto:' + addr + '?subject=' + subject + '&body=' + body;
+  document.getElementById('email-display').textContent = addr.replace('@', ' [at] ').replace('.', ' [dot] ');
+  document.getElementById('email-status').textContent = 'Email app should open. If it does not, copy the address above.';
+});
+</script>
 </body>
 </html>
