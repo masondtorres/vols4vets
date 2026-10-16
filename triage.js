@@ -27,45 +27,71 @@
   function urgencyCopy(urgency){if(urgency==='Immediate danger')return '<div class="danger-box"><strong>Immediate danger:</strong> Call 911 now. For veteran crisis support, call 988 then press 1 or text 838255. Vols4Vets does not monitor emergencies.</div>';if(urgency==='Today')return '<div class="notice"><strong>Do this today.</strong> Do not wait for a perfect document packet.</div>';if(urgency==='This week')return '<div class="notice"><strong>This week:</strong> Use this week to confirm the right office and gather what they ask for.</div>';if(urgency==='No deadline yet')return '<div class="notice"><strong>Start steady:</strong> Start with the official page and write down what the next office asks for.</div>';return '';}
   function links(items){return '<ul class="plain-list">'+items.map(function(i){var external=i[1].indexOf('http')===0;return '<li><a href="'+i[1]+'"'+(external?' target="_blank" rel="noopener noreferrer"':'')+'>'+i[0]+'</a></li>';}).join('')+'</ul>';}
   function customizePlan(plan, answers) {
-    var customSteps = plan.steps.slice();
-    var customBring = plan.bring.slice();
-    var extraHtml = '';
+    var steps = plan.steps.slice();
+    var extra = '';
     var ready = answers.ready || [];
     var goal = answers.goal || '';
     var issueKey = planKey(answers.issue);
+    var missingDD214 = ready.indexOf('DD214') === -1;
 
-    // Document gaps: add practical next action if key items missing for the issue
-    if ((issueKey === 'claim' || issueKey === 'records' || issueKey === 'local') && ready.indexOf('DD214') === -1 && ready.indexOf('None of these ready') === -1) {
-      customSteps.unshift('Start an official DD214 or records request now if you do not have one. Use National Archives eVetRecs or the SF-180 form.');
-      extraHtml += '<div class="notice"><strong>Records gap:</strong> Many official offices ask for a DD214. Request it through the National Archives before the appointment if you can.</div>';
+    // For immediate danger, routine records and goal tasks must not distract from crisis help.
+    if (answers.urgency === 'Immediate danger' || issueKey === 'crisis') {
+      return {steps: steps, extra: extra};
     }
-    if (issueKey === 'housing' && ready.indexOf('Court or eviction papers') === -1 && ready.indexOf('None of these ready') === -1) {
-      customSteps.push('Gather any eviction notice, utility shutoff notice or court paper and note the exact deadline.');
+
+    if (missingDD214 && issueKey === 'claim') {
+      extra += '<div class="notice"><strong>No DD214 ready?</strong> VA says it requests your DD214 after receiving a benefits application. You do not need to request one from the National Archives first. Do not postpone a filing or miss a deadline just to obtain it. Ask VA or an accredited representative about your particular claim.</div>';
+    } else if (missingDD214 && issueKey === 'records') {
+      steps[0]='Request a copy of your DD214 or military records through the National Archives eVetRecs service or SF-180. Check the official instructions before sending private details.';
+    } else if (missingDD214 && issueKey === 'local') {
+      extra += '<div class="notice"><strong>No DD214 ready?</strong> Contact your VSO or official office anyway and ask what is required for your specific appointment. Do not postpone asking for help simply because you lack the record.</div>';
+    }
+    if (issueKey === 'housing' && ready.indexOf('Court or eviction papers') === -1) {
+      steps.push('Write down any eviction, utility or court deadline and keep notices if available. Do not wait for paperwork before asking for housing help.');
     }
     if (issueKey === 'jobs' && ready.indexOf('Resume') === -1) {
-      customSteps.unshift('Draft a one-page civilian resume that translates military duties into plain job language before you apply or visit a job center.');
+      steps.unshift('Ask an American Job Center about resume help even if you have no resume ready. Bring a rough work history if possible.');
     }
 
-    // Goal-specific customization
     if (goal === 'Know what to bring') {
-      extraHtml += '<div class="notice"><strong>Your goal is to know what to bring.</strong> The list below is the starting packet. Confirm the exact items with the official office before you go.</div>';
+      extra += '<div class="notice"><strong>Your goal: Prepare for the visit.</strong> The list below is a starting packet. Confirm required documents with the official office before you go.</div>';
     } else if (goal === 'Call the right official office') {
-      extraHtml += '<div class="notice"><strong>Your goal is to call the right office.</strong> Use the official links below. Write down the name of the person you speak with and any confirmation number.</div>';
+      extra += '<div class="notice"><strong>Your goal: Make a call.</strong> Use the official links below. Write down the name of the person you speak with and any confirmation number.</div>';
     } else if (goal === 'Find a local office guide') {
-      extraHtml += '<div class="notice"><strong>Your goal is a local office guide.</strong> Check the related pages for Sevier, Knox or East Tennessee office details. Confirm hours and appointment rules on the official county or VA page.</div>';
+      extra += answers.location === 'Outside Tennessee'
+        ? '<div class="notice"><strong>Your goal: Local help outside Tennessee.</strong> Use a nationwide official office finder for your own state; East Tennessee office guides do not apply to your location.</div>'
+        : '<div class="notice"><strong>Your goal: Local office.</strong> Check related county or regional pages. Confirm hours and appointment rules directly with the official source.</div>';
     } else if (goal === 'Start with an official website') {
-      extraHtml += '<div class="notice"><strong>Your goal is to start on an official website.</strong> Open the official links first. Bookmark the page and note any login or document requirements.</div>';
+      extra += '<div class="notice"><strong>Your goal: Official website.</strong> Open the official links below first. Check that the website is legitimate before entering any private information.</div>';
     } else if (goal === 'Print or save a checklist') {
-      extraHtml += '<div class="notice"><strong>Your goal is a printable checklist.</strong> Print this plan or open the matching toolkit page. Keep it with your documents.</div>';
+      extra += '<div class="notice"><strong>Your goal: Printable checklist.</strong> Print this plan or open the matching toolkit. Keep any private records with you, not with Vols4Vets.</div>';
     }
-
-    return {steps: customSteps, bring: customBring, extra: extraHtml};
+    return {steps: steps, extra: extra};
   }
   function renderPlan(plan,answers){
     var related=mergeLinks(plan.related,locationLinks(answers.location));
+    var official=plan.official;
+    if (answers.location === 'Outside Tennessee' && answers.urgency !== 'Immediate danger' && planKey(answers.issue) !== 'crisis') {
+      if (planKey(answers.issue) === 'jobs') {
+        official=[['U.S. Department of Labor American Job Center finder','https://www.careeronestop.org/LocalHelp/AmericanJobCenters/american-job-centers.aspx']];
+      } else if (planKey(answers.issue) === 'local') {
+        official=[['VA Find Locations','https://www.va.gov/find-locations/'],['VA accredited representative finder','https://www.va.gov/get-help-from-accredited-representative/find-rep/']];
+      }
+      related=related.filter(function(item){return !/east-tennessee|sevier|knox|mountain-home|tennessee/i.test(item[1]);});
+    }
     var custom = customizePlan(plan, answers);
-    return '<div class="action-plan-print">'+urgencyCopy(answers.urgency)+custom.extra+'<h2>Your starting path</h2><p><strong>'+plan.title+'</strong></p><h3>Why this path?</h3><p>'+plan.why+'</p><h2>Three exact next steps</h2><ol>'+custom.steps.map(function(s){return '<li>'+s+'</li>';}).join('')+'</ol><h2>What to bring</h2><ul class="plain-list">'+custom.bring.map(function(s){return '<li>'+s+'</li>';}).join('')+'</ul><h2>What not to send to Vols4Vets</h2><p>Do not send Social Security numbers, claim numbers, DD214s, medical records, legal papers, passwords or private case details to Vols4Vets.</p><h2>Official starting links</h2>'+links(plan.official)+'<h2>Related Vols4Vets pages</h2>'+links(related)+'<div class="tool-actions no-print"><button class="button" type="button" data-print-plan>Print this plan</button><button class="button button-secondary" type="button" data-copy-plan>Copy this plan</button><button class="button button-secondary" type="button" data-save-plan>Save this path on this device</button><button class="button button-secondary" type="button" data-clear-plan>Clear saved path</button><button class="button button-secondary" type="button" data-start-over>Start over</button></div><p class="small">Saved paths stay in this browser on this device. They are not sent to Vols4Vets.</p><p class="small">This tool gives starting points only. It does not diagnose, file claims, give legal advice, give medical advice or contact any office for you.</p><p class="small" data-copy-status aria-live="polite"></p></div>';
+    return '<div class="action-plan-print">'+urgencyCopy(answers.urgency)+custom.extra+'<h2>Your starting path</h2><p><strong>'+plan.title+'</strong></p><h3>Why this path?</h3><p>'+plan.why+'</p><h2>Your next steps</h2><ol>'+custom.steps.map(function(s){return '<li>'+s+'</li>';}).join('')+'</ol><h2>What to bring</h2><ul class="plain-list">'+plan.bring.map(function(s){return '<li>'+s+'</li>';}).join('')+'</ul><h2>What not to send to Vols4Vets</h2><p>Do not send Social Security numbers, claim numbers, DD214s, medical records, legal papers, passwords or private case details to Vols4Vets.</p><h2>Official starting links</h2>'+links(official)+'<h2>Related Vols4Vets pages</h2>'+links(related)+'<div class="tool-actions no-print"><button class="button" type="button" data-print-plan>Print this plan</button><button class="button button-secondary" type="button" data-copy-plan>Copy this plan</button><button class="button button-secondary" type="button" data-save-plan>Save this path on this device</button><button class="button button-secondary" type="button" data-clear-plan>Clear saved path</button><button class="button button-secondary" type="button" data-start-over>Start over</button></div><p class="small">Saved paths stay in this browser on this device. They are not sent to Vols4Vets.</p><p class="small">This tool gives starting points only. It does not diagnose, file claims, give legal advice, give medical advice or contact any office for you.</p><p class="small" data-copy-status aria-live="polite"></p></div>';
   }
   function plainText(result){return result.innerText||result.textContent||'';}
-  document.addEventListener('DOMContentLoaded',function(){var form=document.querySelector('[data-triage-form]');var result=document.querySelector('[data-triage-result]');if(!form||!result)return;form.classList.add('is-enhanced');function build(){var answers={issue:selected('issue')[0],location:selected('location')[0],urgency:selected('urgency')[0],ready:selected('ready'),goal:selected('goal')[0]};var plan=plans[planKey(answers.issue)];result.innerHTML=renderPlan(plan,answers);return {answers:answers,key:planKey(answers.issue),html:result.innerHTML,text:plainText(result)};}var saved=localStorage.getItem(STORAGE_KEY);if(saved){try{var old=JSON.parse(saved);result.innerHTML=old.html+'<p class="small"><strong>Saved path restored from this device.</strong></p>';}catch(e){localStorage.removeItem(STORAGE_KEY);}}form.addEventListener('submit',function(e){e.preventDefault();var answers={issue:selected('issue')[0],location:selected('location')[0],urgency:selected('urgency')[0],ready:selected('ready'),goal:selected('goal')[0]};if(!answers.issue||!answers.location||!answers.urgency||!answers.goal){result.innerHTML='<div class="notice"><strong>Choose an answer for each question.</strong> Nothing is sent to Vols4Vets.</div>';result.scrollIntoView({behavior:'smooth',block:'start'});return;}build();result.scrollIntoView({behavior:'smooth',block:'start'});});result.addEventListener('click',function(e){var status=result.querySelector('[data-copy-status]');if(e.target.matches('[data-print-plan]'))window.print();if(e.target.matches('[data-copy-plan]')){if(navigator.clipboard){navigator.clipboard.writeText(plainText(result)).then(function(){e.target.textContent='Copied';},function(){if(status)status.textContent='Copy is not available in this browser. Use print instead.';});}else if(status){status.textContent='Copy is not available in this browser. Use print instead.';}}if(e.target.matches('[data-save-plan]')){localStorage.setItem(STORAGE_KEY,JSON.stringify({html:result.innerHTML,text:plainText(result),savedAt:new Date().toISOString()}));e.target.textContent='Saved on this device';}if(e.target.matches('[data-clear-plan]')){localStorage.removeItem(STORAGE_KEY);e.target.textContent='Saved path cleared';}if(e.target.matches('[data-start-over]')){form.reset();form.querySelectorAll('input[type="radio"],input[type="checkbox"]').forEach(function(input){input.checked=false;});result.innerHTML='<h2>Your action plan will appear here.</h2><p>Choose the options that fit your situation. This tool gives starting points only. It does not diagnose, file claims, give legal advice, give medical advice or contact any office for you.</p><p class="small">Saved paths stay in this browser on this device. They are not sent to Vols4Vets.</p>';form.scrollIntoView({behavior:'smooth',block:'start'});}});});
+  document.addEventListener('DOMContentLoaded',function(){var form=document.querySelector('[data-triage-form]');var result=document.querySelector('[data-triage-result]');if(!form||!result)return;form.classList.add('is-enhanced');
+  result.setAttribute('tabindex','-1');
+  form.addEventListener('change',function(e){
+    if(!e.target || e.target.name!=='ready')return;
+    var none=form.querySelector('input[name="ready"][value="None of these ready"]');
+    if(!none)return;
+    if(e.target===none && none.checked){
+      form.querySelectorAll('input[name="ready"]').forEach(function(item){if(item!==none)item.checked=false;});
+    }else if(e.target.checked){none.checked=false;}
+  });
+  function build(){var answers={issue:selected('issue')[0],location:selected('location')[0],urgency:selected('urgency')[0],ready:selected('ready'),goal:selected('goal')[0]};var plan=answers.urgency==='Immediate danger'?plans.crisis:plans[planKey(answers.issue)];result.innerHTML=renderPlan(plan,answers);return {answers:answers,key:planKey(answers.issue),html:result.innerHTML,text:plainText(result)};}var saved=localStorage.getItem(STORAGE_KEY);if(saved){try{var old=JSON.parse(saved);result.innerHTML=old.html+'<p class="small"><strong>Saved path restored from this device.</strong></p>';}catch(e){localStorage.removeItem(STORAGE_KEY);}}form.addEventListener('submit',function(e){e.preventDefault();var answers={issue:selected('issue')[0],location:selected('location')[0],urgency:selected('urgency')[0],ready:selected('ready'),goal:selected('goal')[0]};if(!answers.issue||!answers.location||!answers.urgency||!answers.goal){result.innerHTML='<div class="notice"><strong>Choose an answer for each question.</strong> Nothing is sent to Vols4Vets.</div>';result.scrollIntoView({behavior:'smooth',block:'start'});return;}build();result.focus({preventScroll:true});result.scrollIntoView({behavior:'smooth',block:'start'});});result.addEventListener('click',function(e){var status=result.querySelector('[data-copy-status]');if(e.target.matches('[data-print-plan]'))window.print();if(e.target.matches('[data-copy-plan]')){if(navigator.clipboard){navigator.clipboard.writeText(plainText(result)).then(function(){e.target.textContent='Copied';},function(){if(status)status.textContent='Copy is not available in this browser. Use print instead.';});}else if(status){status.textContent='Copy is not available in this browser. Use print instead.';}}if(e.target.matches('[data-save-plan]')){localStorage.setItem(STORAGE_KEY,JSON.stringify({html:result.innerHTML,text:plainText(result),savedAt:new Date().toISOString()}));e.target.textContent='Saved on this device';}if(e.target.matches('[data-clear-plan]')){localStorage.removeItem(STORAGE_KEY);e.target.textContent='Saved path cleared';}if(e.target.matches('[data-start-over]')){form.reset();form.querySelectorAll('input[type="radio"],input[type="checkbox"]').forEach(function(input){input.checked=false;});result.innerHTML='<h2>Your action plan will appear here.</h2><p>Choose the options that fit your situation. This tool gives starting points only. It does not diagnose, file claims, give legal advice, give medical advice or contact any office for you.</p><p class="small">Saved paths stay in this browser on this device. They are not sent to Vols4Vets.</p>';form.scrollIntoView({behavior:'smooth',block:'start'});}});});
 })();
