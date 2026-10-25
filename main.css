@@ -461,6 +461,15 @@ a.button.button-secondary,
 .local-band p{color:#e8e2d6}
 .identity-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 .meta-date{font-size:.88rem;color:var(--cream);font-weight:650;letter-spacing:.04em}
+.home-source-note{
+  margin-top:1rem;padding:.85rem 1rem;max-width:68rem;
+  background:rgba(12,30,26,.82);border:1px solid rgba(255,255,255,.32);
+  border-radius:12px;color:#fff;
+}
+.home-source-note p{margin:0;font-size:.95rem;line-height:1.6;color:#fff}
+.home-source-note a{color:#fff;text-decoration:underline;text-underline-offset:3px;font-weight:700}
+.home-source-note a:hover,.home-source-note a:focus-visible{color:#ffe9a6}
+
 
 @media(max-width:980px){
   .header-search{display:none}
