@@ -3,6 +3,13 @@ document.addEventListener('DOMContentLoaded', function () {
   var current = location.pathname.replace(/\/$/, '').replace(/\.html$/, '') || '/';
   var nav = document.getElementById('main-nav');
   var button = document.querySelector('[data-nav-toggle]');
+  if (nav && !nav.querySelector('a[href="/veteran-perks"]')) {
+    var perksLink = document.createElement('a');
+    perksLink.href = '/veteran-perks';
+    perksLink.textContent = 'Veteran Perks';
+    var navCta = nav.querySelector('.nav-cta');
+    nav.insertBefore(perksLink, navCta || null);
+  }
 
   if (nav) {
     nav.querySelectorAll('a[href]').forEach(function (link) {
