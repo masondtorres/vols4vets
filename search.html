@@ -18,9 +18,8 @@
   <link rel="stylesheet" href="/main.css?v=20260915-ux2">
   <script defer src="/resources-data.js"></script>
   <script defer src="/resources-seed-expanded.js"></script>
-  <script defer src="/book-resources-data.js"></script>
   <script defer src="/site.js"></script>
-  <script defer src="/search.js?v=20260915-ux3"></script>
+  <script defer src="/search.js?v=20261122-ux1"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -65,9 +64,10 @@
     <div class="suggested-searches" aria-label="Suggested searches"><strong>Suggested searches:</strong> <a href="/search?q=AFVC">AFVC</a><a href="/search?q=resort+stays">resort stays</a><a href="/search?q=Amtrak">Amtrak</a><a href="/search?q=JetBlue">JetBlue</a><a href="/search?q=NRD">NRD</a><a href="/search?q=Tennessee+Veterans+Connect">Tennessee Veterans Connect</a><a href="/search?q=DD214">DD214</a><a href="/search?q=VSO">VSO</a><a href="/search?q=housing+risk">housing risk</a><a href="/search?q=VA+claim">VA claim</a><a href="/search?q=Mountain+Home+VA">Mountain Home VA</a><a href="/search?q=Sevier+County+VSO">Sevier County VSO</a><a href="/search?q=job+help">job help</a><a href="/search?q=legal+aid">legal aid</a><a href="/search?q=caregiver">caregiver</a></div>
     <div class="filter-row"><select data-category-filter aria-label="Category"><option value="">All categories</option></select><select data-county-filter aria-label="County"><option value="">All counties</option></select><select data-audience-filter aria-label="Audience"><option value="">All audiences</option></select><label><input type="checkbox" data-urgent-filter> Urgent help</label></div>
     <div class="checkbox-row"><label><input type="checkbox" data-official-filter> Official source only</label></div>
+    <div class="search-expanded-index"><button class="button button-secondary" type="button" data-load-book-resources aria-controls="search-results">Include 171 chapter resources</button><p class="small">The full chapter-specific index loads only when you request it.</p><p class="small" role="status" aria-live="polite" data-book-resource-status></p></div>
     <p class="small" aria-live="polite" data-result-count></p>
-    <div class="empty-state" hidden data-empty><strong>No match found.</strong> Try a simpler phrase like AFVC, NRD, DD214, VSO, housing, jobs, legal aid or Mountain Home VA.<p>Try one of these: <a href="/toolkits">toolkits</a>, <a href="/find-my-next-step">Find My Next Step</a>, or <a href="/resources">Resources</a>. For immediate danger, call 911. For veteran crisis support, call 988 then press 1 or text 838255.</p></div>
-    <div data-results></div>
+    <div class="empty-state" hidden data-empty><strong>No match found.</strong> Try a simpler phrase like AFVC, NRD, DD214, VSO, housing, jobs, legal aid or Mountain Home VA.<p>No match? You can add the chapter-specific index: <button class="text-button" type="button" data-load-book-resources>Include 171 chapter resources</button>. Or try one of these: <a href="/toolkits">toolkits</a>, <a href="/find-my-next-step">Find My Next Step</a>, or <a href="/resources">Resources</a>. For immediate danger, call 911. For veteran crisis support, call 988 then press 1 or text 838255.</p></div>
+    <div id="search-results" data-results></div>
   </div></section>
 </main>
 <footer class="site-footer">
