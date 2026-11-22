@@ -119,9 +119,14 @@
     var count=document.querySelector('[data-result-count]');
     var empty=document.querySelector('[data-empty]');
     var shown=PAGE;
-    category.innerHTML='<option value="">All categories</option>'+unique(data.map(function(i){return i.category;})).map(option).join('');
-    county.innerHTML='<option value="">All counties</option>'+unique(data.map(function(i){return i.county;})).map(option).join('');
-    audience.innerHTML='<option value="">All audiences</option>'+unique(data.map(function(i){return i.audience;})).map(option).join('');
+    function refreshFilters(){
+      var selectedCategory=category.value,selectedCounty=county.value,selectedAudience=audience.value;
+      category.innerHTML='<option value="">All categories</option>'+unique(data.map(function(i){return i.category;})).map(option).join('');
+      county.innerHTML='<option value="">All counties</option>'+unique(data.map(function(i){return i.county;})).map(option).join('');
+      audience.innerHTML='<option value="">All audiences</option>'+unique(data.map(function(i){return i.audience;})).map(option).join('');
+      category.value=selectedCategory;county.value=selectedCounty;audience.value=selectedAudience;
+    }
+    refreshFilters();
     input.value=new URLSearchParams(location.search).get('q')||'';
     function syncUrl(q){
       if(!history.replaceState) return;
@@ -151,10 +156,35 @@
       var filtered=ranked();
       var visible=filtered.slice(0, shown);
       results.innerHTML=visible.map(render).join('')+(filtered.length>visible.length?'<p><button class="button button-secondary" type="button" data-show-more>Show more results</button></p>':'');
-      count.textContent=filtered.length+' result'+(filtered.length===1?'':'s')+' shown'+(q?' for “'+q+'”':'')+'. Official sources are listed first when they match.';
+      count.textContent=filtered.length+' result'+(filtered.length===1?'':'s')+' shown'+(q?' for “'+q+'”':'')+'. Official sources are listed first when they match.'+(bookResourcesLoaded?'':' Use “Include 171 chapter resources” below to search the full chapter index.');
       empty.hidden=filtered.length!==0;
       syncUrl(q);
     }
+    function includeBookResources(){
+      if(bookResourcesLoaded||bookResourcesLoading)return;
+      bookResourcesLoading=true;
+      loadButtons.forEach(function(button){button.disabled=true;button.textContent='Loading chapter resources…';});
+      if(bookStatus)bookStatus.textContent='Loading chapter resources…';
+      var script=document.createElement('script');
+      script.src='/book-resources-data.js';
+      script.onload=function(){
+        var more=window.VOLS4VETS_BOOK_RESOURCES||[];
+        data=data.concat(more);
+        bookResourcesLoaded=true;
+        bookResourcesLoading=false;
+        refreshFilters();
+        loadButtons.forEach(function(button){button.hidden=true;});
+        if(bookStatus)bookStatus.textContent=more.length+' chapter resources added to search.';
+        apply(true);
+      };
+      script.onerror=function(){
+        bookResourcesLoading=false;
+        loadButtons.forEach(function(button){button.disabled=false;button.textContent='Try loading chapter resources again';});
+        if(bookStatus)bookStatus.textContent='The chapter index did not load. Try again or browse the book sections.';
+      };
+      document.head.appendChild(script);
+    }
+    loadButtons.forEach(function(button){button.addEventListener('click',includeBookResources);});
     results.addEventListener('click',function(event){
       if(event.target.closest('[data-show-more]')){
         shown+=PAGE;
