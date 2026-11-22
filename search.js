@@ -91,7 +91,8 @@
     var url=safeUrl(item.url||'#');
     var note=item.eastTnNote?'<p class="small"><strong>East TN note:</strong> '+safe(item.eastTnNote)+'</p>':'';
     var checked=item.lastVerified||item.lastChecked;
-    var visibleUrl=safeUrl(item.officialUrl||(/^https?:\/\//i.test(url)?url:''));
+    var visibleUrlRaw=item.officialUrl||(/^https?:\/\//i.test(url)?url:'');
+    var visibleUrl=visibleUrlRaw?safeUrl(visibleUrlRaw):'';
     var phone=item.phone&&item.phone!=='No phone'?'<p class="small"><strong>Phone:</strong> '+safe(item.phone)+'</p>':'';
     var officialUrl=visibleUrl?'<p class="small"><strong>Official website:</strong> <a href="'+safe(visibleUrl)+'" target="_blank" rel="noopener noreferrer">'+safe(visibleUrl)+'</a></p>':'';
     var officialNote=item.officialWebsiteNote?'<p class="small"><strong>Official website:</strong> '+safe(item.officialWebsiteNote)+'</p>':'';
