@@ -19,9 +19,10 @@
     return [item.title,item.description,item.purpose,item.eastTnNote,item.category,item.county,item.state,item.audience,(item.tags||[]).join(' '),item.phone,item.sourceType].join(' ').toLowerCase();
   }
   function unique(values){return Array.from(new Set(values.filter(Boolean))).sort();}
-  function option(value){return '<option value="'+value+'">'+value+'</option>';}
-  function external(url){return /^https?:\/\//.test(url);}
-  function safe(value){return String(value||'').replace(/[&<>"']/g,function(char){return {'&':'&','<':'<','>':'>','"':'"',"'":'&#39;'}[char];});}
+  function option(value){var escaped=safe(value);return '<option value="'+escaped+'">'+escaped+'</option>';}
+  function external(url){return /^https?:\/\//i.test(url);}
+  function safe(value){return String(value==null?'':value).replace(/[&<>"']/g,function(char){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char];});}
+  function safeUrl(value){var url=String(value||'').trim();if(/^https?:\/\//i.test(url))return url;if(url.charAt(0)==='/'&&url.charAt(1)!=='/')return url;return '#';}
   function normalize(value){
     return String(value||'').toLowerCase()
       .replace(/dd[-\s]?214/g,'dd214')
@@ -87,21 +88,25 @@
     return orHit && score(item, parsed)>0;
   }
   function render(item){
-    var url=item.url||'#';
+    var url=safeUrl(item.url||'#');
     var note=item.eastTnNote?'<p class="small"><strong>East TN note:</strong> '+safe(item.eastTnNote)+'</p>':'';
     var checked=item.lastVerified||item.lastChecked;
-    var visibleUrl=item.officialUrl||(/^https?:\/\//.test(url)?url:'');
+    var visibleUrl=safeUrl(item.officialUrl||(/^https?:\/\//i.test(url)?url:''));
     var phone=item.phone&&item.phone!=='No phone'?'<p class="small"><strong>Phone:</strong> '+safe(item.phone)+'</p>':'';
     var officialUrl=visibleUrl?'<p class="small"><strong>Official website:</strong> <a href="'+safe(visibleUrl)+'" target="_blank" rel="noopener noreferrer">'+safe(visibleUrl)+'</a></p>':'';
     var officialNote=item.officialWebsiteNote?'<p class="small"><strong>Official website:</strong> '+safe(item.officialWebsiteNote)+'</p>':'';
     var safety=item.safetyNote?'<p class="small"><strong>Safety note:</strong> '+safe(item.safetyNote)+'</p>':'';
-    var chapter=item.chapterPath?'<p class="small"><a href="'+safe(item.chapterPath)+'">Open related chapter update page</a></p>':'';
+    var chapter=item.chapterPath?'<p class="small"><a href="'+safe(safeUrl(item.chapterPath))+'">Open related chapter update page</a></p>':'';
     var officialBadge=item.official?'<span class="badge-official">Official source</span>':'';
     var meta='<div class="result-meta">'+officialBadge+'<span>'+safe(item.category)+'</span><span>'+safe(item.county)+'</span><span>'+safe(item.audience)+'</span>'+(item.sourceType?'<span>'+safe(item.sourceType)+'</span>':'')+(checked?'<span>Last checked '+safe(checked)+'</span>':'')+'</div>';
     return '<article class="result-card'+(item.official?' is-official':'')+'"><h2>'+safe(item.title)+'</h2><p>'+safe(item.purpose||item.description)+'</p>'+note+phone+officialUrl+officialNote+safety+chapter+meta+'<a class="button" href="'+safe(url)+'"'+(external(url)?' target="_blank" rel="noopener noreferrer"':'')+'>'+(item.category==='Urgent help'?'Start here':'View resource')+'</a></article>';
   }
   document.addEventListener('DOMContentLoaded',function(){
-    var data=(window.VOLS4VETS_RESOURCES||[]).concat(window.VOLS4VETS_BOOK_RESOURCES||[]);
+    var data=(window.VOLS4VETS_RESOURCES||[]).slice();
+    var bookResourcesLoaded=false;
+    var bookResourcesLoading=false;
+    var loadButtons=document.querySelectorAll('[data-load-book-resources]');
+    var bookStatus=document.querySelector('[data-book-resource-status]');
     var input=document.querySelector('[data-site-search]');
     var results=document.querySelector('[data-results]');
     if(!input||!results){return;}
