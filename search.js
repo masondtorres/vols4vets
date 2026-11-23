@@ -99,7 +99,10 @@
     var safety=item.safetyNote?'<p class="small"><strong>Safety note:</strong> '+safe(item.safetyNote)+'</p>':'';
     var chapter=item.chapterPath?'<p class="small"><a href="'+safe(safeUrl(item.chapterPath))+'">Open related chapter update page</a></p>':'';
     var officialBadge=item.official?'<span class="badge-official">Official source</span>':'';
-    var meta='<div class="result-meta">'+officialBadge+'<span>'+safe(item.category)+'</span><span>'+safe(item.county)+'</span><span>'+safe(item.audience)+'</span>'+(item.sourceType?'<span>'+safe(item.sourceType)+'</span>':'')+(checked?'<span>Last checked '+safe(checked)+'</span>':'')+'</div>';
+    var checkedText='';
+    if(checked){var parsedDate=new Date(checked);var ageDays=(Date.now()-parsedDate.getTime())/86400000;checkedText='<span>Last checked '+safe(checked)+'</span>'+(isFinite(ageDays)&&ageDays>90?'<span class="source-age-warning">Source check is over 90 days old</span>':'');}
+    else{checkedText='<span class="source-age-warning">Source check date not listed</span>';}
+    var meta='<div class="result-meta">'+officialBadge+'<span>'+safe(item.category)+'</span><span>'+safe(item.county)+'</span><span>'+safe(item.audience)+'</span>'+(item.sourceType?'<span>'+safe(item.sourceType)+'</span>':'')+checkedText+'</div>';
     return '<article class="result-card'+(item.official?' is-official':'')+'"><h2>'+safe(item.title)+'</h2><p>'+safe(item.purpose||item.description)+'</p>'+note+phone+officialUrl+officialNote+safety+chapter+meta+'<a class="button" href="'+safe(url)+'"'+(external(url)?' target="_blank" rel="noopener noreferrer"':'')+'>'+(item.category==='Urgent help'?'Start here':'View resource')+'</a></article>';
   }
   document.addEventListener('DOMContentLoaded',function(){
@@ -188,8 +191,11 @@
     loadButtons.forEach(function(button){button.addEventListener('click',includeBookResources);});
     results.addEventListener('click',function(event){
       if(event.target.closest('[data-show-more]')){
+        var previousShown=shown;
         shown+=PAGE;
         apply(false);
+        var nextHeading=results.querySelectorAll('.result-card h2')[previousShown];
+        if(nextHeading){nextHeading.setAttribute('tabindex','-1');nextHeading.focus();nextHeading.addEventListener('blur',function(){nextHeading.removeAttribute('tabindex');},{once:true});}
       }
     });
     [input,category,county,audience,urgent,official].forEach(function(el){el.addEventListener('input',function(){apply(true);});el.addEventListener('change',function(){apply(true);});});
