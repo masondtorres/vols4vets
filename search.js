@@ -159,8 +159,8 @@
       var q=input.value.trim();
       var filtered=ranked();
       var visible=filtered.slice(0, shown);
-      results.innerHTML=visible.map(render).join('')+(filtered.length>visible.length?'<p><button class="button button-secondary" type="button" data-show-more>Show more results</button></p>':'');
-      count.textContent=filtered.length+' result'+(filtered.length===1?'':'s')+' shown'+(q?' for “'+q+'”':'')+'. Official sources are listed first when they match.'+(bookResourcesLoaded?'':' Use “Include 171 chapter resources” below to search the full chapter index.');
+      results.innerHTML=visible.map(render).join('')+(filtered.length>visible.length?'<p><button class="button button-secondary" type="button" data-show-more>Show next '+Math.min(PAGE,filtered.length-visible.length)+' results</button></p>':'');
+      count.textContent='Showing '+visible.length+' of '+filtered.length+' matching resource'+(filtered.length===1?'':'s')+(q?' for “'+q+'”':'')+'. Official sources are listed first when they match.'+(bookResourcesLoaded?'':' Use “Include 171 chapter resources” below to search the full chapter index.');
       empty.hidden=filtered.length!==0;
       syncUrl(q);
     }
